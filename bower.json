@@ -1,0 +1,8 @@
+{
+  "name": "collection-bb-private",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "collection-private-portal": "./components"
+  }
+}

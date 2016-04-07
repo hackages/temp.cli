@@ -1,0 +1,9 @@
+{
+  "name": "collection-private-portal",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "widget-accounts": "./widgets/widget-accounts",
+	"module-accounts": "./features/module-accounts"
+  }
+}
