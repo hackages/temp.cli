@@ -1,5 +1,5 @@
 /**
-* CLI tools for Crelan Bank
+* CLI tools: Command line tool
 **/
 import karma from './karma';
 import eslint from './linter';
@@ -9,16 +9,18 @@ import cliparse from 'cliparse';
 import watchFiles from './watchFiles';
 
 const cliParser = cliparse.cli({
-  name: 'Crelan',
-  description: 'Crelan CLI tools',
+  name: 'hackages <command> [options]',
+  description: 'hackages not hackage like Haskell',
   commands: [
-    karma,
     webpack,
     eslint,
     watchFiles,
-    bamboo
+    bamboo,
+    karma,
   ]
 });
+
+
 
 cliparse.parse(cliParser);
 
