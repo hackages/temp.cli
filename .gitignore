@@ -1,0 +1,56 @@
+# IDEA
+
+.idea
+.idea_modules/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings
+
+# OSX
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+
+ehthumbs.db
+Thumbs.db
+
+# Build directories
+
+**/target
+target
+out/
+overlays/
+/data/
+/statics/themes/themes/default/css/
+/statics/themes/themes/default/css/
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# CSS
+statics/themes/themes/*/css
+statics/themes/themes/default/css
+
+# ??
+*.log
+temp
+#node
+#node_modules
+widgetsettings
+.h2.server.properties
+h2-loansimulator-db.mv.db
+h2-loansimulator-db.trace.db
+
+/statics/collection/tools
