@@ -1,0 +1,327 @@
+<templates>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>BlankPageTemplate</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">backbase.com.2013.aurora</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="String"/>
+            </property>
+            <property name="Tablet">
+                <value type="String"/>
+            </property>
+            <property name="Web">
+                <value type="string">pages/BlankPageTemplate/templates/blank-page-template-web</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/backbase.com.2013.aurora/pages/BlankPageTemplate/media/icon.png</value>
+            </property>
+            <property name="title">
+                <value type="string">Blank Page Template</value>
+            </property>
+        </properties>
+        <type>PAGE</type>
+        <uuid>be1e81b7-5726-4088-8499-f884d21a0b63</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>Column_table</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">backbase.com.2012.aurora</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="String"/>
+            </property>
+            <property name="Tablet">
+                <value type="String"/>
+            </property>
+            <property name="Web">
+                <value type="string">containers/column_table</value>
+            </property>
+        </properties>
+        <tags></tags>
+        <type>CONTAINER</type>
+        <uuid>c567decd-e64a-4fe6-8e37-669353825e0c</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>ColumnsContainer</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">templates/[BBHOST]/ColumnsContainer</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="String"/>
+            </property>
+            <property name="Tablet">
+                <value type="String"/>
+            </property>
+            <property name="Web">
+                <value type="string">templates/columns-web</value>
+            </property>
+            <property name="title">
+                <value type="string">Columns Container</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">1.1.0</value>
+            </property>
+        </properties>
+        <tags></tags>
+        <type>CONTAINER</type>
+        <uuid>ae9ccc09-ff10-4e37-ac06-896778bbc1ee</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>LauncherDeckContainer</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">templates/[BBHOST]/LauncherDeckContainer</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="String"/>
+            </property>
+            <property name="Tablet">
+                <value type="String"/>
+            </property>
+            <property name="Web">
+                <value type="string">templates/launcher-deck-web</value>
+            </property>
+            <property name="title">
+                <value type="string">Launcher Container</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">1.1.0</value>
+            </property>
+        </properties>
+        <tags></tags>
+        <type>CONTAINER</type>
+        <uuid>f8085f30-4ed0-42fa-9f83-fb5553da5d5b</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>LaunchpadPageTemplate</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">templates/[BBHOST]/LaunchpadPageTemplate</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="String"/>
+            </property>
+            <property name="Tablet">
+                <value type="String"/>
+            </property>
+            <property name="Web">
+                <value type="string">templates/launchpad-page</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/templates/[BBHOST]/LaunchpadPageTemplate/icon.png</value>
+            </property>
+            <property name="title">
+                <value type="string">Launchpad Page Template</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">1.1.1</value>
+            </property>
+        </properties>
+        <type>PAGE</type>
+        <uuid>7a675ff9-03e6-4305-a270-2b32d4e9d029</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>ManageableArea</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">backbase.com.2013.aurora</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="String"/>
+            </property>
+            <property name="Tablet">
+                <value type="String"/>
+            </property>
+            <property name="Web">
+                <value type="string">containers/ManageableArea/templates/ManageableArea_Web</value>
+            </property>
+        </properties>
+        <tags></tags>
+        <type>CONTAINER</type>
+        <uuid>de47c8a8-d06f-41a2-a9ae-778097a727c1</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>PanelContainer</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">templates/[BBHOST]/PanelContainer</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="String"/>
+            </property>
+            <property name="Tablet">
+                <value type="String"/>
+            </property>
+            <property name="Web">
+                <value type="string">templates/Panel-web</value>
+            </property>
+            <property name="title">
+                <value type="string">Panel Template</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">1.0.2</value>
+            </property>
+        </properties>
+        <tags></tags>
+        <type>CONTAINER</type>
+        <uuid>d608d398-9d6c-4b56-9098-4e30478b0bda</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>SimplePageLayoutContainer</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">templates/[BBHOST]/SimplePageLayoutContainer</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Web">
+                <value type="string">templates/page-layout-web</value>
+            </property>
+            <property label="Version" name="version" viewHint="text-input,admin,designModeOnly">
+                <value type="string">1.0.1</value>
+            </property>
+        </properties>
+        <tags></tags>
+        <type>CONTAINER</type>
+        <uuid>3c151287-632c-47fd-906b-6ffe0132e014</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>Standard_Widget</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">backbase.com.2012.aurora</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="string">widgets/standard_widget</value>
+            </property>
+            <property name="Tablet">
+                <value type="string">widgets/standard_widget</value>
+            </property>
+            <property name="Web">
+                <value type="string">widgets/standard_widget</value>
+            </property>
+        </properties>
+        <tags></tags>
+        <type>WIDGET</type>
+        <uuid>44157848-3f82-489c-93f7-56ae7df307c2</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>TCont</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">backbase.com.2012.darts</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="String"/>
+            </property>
+            <property name="Tablet">
+                <value type="String"/>
+            </property>
+            <property name="Web">
+                <value type="string">containers/targetcontainer</value>
+            </property>
+        </properties>
+        <tags></tags>
+        <type>CONTAINER</type>
+        <uuid>f725b9c9-b934-4e04-b830-fb9ca3b1d12e</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>Tabs</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">templates/[BBHOST]/Tabs</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="String"/>
+            </property>
+            <property name="Tablet">
+                <value type="String"/>
+            </property>
+            <property name="Web">
+                <value type="string">templates/tabs-web</value>
+            </property>
+            <property name="title">
+                <value type="string">Tabs Container</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">1.1.0</value>
+            </property>
+        </properties>
+        <tags></tags>
+        <type>CONTAINER</type>
+        <uuid>bc4363d2-1e5d-478e-a983-d06619a815c5</uuid>
+    </template>
+    <template>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>link-default</name>
+        <properties>
+            <property name="BundleName">
+                <value type="string">default</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="Smartphone">
+                <value type="String"/>
+            </property>
+            <property name="Tablet">
+                <value type="String"/>
+            </property>
+            <property name="Web">
+                <value type="string">link</value>
+            </property>
+            <property name="title">
+                <value type="string">Link Default Template</value>
+            </property>
+        </properties>
+        <tags></tags>
+        <type>LINK</type>
+        <uuid>da8906b4-a009-4d48-bdad-4b5c81f1a477</uuid>
+    </template>
+</templates>

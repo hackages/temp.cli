@@ -1,0 +1,1804 @@
+<serverWidgets>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-accounts</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts Data Source" name="accountsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/customer-assets</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Default Account Id" name="defaultAccountId">
+                <value type="string"/>
+            </property>
+            <property label="Default balance" name="defaultBalance" viewHint="select-one,admin,designModeOnly">
+                <value type="string">current</value>
+            </property>
+            <property label="Group by internal and external" name="groupByInternalExternal" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Groups Data Source" name="groupsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-accounts/data/groups.json</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">accounts</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Show All Finances Option" name="showAllFinances" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Show Groups Total" name="showGroupTotals" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Show Groups" name="showGroups" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">true</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-accounts/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-accounts/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Accounts</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.11.1</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+            <property label="Widget layout" name="widgetLayout" viewHint="select-one,admin,designModeOnly">
+                <value type="string">default</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="behavior">accounts</tag>
+            <tag blacklist="false" type="regular">accounts</tag>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>aa1cbe7a-0cb2-48a7-a2d2-5e2b680c327c</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-addressbook</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts Data Source" name="accountsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/accounts</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Contact Data Source" name="contactDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/party-data-management/counter-party/$(contactId)</value>
+            </property>
+            <property label="Contact Details Data Source" name="contactDetailsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/party-data-management/counter-party/$(contactId)/details</value>
+            </property>
+            <property label="Contact List Data Source" name="contactListDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/counterparties</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">addressbook</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Payment Orders Data Source" name="paymentOrdersDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/payment-orders/:accountIds/:paymentId/:action</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-addressbook/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-addressbook/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Address Book</value>
+            </property>
+            <property label="Transactions Data Source" name="transactionsEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/current-accounts/$(accountId)/transactions</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">3.1.1</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="behavior">address-book</tag>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">contacts</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>c12d8ce1-4480-4636-9997-297450bc40a7</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-advanced-content-template</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Background position" name="bgImageContainer" viewHint="select-one,manager">
+                <value type="string">widget</value>
+            </property>
+            <property label="Background Scroll" name="bgImageScroll" viewHint="select-one,manager">
+                <value type="string">scroll</value>
+            </property>
+            <property label="Background image size" name="bgImageSize" viewHint="select-one,manager">
+                <value type="string">auto</value>
+            </property>
+            <property label="Height" name="height" viewHint="text-input,admin,designModeOnly">
+                <value type="string"/>
+            </property>
+            <property label="Icon Class" name="icon">
+                <value type="string"/>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-advanced-content-template/index.html</value>
+            </property>
+            <property label="Content Template" name="templateUrl" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/content-templates/templates/jumbotron.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-advanced-content-template/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,user">
+                <value type="string">Advanced Content Templates</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.3.6</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">content</tag>
+            <tag blacklist="false" type="section">content</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>37b49e82-0bd0-403b-b4bb-77117283428d</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-alert-messages</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts List Endpoint" name="accountsEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/accounts</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Single Automation Endpoint" name="automationEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/alert-recipes/</value>
+            </property>
+            <property label="Activate Automation Endpoint" name="automationsActivationEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/alert-recipes/{id}/activation_request</value>
+            </property>
+            <property label="Deactivate Automation Endpoint" name="automationsDeactivationEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/alert-recipes/{id}/deactivation_request</value>
+            </property>
+            <property label="Automations List Endpoint" name="automationsEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/alert-recipes</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">rocket</value>
+            </property>
+            <property name="locale">
+                <value type="string">en-US</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Recipes List Endpoint" name="recipesEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/alert-recipe-specifications</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-alert-messages/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-alert-messages/icon.png</value>
+            </property>
+            <property label="Title" name="title">
+                <value type="string">Alert Messages</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.2.5</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">notification</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>c144f473-3a7c-425c-bdcd-ebe66cbc076c</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-budgets</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts Data Source" name="accountsDataSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/accounts</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property name="budgetOrder">
+                <value type="string">budgetnew</value>
+            </property>
+            <property label="Budgets Data Source" name="budgetsDataSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/pfm/budgets/:budgetId</value>
+            </property>
+            <property label="Categories Data Source" name="categoriesDataSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/pfm/transaction-categories</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,user,designModeOnly">
+                <value type="string">budgets</value>
+            </property>
+            <property name="locale">
+                <value type="string">en-US</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-budgets/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-budgets/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="user,text-input,designModeOnly">
+                <value type="string">Budgets</value>
+            </property>
+            <property label="Transactions Data Source" name="transactionsDataSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/transactions</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.3.2</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">pfm</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>f787116e-eada-4d85-8f7c-a97b6d666d25</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-card-details</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Data source for Cards data" name="cardDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/cards/:id</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">card-details</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-card-details/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-card-details/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Card Details</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.5</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">cards</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>f8c56687-a61b-4155-bf98-b4be4f367a11</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-card-loyalty</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Data source for Cards data" name="cardDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/cards/:id/:noun</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">card-loyalty</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-card-loyalty/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-card-loyalty/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Card Loyalty</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.5</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">cards</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>47fe9ec9-6544-425f-a34c-e3700aaa098e</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-card-overview</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts Data Source" name="accountsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/accounts</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Data source for Cards data" name="cardDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/cards/:id/:noun</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">account</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-card-overview/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-card-overview/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Card Overview</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.10</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="behavior">card-management</tag>
+            <tag blacklist="false" type="regular">cards</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>ad3c1a9a-3891-4ceb-8930-bafbf9f3e288</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-category-spendings-chart</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Transaction Categories Data Source" name="categoriesDataSrc" viewHint="user,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/pfm/transaction-categories</value>
+            </property>
+            <property label="Category Spendings Data Source" name="categorySpendingDataSrc" viewHint="user,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/current-accounts/spendings</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,user,designModeOnly">
+                <value type="string">category-spendings-chart</value>
+            </property>
+            <property label="Locale" name="locale" viewHint="user,text-input,designModeOnly">
+                <value type="string">en-US</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-category-spendings-chart/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-category-spendings-chart/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="user,text-input,designModeOnly">
+                <value type="string">Category Spendings Chart</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.4</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">pfm</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>2fcbc330-460f-4cb9-abb0-dde225f9d4f5</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-ebill-add</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Payee and E-Bills Data Source" name="billPaymentsDataSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/bill-payments</value>
+            </property>
+            <property label="Business calendar Data Source" name="calendarDataSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/calendars</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,user,designModeOnly">
+                <value type="string">e-bill</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-ebill-add/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-ebill-add/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="user,text-input,designModeOnly">
+                <value type="string">EBill - Add</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.3.5</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="behavior">e-bill</tag>
+            <tag blacklist="false" type="regular">ebilling</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>7222c424-fc86-4fcb-bda3-0b7682b094a7</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-ebill-history</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Debit-Orders Data Source" name="debitOrdersSrc" viewHint="user,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/debit-orders</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,user,designModeOnly">
+                <value type="string">e-bill</value>
+            </property>
+            <property name="locale">
+                <value type="string">en</value>
+            </property>
+            <property label="Mandates Data Source" name="mandatesSrc" viewHint="user,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/mandates</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-ebill-history/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-ebill-history/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="user,text-input,designModeOnly">
+                <value type="string">EBill - History</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.5</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">ebilling</tag>
+            <tag blacklist="false" type="regular">retail banking</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>0026e7fc-96b0-4632-8e01-070a32cbea3d</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-ebill-inbox</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts Data Source" name="accountsDataSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/accounts</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Debit-Orders Data Source" name="debitOrdersSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/debit-orders</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,user,designModeOnly">
+                <value type="string">e-bill</value>
+            </property>
+            <property name="locale">
+                <value type="string">en</value>
+            </property>
+            <property label="Mandates Data Source" name="mandatesSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/mandates</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-ebill-inbox/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-ebill-inbox/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="user,text-input,designModeOnly">
+                <value type="string">EBill - Inbox</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.2.1</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="behavior">e-bill</tag>
+            <tag blacklist="false" type="regular">ebilling</tag>
+            <tag blacklist="false" type="regular">retail banking</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>215fe8dd-0b8c-47f6-a8f6-46565e90915e</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-external-accounts</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Amount of Financial Institutes to Load" name="amountToLoad" viewHint="text-input,admin,designModeOnly">
+                <value type="string">5</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Data endpoint for list of financial institutions" name="financialInstitutionsSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/financial-institutions/:search/:id/:credentials</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">plus</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property label="Data endpoint for FI membership Requests" name="membershipRequestsSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/membership_requests/:id/:credentials</value>
+            </property>
+            <property label="The portal root to display the nav links from" name="navRoot" viewHint="text-input,admin,designModeOnly">
+                <value type="linkRef">b7c02e3d-fb3e-4c38-be6f-190fcd01937c</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-external-accounts/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-external-accounts/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">External Accounts</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.6</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="regular">accounts</tag>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="behavior">external-accounts</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>c82344c4-7f8c-4656-9299-c0f8646136e8</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-login-multifactor</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">login</value>
+            </property>
+            <property label="Initiate Session URL" name="initiateEndPoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">/v1/authentication/session/initiate</value>
+            </property>
+            <property name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="OTP URL" name="otpEndPoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">/v1/authentication/session/{id}/verifyOTP</value>
+            </property>
+            <property label="Prefix path for Session URL" name="prefixSessionUrl" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest</value>
+            </property>
+            <property label="Reload page on success" name="reloadOnSuccess" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-login-multifactor/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-login-multifactor/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Login - Multifactor New</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.9</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="regular">authentication</tag>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>e81cece2-bec4-4de5-95ba-565999c81ab2</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-navbar-advanced</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Container Type" name="containerType" viewHint="select-one,designModeOnly,manager">
+                <value type="string">fluid</value>
+            </property>
+            <property label="Icon Class" name="icon">
+                <value type="string"/>
+            </property>
+            <property label="Icon for Launcher Menu" name="launcherIcon" viewHint="select-one,manager,designModeOnly">
+                <value type="string">arrow-left</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property label="Logo Url" name="logoURL" viewHint="text-input,manager,designModeOnly">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-navbar-advanced/media/backbase-web-logo.png</value>
+            </property>
+            <property label="Mobile Logo Url" name="mobileLogoURL" viewHint="text-input,manager,designModeOnly">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-navbar-advanced/media/backbase-mobile-logo.png</value>
+            </property>
+            <property label="Navigation Depth" name="navDepth" viewHint="select-one,manager,designModeOnly">
+                <value type="string">1</value>
+            </property>
+            <property label="Navigation root to display the nav links from" name="navRoot" viewHint="text-input,manager,designModeOnly">
+                <value type="linkRef"/>
+            </property>
+            <property label="Show or hide the NavBar" name="navShow" viewHint="checkbox,designModeOnly,manager">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Set the Navbar sticky" name="navSticky" viewHint="checkbox,designModeOnly,manager">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Template" name="navTemplate" viewHint="select-one,designModeOnly,manager">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-navbar-advanced/templates/mustache_top_level.html</value>
+            </property>
+            <property label="Navigation menu icon animation hook" name="navigationIconAnimationHook" viewHint="text-input,manager,designModeOnly">
+                <value type="string">arrow</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Preferences Service" name="preferenceService" viewHint="admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/party-data-management/party</value>
+            </property>
+            <property label="Profile Image Background Color" name="profileImgBg" viewHint="admin,designModeOnly">
+                <value type="string">#CCC</value>
+            </property>
+            <property label="Profile title" name="profileTitle" viewHint="admin,designModeOnly">
+                <value type="string">MY BANKING</value>
+            </property>
+            <property label="Profile Title Link" name="profileTitleLink" viewHint="admin,designModeOnly">
+                <value type="string"/>
+            </property>
+            <property label="Page Scroll settings" name="scrollSetting" viewHint="select-one,manager,designModeOnly">
+                <value type="string">Normal</value>
+            </property>
+            <property label="Show Notifications badges inside the Launcher Toggle" name="showNotificationsBadge" viewHint="checkbox,manager,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Show Page Title" name="showPageTitle" viewHint="checkbox,designModeOnly,manager">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Show navigation root" name="showParent" viewHint="checkbox,manager,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Show profile info" name="showProfileInfo" viewHint="checkbox,manager,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Sign-in Link" name="signinLink" viewHint="text-input,admin,designModeOnly">
+                <value type="string"/>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-navbar-advanced/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-navbar-advanced/icon.png</value>
+            </property>
+            <property label="Title" name="title">
+                <value type="string">Navigation - Advanced</value>
+            </property>
+            <property label="Version" name="version" viewHint="text-input,admin,designModeOnly">
+                <value type="string">3.2.10</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="true" type="section">banking</tag>
+            <tag blacklist="false" type="section">navigation</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+            <tag blacklist="false" type="regular">universal</tag>
+        </tags>
+        <uuid>723b436b-4e71-476b-8c5c-62cb8ec657f0</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-navfooter</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Icon Class" name="icon">
+                <value type="string"/>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property label="Menu Depth" name="navDepth" viewHint="select-one,manager,designModeOnly">
+                <value type="long">2</value>
+            </property>
+            <property label="Navigation root link" name="navRoot" viewHint="text-input,manager,designModeOnly">
+                <value type="linkRef"/>
+            </property>
+            <property label="Template" name="navTemplate" viewHint="select-one,manager,designModeOnly">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-navfooter/templates/mustache_top_level.html</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Show navigation root" name="showParent" viewHint="checkbox,manager,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-navfooter/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-navfooter/icon.png</value>
+            </property>
+            <property label="Title" name="title">
+                <value type="string">Navigation - Footer</value>
+            </property>
+            <property label="Version" name="version" viewHint="text-input,admin,designModeOnly">
+                <value type="string">3.0.7</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">navigation</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+            <tag blacklist="false" type="regular">universal</tag>
+        </tags>
+        <uuid>9876aca4-ba50-4341-b53b-9d48d6bf56e1</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-new-transfer</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts Data Source" name="accountsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/accounts</value>
+            </property>
+            <property label="Top balance" name="accountsTopBalance" viewHint="select-one,admin,designModeOnly">
+                <value type="string">current</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Autosave Contacts" name="autosaveContactsPreference" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Contact Data Source" name="contactDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/party-data-management/counter-party/$(contactId)</value>
+            </property>
+            <property label="Contact Details Data Source" name="contactDetailsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/party-data-management/counter-party/$(contactId)/details</value>
+            </property>
+            <property label="Contact List Data Source" name="contactListDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/counterparties</value>
+            </property>
+            <property label="Currency exchange rate data source" name="currencyListEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/currency-rates</value>
+            </property>
+            <property label="Default currency data source" name="defaultCurrencyEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/currency-rates/default</value>
+            </property>
+            <property label="Disable currency select" name="disableCurrencySelection" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Enable Search on IBAN country select" name="enableIbanCountrySearch" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Force initial account selection" name="forceAccountSelection" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Hide footer" name="hideFooter" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="IBAN data source" name="ibanDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/iban</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">new-transfer</value>
+            </property>
+            <property label="Locale" name="locale" viewHint="text-input,admin,designModeOnly">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Enrollment Status Endpoint for P2P Service" name="p2pEnrollmentEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/p2p-enrollment</value>
+            </property>
+            <property label="Payment Orders Data Source" name="paymentOrdersDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/payment-orders/:accountIds/:paymentId/:action</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-new-transfer/index.html</value>
+            </property>
+            <property label="Content Template" name="templateUrl" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-new-transfer/templates/iceContent.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-new-transfer/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">New Transfer</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">3.2.6</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="behavior">new-transfer</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+            <tag blacklist="false" type="regular">transactions</tag>
+        </tags>
+        <uuid>35949aa1-8d4c-4f1b-96e3-cfb77f2f9fa7</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-p2p-preferences</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts Data Source" name="accountsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/accounts</value>
+            </property>
+            <property label="Allow multiple emails" name="allowMultipleEmails" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Email Limit" name="emailLimit" viewHint="text-input,admin,designModeOnly">
+                <value type="string">7</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">p2p</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Enrollment Status Endpoint for P2P Service" name="p2pEnrollmentEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/p2p-enrollment</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-p2p-preferences/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-p2p-preferences/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Send to Friend - Preferences</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.7</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">p2p</tag>
+            <tag blacklist="false" type="behavior">p2p-preferences</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>606b64a8-5ec1-4e29-aaaa-64e4a7155d6c</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-p2p-transactions</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Hide Footer" name="hideFooter" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">p2p</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Enrollment Status Endpoint for P2P Service" name="p2pEnrollmentEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/p2p-enrollment</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-p2p-transactions/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-p2p-transactions/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Send to Friend - Transations</value>
+            </property>
+            <property label="Transactions Data Source" name="transactionsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/p2p-payments</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">3.0.9</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">p2p</tag>
+            <tag blacklist="false" type="behavior">p2p-transactions</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>9a1bca4e-4f8c-425c-b1df-35549e7593a8</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-places</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Initialize on user's position" name="currentPosition" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Api Url for directions" name="directionApiUrl" viewHint="text-input,admin,designModeOnly">
+                <value type="string">https://maps.google.com/maps</value>
+            </property>
+            <property label="Resize Content Tabs to fill the height of the viewport" name="fillViewportHeight" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Filter drop-down Data Source" name="filterDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/places/options</value>
+            </property>
+            <property label="Latitude" name="geolocationTimeout" viewHint="text-input,admin,designModeOnly">
+                <value type="double">5000.0</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">places</value>
+            </property>
+            <property label="Latitude" name="latitude" viewHint="text-input,admin,designModeOnly">
+                <value type="double">40.722823</value>
+            </property>
+            <property name="locale">
+                <value type="string">en</value>
+            </property>
+            <property label="Longitude" name="longitude" viewHint="text-input,admin,designModeOnly">
+                <value type="double">-74.003692</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Show pan control on map" name="panControl" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Places Data Source" name="placesDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/places</value>
+            </property>
+            <property label="Radius in KM used from the current location used to filter out places" name="placesFilterRadius" viewHint="text-input,admin,designModeOnly">
+                <value type="double">50.0</value>
+            </property>
+            <property label="Amount of Places returned for each page" name="placesPageSize" viewHint="text-input,admin,designModeOnly">
+                <value type="double">20.0</value>
+            </property>
+            <property label="Show POI on map" name="showPOI" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-places/index.html</value>
+            </property>
+            <property label="Api Url for static map" name="staticMapApiUrl" viewHint="text-input,admin,designModeOnly">
+                <value type="string">http://maps.googleapis.com/maps/api/staticmap</value>
+            </property>
+            <property label="Size of map thumbnail" name="staticMapThumbSize" viewHint="text-input,admin,designModeOnly">
+                <value type="string">300x100</value>
+            </property>
+            <property label="Default zoom value for static map" name="staticMapZoom" viewHint="text-input,admin,designModeOnly">
+                <value type="double">16.0</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-places/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="admin,designModeOnly">
+                <value type="string">Places</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.4.2</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+            <property label="Zoom" name="zoom" viewHint="text-input,admin,designModeOnly">
+                <value type="double">9.0</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">location</tag>
+            <tag blacklist="false" type="behavior">places</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>5669f7b7-6079-4966-919e-6502220e0bff</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-profile-contact</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Icon Class" name="icon">
+                <value type="string"/>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Places Data Source" name="saveUrl" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/party-locations/contacts</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-profile-contact/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-profile-contact/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Profile - Contact</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.7</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">profile</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>554c89ba-5e38-4e03-8563-cd38c4244741</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-profile-details</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Details Endpoint" name="detailsEndpoint" viewHint="admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/party-data-management/party</value>
+            </property>
+            <property label="Icon Class" name="icon">
+                <value type="string"/>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-profile-details/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-profile-details/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="admin,designModeOnly">
+                <value type="string">Profile - Details</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.5</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="behavior">profile</tag>
+            <tag blacklist="false" type="regular">profile</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>078cb8ea-646f-43cf-9d8f-c2d6f8cb57f1</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-profile-portfolio</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property name="data-source" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/customer-product-coverage/arrangements</value>
+            </property>
+            <property label="Icon Class" name="icon">
+                <value type="string"/>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-profile-portfolio/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-profile-portfolio/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Profile - Portfolio</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.4</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="regular">accounts</tag>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>9ca730c6-e523-4326-9af2-b9be3d4392ae</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-profile-preferences</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts Service" name="accountsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/accounts</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Balance Selector" name="balanceSelector" viewHint="text-input,admin,designModeOnly">
+                <value type="string">current:Current Balance,available:Available Balance</value>
+            </property>
+            <property label="Categorization Selector" name="categorizationSelector" viewHint="text-input,admin,designModeOnly">
+                <value type="string">true:Enabled,false:Disabled</value>
+            </property>
+            <property label="Icon Class" name="icon">
+                <value type="string"/>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property label="Locale Selector" name="localeSelector" viewHint="text-input,admin,designModeOnly">
+                <value type="string">en-US:English,fr-FR:French,nl-NL:Dutch,it-IT:Italian</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Preferences Service" name="preferenceService" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/party-data-management/preferences</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-profile-preferences/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-profile-preferences/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="admin,designModeOnly">
+                <value type="string">Profile - Preferences</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.3.3</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">profile</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>52908a9a-7ba0-487e-af18-b44dda79e073</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-review-transfers</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts Data Source" name="accountsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/accounts</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Hide footer" name="hideFooter" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">review-transfers</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Enrollment Status Endpoint for P2P Service" name="p2pEnrollmentEndpoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/p2p-enrollment</value>
+            </property>
+            <property label="Payment Orders Data Source" name="paymentOrdersDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/payment-orders/:accountIds/:paymentId/:action</value>
+            </property>
+            <property label="Payment Orders Data Source" name="paymentOrdersSubmitPoint" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/payment-orders/$(orderId)</value>
+            </property>
+            <property label="Pending Payment Orders Data Source" name="pendingPaymentOrdersDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/payment-orders</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-review-transfers/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-review-transfers/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Review Transfers</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.3.2</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+            <tag blacklist="false" type="behavior">review-transfers</tag>
+            <tag blacklist="false" type="regular">transactions</tag>
+        </tags>
+        <uuid>5105a21f-0d28-469a-b152-5292e69e2e6a</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-saving-goals</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,user,designModeOnly">
+                <value type="string">saving-goals</value>
+            </property>
+            <property label="Locale" name="locale" viewHint="user,text-input,designModeOnly">
+                <value type="string">en-US</value>
+            </property>
+            <property label="Mininum duration in months" name="minMonths" viewHint="admin,text-input,designModeOnly">
+                <value type="string">3</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Saving Accounts Data Src" name="savingAccountsDataSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/saving-accounts</value>
+            </property>
+            <property label="Saving Goals Data Src" name="savingGoalsDataSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/pfm/saving-goals/:savingId</value>
+            </property>
+            <property label="Show Account Select" name="showAccountSelect" viewHint="checkbox,designModeOnly,admin">
+                <value type="boolean">true</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-saving-goals/index.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-saving-goals/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="user,text-input,designModeOnly">
+                <value type="string">Saving Goals</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.4.2</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">pfm</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>c6b80096-ff68-44b4-b7d3-3b39c02c0474</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-secure-messaging</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Categories" name="categoryList" viewHint="admin,text-input,designModeOnly">
+                <value type="string">Personal</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,user,designModeOnly">
+                <value type="string">secure-messaging</value>
+            </property>
+            <property label="Letter Data Source" name="letterSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/messaging/letters/:letterId/:action</value>
+            </property>
+            <property name="locale" viewHint="user,text-input,designModeOnly">
+                <value type="string">en-US</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Recipients Data Source" name="recipientsSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/messaging/recipients</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-secure-messaging/index.html</value>
+            </property>
+            <property label="Message Thread Data Source" name="threadSrc" viewHint="admin,text-input,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/messaging/threads/:threadId/:itemType/:itemId/:action</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-secure-messaging/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="user,text-input,designModeOnly">
+                <value type="string">Message Centre</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.1.7</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">notification</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+        </tags>
+        <uuid>1b04cf54-1196-427e-b9ce-2613a563b88a</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-structured-content</name>
+        <properties>
+            <property label="Description" name="Description">
+                <value type="string">Basic widget to display structured content instance</value>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="area">
+                <value type="string">0</value>
+            </property>
+            <property label="Default Content" name="contentRef">
+                <value type="contentRef"/>
+            </property>
+            <property label="Dynamic Page" name="linkBase" viewHint="user">
+                <value type="string"/>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-structured-content/index.html</value>
+            </property>
+            <property label="Template" name="templateUrl" viewHint="select-one,manager">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-structured-content/templates/article-featured.html</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-structured-content/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,user">
+                <value type="string">Structured Content</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">1.0.5</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome">
+                <value type="string">$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_none.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="regular">backbase</tag>
+            <tag blacklist="false" type="regular">cms</tag>
+            <tag blacklist="false" type="regular">content</tag>
+            <tag blacklist="false" type="section">content</tag>
+            <tag blacklist="false" type="regular">template</tag>
+            <tag blacklist="false" type="regular">universal</tag>
+        </tags>
+        <uuid>bcf72bab-7805-4149-bd68-00dc2b52d8d2</uuid>
+    </widget>
+    <widget>
+        <contextItemName>[BBHOST]</contextItemName>
+        <name>widget-transactions</name>
+        <properties>
+            <property name="Description">
+                <value type="String"/>
+            </property>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property label="Accounts Chart Data Source" name="accountBalanceChartDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/current-accounts/$(accountId)/balance</value>
+            </property>
+            <property label="Funds on Hold" name="accountHolds" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/account-holds?accountIds=$(accountIds)</value>
+            </property>
+            <property label="Accounts Data Source" name="accountsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/accounts</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
+            </property>
+            <property label="Transaction Categories Data Source" name="categoriesDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/pfm/transaction-categories</value>
+            </property>
+            <property label="Category Data Source" name="categoryDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/pfm/transaction-categories</value>
+            </property>
+            <property label="Category Spendings Data Source" name="categorySpendingDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/current-accounts/spendings</value>
+            </property>
+            <property label="Contacts Data Source" name="contactsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/counterparties</value>
+            </property>
+            <property label="Hide footer" name="hideFooter" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Hide Transaction Details in list" name="hideTransactionDetails" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Icon" name="icon" viewHint="text-input,admin,designModeOnly">
+                <value type="string">transactions</value>
+            </property>
+            <property label="Locale" name="locale">
+                <value type="string">en</value>
+            </property>
+            <property name="order">
+                <value type="double">0.0</value>
+            </property>
+            <property label="Preference Service" name="preferenceService" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/party-data-management/preferences</value>
+            </property>
+            <property label="Show Account Select" name="showAccountSelect" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">true</value>
+            </property>
+            <property label="Show Charts" name="showCharts" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">true</value>
+            </property>
+            <property label="Show Dates for All Transactions" name="showDatesAllTransactions" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Show Export Button" name="showExportButton" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Show Scrollbar" name="showScrollbar" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property label="Show Transaction Icons" name="showTransactionIcons" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">true</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-transactions/index.html</value>
+            </property>
+            <property label="Stick widget header to the top" name="stickyHeader" viewHint="checkbox,admin,designModeOnly">
+                <value type="boolean">false</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/widgets/[BBHOST]/widget-transactions/icon.png</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin,designModeOnly">
+                <value type="string">Transactions</value>
+            </property>
+            <property label="Transactions Data Source" name="transactionDetailsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/current-accounts/transaction/$(transactionId)/details</value>
+            </property>
+            <property label="Transactions Chart Data Source" name="transactionsChartDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/current-accounts/$(accountId)/turnover</value>
+            </property>
+            <property label="Transactions Data Source" name="transactionsDataSrc" viewHint="text-input,admin,designModeOnly">
+                <value type="string">$(servicesPath)/services/rest/v1/current-accounts/$(accountId)/transactions</value>
+            </property>
+            <property label="Transactions Per Page" name="transactionsPageSize" viewHint="text-input,admin,designModeOnly">
+                <value type="string">20</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">3.11.3</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,admin,designModeOnly">
+                <value type="string">$(contextRoot)/static/features/[BBHOST]/chromes/blank/chrome-blank.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" type="section">banking</tag>
+            <tag blacklist="false" type="regular">retail-banking</tag>
+            <tag blacklist="false" type="behavior">transactions</tag>
+            <tag blacklist="false" type="regular">transactions</tag>
+        </tags>
+        <uuid>265e4ed3-6306-426d-839d-4a270d3e86a4</uuid>
+    </widget>
+</serverWidgets>

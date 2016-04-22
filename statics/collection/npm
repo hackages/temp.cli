@@ -1,0 +1,10 @@
+#!/bin/sh
+(set -o igncr) 2>/dev/null && set -o igncr; # cygwin encoding fix
+
+basedir=`dirname "$dir"`
+
+case `uname` in
+    *CYGWIN*) basedir=`cygpath -w "$basedir"`;;
+esac
+
+"../../tools/node/node" "../../tools/node/node_modules/npm/bin/npm-cli.js" "$@"
