@@ -1,1 +1,0 @@
-# Simple account select component
