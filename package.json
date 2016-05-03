@@ -6,7 +6,7 @@
   "scripts": {
     "test": "bower install && crelan test -w",
     "start": "bower install && gulp",
-    "prebamboo": "rm -rf report mocha.json && bower install",
+    "prebamboo": "cd components/feature-module-account && bower install && cd../../ && rm -rf report mocha.json && bower install",
     "bamboo": "crelan ci"
   },
   "crelan": {
