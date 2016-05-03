@@ -54,15 +54,15 @@
 
 	var _karma2 = _interopRequireDefault(_karma);
 
-	var _linter = __webpack_require__(12);
+	var _linter = __webpack_require__(16);
 
 	var _linter2 = _interopRequireDefault(_linter);
 
-	var _bamboo = __webpack_require__(15);
+	var _bamboo = __webpack_require__(19);
 
 	var _bamboo2 = _interopRequireDefault(_bamboo);
 
-	var _webpack = __webpack_require__(16);
+	var _webpack = __webpack_require__(20);
 
 	var _webpack2 = _interopRequireDefault(_webpack);
 
@@ -70,9 +70,17 @@
 
 	var _cliparse2 = _interopRequireDefault(_cliparse);
 
-	var _watchFiles = __webpack_require__(20);
+	var _watchFiles = __webpack_require__(24);
 
 	var _watchFiles2 = _interopRequireDefault(_watchFiles);
+
+	var _importCollection = __webpack_require__(25);
+
+	var _importCollection2 = _interopRequireDefault(_importCollection);
+
+	var _protractor = __webpack_require__(28);
+
+	var _protractor2 = _interopRequireDefault(_protractor);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -80,12 +88,11 @@
 	* CLI tools: Command line tool
 	**/
 
-
 	var cliParser = _cliparse2.default.cli({
 	  name: 'crelan <command> [options]',
 	  description: 'Crelan CLI tools to build web applications',
-	  commands: [_webpack2.default, _linter2.default, _watchFiles2.default, _bamboo2.default, _karma2.default],
-	  version: __webpack_require__(21).version
+	  commands: [_webpack2.default, _linter2.default, _watchFiles2.default, _bamboo2.default, _karma2.default, _importCollection2.default, _protractor2.default],
+	  version: __webpack_require__(29).version
 	});
 
 	_cliparse2.default.parse(cliParser);
@@ -169,8 +176,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var karmaConfigFile = __webpack_require__(10);
-	var karmaConfigCI = __webpack_require__(11);
+	var karmaConfigFile = __webpack_require__(14);
+	var karmaConfigCI = __webpack_require__(15);
 
 	var testRunner = function testRunner(params, options) {
 	  return new Promise(function (resolve, reject) {
@@ -225,20 +232,41 @@
 
 	'use strict';
 
+	var _path = __webpack_require__(2);
+
+	var _path2 = _interopRequireDefault(_path);
+
+	var _chalk = __webpack_require__(5);
+
+	var _chalk2 = _interopRequireDefault(_chalk);
+
+	var _webpack = __webpack_require__(8);
+
+	var _webpack2 = _interopRequireDefault(_webpack);
+
+	var _pathExists = __webpack_require__(9);
+
+	var _pathExists2 = _interopRequireDefault(_pathExists);
+
+	var _bowerWebpackPlugin = __webpack_require__(10);
+
+	var _bowerWebpackPlugin2 = _interopRequireDefault(_bowerWebpackPlugin);
+
+	var _shelljs = __webpack_require__(11);
+
+	var _utils = __webpack_require__(12);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	var cwd = process.cwd();
-	var path = __webpack_require__(2);
-	var chalk = __webpack_require__(5);
-	var webpack = __webpack_require__(8);
-	var entry = path.resolve(cwd, 'components/main.js');
-	var BowerWebpackPlugin = __webpack_require__(9);
-	var nodeModules = path.resolve(__dirname, '../node_modules');
+	var nodeModules = _path2.default.resolve(__dirname, '../node_modules');
 
 	var config = {
 	  devtool: 'inline-source-map',
-	  entry: entry,
+	  entry: (0, _utils.entry)(),
 	  output: {
-	    filename: 'main.js',
-	    path: path.join(cwd, 'dist')
+	    filename: 'index.js',
+	    path: _path2.default.join(cwd, 'dist')
 	  },
 	  quiet: true,
 	  resolveLoader: {
@@ -248,15 +276,10 @@
 	    extensions: ['', '.js', '.html', '.css']
 	  },
 	  stats: {
-	    hash: true,
-	    chunks: true,
-	    cached: true,
+	    chunks: false,
 	    colors: true,
 	    reasons: true,
-	    timings: true,
-	    versions: true,
-	    cacheAssets: true,
-	    chunkModules: true
+	    timings: true
 	  },
 	  module: {
 	    loaders: [{
@@ -265,14 +288,14 @@
 	      exclude: /bower_components|node_modules/,
 	      plugins: ["transform-async-to-generator"],
 	      query: {
-	        presets: [path.join(nodeModules, 'babel-preset-es2015'), path.join(nodeModules, 'babel-preset-stage-0')]
+	        presets: [_path2.default.join(nodeModules, 'babel-preset-es2015'), _path2.default.join(nodeModules, 'babel-preset-stage-0')]
 	      }
 	    }, {
 	      test: /\.json$/,
 	      loader: 'json'
 	    }]
 	  },
-	  plugins: [new webpack.ResolverPlugin(new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])), new BowerWebpackPlugin({
+	  plugins: [new _webpack2.default.ResolverPlugin(new _webpack2.default.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])), new _bowerWebpackPlugin2.default({
 	    modulesDirectories: ['bower_components'],
 	    manifestFiles: 'bower.json',
 	    includes: /\.js$/,
@@ -293,16 +316,85 @@
 /* 9 */
 /***/ function(module, exports) {
 
-	module.exports = require("bower-webpack-plugin");
+	module.exports = require("path-exists");
 
 /***/ },
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = __webpack_require__.p + "dd41b3760b1ff806bbc418a24b5d2a44.js";
+	module.exports = require("bower-webpack-plugin");
 
 /***/ },
 /* 11 */
+/***/ function(module, exports) {
+
+	module.exports = require("shelljs");
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.entry = undefined;
+
+	var _fs = __webpack_require__(13);
+
+	var _fs2 = _interopRequireDefault(_fs);
+
+	var _path = __webpack_require__(2);
+
+	var _path2 = _interopRequireDefault(_path);
+
+	var _pathExists = __webpack_require__(9);
+
+	var _pathExists2 = _interopRequireDefault(_pathExists);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var cwd = process.cwd();
+	var packageJSON = _path2.default.join(cwd, 'package.json');
+
+	// this use index.js by default but you can change that by defining
+	// the entry point inside your package.json
+	var entry = exports.entry = function entry() {
+
+	  var main = _path2.default.resolve(cwd, 'package.json'); // entry defined inside package.json
+	  var index = _path2.default.resolve(cwd, 'index.js');
+
+	  if (_pathExists2.default.sync(main)) {
+	    return './' + getPath(main);
+	  } else if (_pathExists2.default.sync(index)) {
+	    return index;
+	  }
+
+	  // Hey, we need an entry point!! Let's create one for you
+	  touch('index.js');
+	  return index;
+	};
+
+	var getPath = function getPath(p) {
+	  var content = _fs2.default.readFileSync('package.json', 'utf-8');
+	  return JSON.parse(content).main;
+	};
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	module.exports = require("fs");
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "9fa559235e220b278ee6d019bf552b9d.js";
+
+/***/ },
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -329,7 +421,7 @@
 	exports.default = configuration;
 
 /***/ },
-/* 12 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -346,7 +438,7 @@
 
 	var _cliparse2 = _interopRequireDefault(_cliparse);
 
-	var _eslintRunner = __webpack_require__(13);
+	var _eslintRunner = __webpack_require__(17);
 
 	var _eslintRunner2 = _interopRequireDefault(_eslintRunner);
 
@@ -373,7 +465,7 @@
 	exports.default = lintCMD;
 
 /***/ },
-/* 13 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -382,7 +474,7 @@
 	  value: true
 	});
 
-	var _eslint = __webpack_require__(14);
+	var _eslint = __webpack_require__(18);
 
 	var _eslint2 = _interopRequireDefault(_eslint);
 
@@ -411,13 +503,13 @@
 	exports.default = linter;
 
 /***/ },
-/* 14 */
+/* 18 */
 /***/ function(module, exports) {
 
 	module.exports = require("eslint");
 
 /***/ },
-/* 15 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -449,7 +541,7 @@
 	exports.default = bambooCMD;
 
 /***/ },
-/* 16 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -466,7 +558,7 @@
 
 	var _cliparse2 = _interopRequireDefault(_cliparse);
 
-	var _webpackRunner = __webpack_require__(17);
+	var _webpackRunner = __webpack_require__(21);
 
 	var _webpackRunner2 = _interopRequireDefault(_webpackRunner);
 
@@ -486,7 +578,7 @@
 	exports.default = buildCMD;
 
 /***/ },
-/* 17 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -495,11 +587,11 @@
 	  value: true
 	});
 
-	var _webpack = __webpack_require__(18);
+	var _webpack = __webpack_require__(22);
 
 	var _webpack2 = _interopRequireDefault(_webpack);
 
-	var _webpack3 = __webpack_require__(19);
+	var _webpack3 = __webpack_require__(23);
 
 	var _webpack4 = _interopRequireDefault(_webpack3);
 
@@ -512,7 +604,7 @@
 	exports.default = webpackRunner;
 
 /***/ },
-/* 18 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -550,7 +642,7 @@
 	exports.default = watch;
 
 /***/ },
-/* 19 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -590,7 +682,7 @@
 	exports.default = bundle;
 
 /***/ },
-/* 20 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -607,7 +699,7 @@
 
 	var _cliparse2 = _interopRequireDefault(_cliparse);
 
-	var _webpackRunner = __webpack_require__(17);
+	var _webpackRunner = __webpack_require__(21);
 
 	var _webpackRunner2 = _interopRequireDefault(_webpackRunner);
 
@@ -623,7 +715,117 @@
 	exports.default = watchCMD;
 
 /***/ },
-/* 21 */
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _cliparse = __webpack_require__(3);
+
+	var _cliparse2 = _interopRequireDefault(_cliparse);
+
+	var _child_process = __webpack_require__(26);
+
+	var _child_process2 = _interopRequireDefault(_child_process);
+
+	var _exec = __webpack_require__(27);
+
+	var _exec2 = _interopRequireDefault(_exec);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var importAll = function importAll() {
+	  (0, _exec2.default)('bb import-collection');
+	}; /**
+	   * CLI tools for Crelan Bank
+	   **/
+
+
+	var importAllCMD = _cliparse2.default.command('import-all', {
+	  description: 'Import backbase collection'
+	}, importAll);
+
+	exports.default = importAllCMD;
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	module.exports = require("child_process");
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _child_process = __webpack_require__(26);
+
+	var _child_process2 = _interopRequireDefault(_child_process);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var exec = function exec(command) {
+	  _child_process2.default.exec(command, function (err, stdout, stderr) {
+	    if (err) {
+	      console.log(err);
+	    }
+
+	    console.log(stdout);
+	  });
+	}; /**
+	   * CLI tools for Crelan Bank: execute child process
+	   **/
+
+
+	exports.default = exec;
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _path = __webpack_require__(2);
+
+	var _path2 = _interopRequireDefault(_path);
+
+	var _exec = __webpack_require__(27);
+
+	var _exec2 = _interopRequireDefault(_exec);
+
+	var _cliparse = __webpack_require__(3);
+
+	var _cliparse2 = _interopRequireDefault(_cliparse);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var protractor = function protractor() {
+	  (0, _exec2.default)('npm run protractor');
+	}; /**
+	   * CLI tools: Running end to end test with protractor
+	   **/
+
+	var testCMD = _cliparse2.default.command('e2e', {
+	  description: 'Running end to end tests with protractor'
+	}, protractor);
+
+	exports.default = testCMD;
+
+/***/ },
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -633,6 +835,7 @@
 		"main": "bin/index.js",
 		"scripts": {
 			"prebamboo": "rm -rf mocha.json && npm i",
+			"codevcov": "mocha -- -R -spec && codecov",
 			"lint": "eslint scripts",
 			"build": "webpack --config webpack.config.js",
 			"watch": "webpack --config ./webpack.config.js -w",
@@ -640,7 +843,11 @@
 			"bamboo": "mocha -R mocha-bamboo-reporter",
 			"start": "babel-node start.js",
 			"predeploy": "npm run build && cp -rf tools/config dist",
-			"deploy": "node publish.js"
+			"deploy": "node publish.js",
+			"start-driver": "webdriver-manager start",
+			"update-driver": "webdriver-mananger update",
+			"protractor": "protractor config.js",
+			"e2e": "npm run start-driver & protractor config.js"
 		},
 		"bin": {
 			"crelan": "bin/index.js",
@@ -698,13 +905,17 @@
 			"mocha": "^2.4.5",
 			"mocha-bamboo-reporter": "^1.1.0",
 			"npm": "^3.8.5",
+			"path-exists": "^2.1.0",
 			"phantomjs-prebuilt": "^2.1.6",
+			"protractor": "^3.2.2",
+			"webdriver-manager": "^9.0.0",
 			"webpack": "^1.12.14",
 			"webpack-bower-resolver": "0.0.1",
 			"webpack-node-externals": "^1.0.0"
 		},
 		"devDependencies": {
-			"chai": "^3.5.0"
+			"chai": "^3.5.0",
+			"codecov": "^1.0.1"
 		}
 	};
 
