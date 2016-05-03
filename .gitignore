@@ -1,3 +1,6 @@
 bower_components/ 
 statics/ 
 node_modules/ 
+mocha.json 
+report/ 
+components/**/target/ 
