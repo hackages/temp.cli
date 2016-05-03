@@ -8,6 +8,7 @@ import version from './version';
 import webpack from './webpack';
 import cliparse from 'cliparse';
 import watchFiles from './watchFiles';
+import bootstrap from './bootstrap';
 
 const cliParser = cliparse.cli({
   name: 'crelan <command> [options]',
@@ -18,6 +19,7 @@ const cliParser = cliparse.cli({
     watchFiles,
     ci,
     karma,
+    bootstrap,
   ],
   version: version(),
 });
