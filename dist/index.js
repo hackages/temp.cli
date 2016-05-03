@@ -54,23 +54,19 @@
 
 	var _ci2 = _interopRequireDefault(_ci);
 
-	var _deploy = __webpack_require__(19);
-
-	var _deploy2 = _interopRequireDefault(_deploy);
-
-	var _karma = __webpack_require__(20);
+	var _karma = __webpack_require__(16);
 
 	var _karma2 = _interopRequireDefault(_karma);
 
-	var _linter = __webpack_require__(21);
+	var _linter = __webpack_require__(17);
 
 	var _linter2 = _interopRequireDefault(_linter);
 
-	var _version = __webpack_require__(24);
+	var _version = __webpack_require__(20);
 
 	var _version2 = _interopRequireDefault(_version);
 
-	var _webpack = __webpack_require__(26);
+	var _webpack = __webpack_require__(22);
 
 	var _webpack2 = _interopRequireDefault(_webpack);
 
@@ -78,9 +74,13 @@
 
 	var _cliparse2 = _interopRequireDefault(_cliparse);
 
-	var _watchFiles = __webpack_require__(30);
+	var _watchFiles = __webpack_require__(26);
 
 	var _watchFiles2 = _interopRequireDefault(_watchFiles);
+
+	var _bootstrap = __webpack_require__(27);
+
+	var _bootstrap2 = _interopRequireDefault(_bootstrap);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -92,7 +92,7 @@
 	var cliParser = _cliparse2.default.cli({
 	  name: 'crelan <command> [options]',
 	  description: 'Speed up your development process using Crelan CLI',
-	  commands: [_webpack2.default, _linter2.default, _watchFiles2.default, _ci2.default, _karma2.default, _deploy2.default],
+	  commands: [_webpack2.default, _linter2.default, _watchFiles2.default, _ci2.default, _karma2.default, _bootstrap2.default],
 	  version: (0, _version2.default)()
 	});
 
@@ -458,99 +458,7 @@
 	exports.default = configuration;
 
 /***/ },
-/* 16 */,
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _child_process = __webpack_require__(18);
-
-	var _configuration = __webpack_require__(9);
-
-	var _configuration2 = _interopRequireDefault(_configuration);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	* CLI tools: execute native commands using child process
-	**/
-
-
-	var execCMD = function execCMD(command) {
-	  return new Promise(function (resolve, reject) {
-	    var options = {
-	      cwd: _configuration2.default.context,
-	      stdio: 'inherit',
-	      stdin: 'inherit'
-	    };
-
-	    var cmd = (0, _child_process.spawn)('node', [command], options);
-
-	    cmd.stdout.on('data', function (data) {
-	      console.log(data);
-	      resolve(data);
-	    });
-
-	    cmd.stderr.on('data', function (data) {
-	      console.log(data);
-	      resolve(data);
-	    });
-
-	    cmd.on('close', function (code) {
-	      console.log('child process exited with code ' + code);
-	      reject(code);
-	    });
-	  });
-	};
-
-	exports.default = execCMD;
-
-/***/ },
-/* 18 */
-/***/ function(module, exports) {
-
-	module.exports = require("child_process");
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _exec = __webpack_require__(17);
-
-	var _exec2 = _interopRequireDefault(_exec);
-
-	var _cliparse = __webpack_require__(2);
-
-	var _cliparse2 = _interopRequireDefault(_cliparse);
-
-	var _configuration = __webpack_require__(9);
-
-	var _configuration2 = _interopRequireDefault(_configuration);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var deployCMD = _cliparse2.default.command('deploy', {
-	  description: 'Deploy static assets quickly for immediate feedback'
-	}, _exec2.default.bind(null, _configuration2.default.deployCMD)); /**
-	                                                                  * Hackages CLI tools: deploy static assets with surge
-	                                                                  **/
-
-
-	exports.default = deployCMD;
-
-/***/ },
-/* 20 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -585,7 +493,7 @@
 	exports.default = testCMD;
 
 /***/ },
-/* 21 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -598,7 +506,7 @@
 
 	var _cliparse2 = _interopRequireDefault(_cliparse);
 
-	var _eslintRunner = __webpack_require__(22);
+	var _eslintRunner = __webpack_require__(18);
 
 	var _eslintRunner2 = _interopRequireDefault(_eslintRunner);
 
@@ -623,7 +531,7 @@
 	exports.default = lintCMD;
 
 /***/ },
-/* 22 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -632,7 +540,7 @@
 	  value: true
 	});
 
-	var _eslint = __webpack_require__(23);
+	var _eslint = __webpack_require__(19);
 
 	var _eslint2 = _interopRequireDefault(_eslint);
 
@@ -660,13 +568,13 @@
 	exports.default = linter;
 
 /***/ },
-/* 23 */
+/* 19 */
 /***/ function(module, exports) {
 
 	module.exports = require("eslint");
 
 /***/ },
-/* 24 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -675,7 +583,7 @@
 	  value: true
 	});
 
-	var _package = __webpack_require__(25);
+	var _package = __webpack_require__(21);
 
 	var _package2 = _interopRequireDefault(_package);
 
@@ -691,7 +599,7 @@
 	exports.default = version;
 
 /***/ },
-/* 25 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -741,7 +649,7 @@
 			"cliparse": "^0.2.5",
 			"commander": "^2.9.0",
 			"css-loader": "^0.23.1",
-			"eslint": "^2.5.3",
+			"eslint": "^2.9.0",
 			"eslint-config-airbnb": "^6.2.0",
 			"eslint-loader": "^1.3.0",
 			"eslint-plugin-react": "^4.2.3",
@@ -782,14 +690,11 @@
 			"webpack": "^1.12.14",
 			"webpack-bower-resolver": "0.0.1",
 			"webpack-node-externals": "^1.0.0"
-		},
-		"devDependencies": {
-			"live-server": "^0.9.2"
 		}
 	};
 
 /***/ },
-/* 26 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -802,7 +707,7 @@
 
 	var _cliparse2 = _interopRequireDefault(_cliparse);
 
-	var _webpackRunner = __webpack_require__(27);
+	var _webpackRunner = __webpack_require__(23);
 
 	var _webpackRunner2 = _interopRequireDefault(_webpackRunner);
 
@@ -819,7 +724,7 @@
 	exports.default = buildCMD;
 
 /***/ },
-/* 27 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -828,11 +733,11 @@
 	  value: true
 	});
 
-	var _webpack = __webpack_require__(28);
+	var _webpack = __webpack_require__(24);
 
 	var _webpack2 = _interopRequireDefault(_webpack);
 
-	var _webpack3 = __webpack_require__(29);
+	var _webpack3 = __webpack_require__(25);
 
 	var _webpack4 = _interopRequireDefault(_webpack3);
 
@@ -845,7 +750,7 @@
 	exports.default = webpackRunner;
 
 /***/ },
-/* 28 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -883,7 +788,7 @@
 	exports.default = watch;
 
 /***/ },
-/* 29 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -923,7 +828,7 @@
 	exports.default = bundle;
 
 /***/ },
-/* 30 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -936,7 +841,7 @@
 
 	var _cliparse2 = _interopRequireDefault(_cliparse);
 
-	var _webpackRunner = __webpack_require__(27);
+	var _webpackRunner = __webpack_require__(23);
 
 	var _webpackRunner2 = _interopRequireDefault(_webpackRunner);
 
@@ -947,6 +852,60 @@
 	}, _webpackRunner2.default.bind(null, { options: { watch: true } }));
 
 	exports.default = watchCMD;
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _cliparse = __webpack_require__(2);
+
+	var _cliparse2 = _interopRequireDefault(_cliparse);
+
+	var _child_process = __webpack_require__(28);
+
+	var _path = __webpack_require__(4);
+
+	var _path2 = _interopRequireDefault(_path);
+
+	var _configuration = __webpack_require__(9);
+
+	var _configuration2 = _interopRequireDefault(_configuration);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * CLI tools: Bootstrap Backbase portal
+	 **/
+
+
+	var bootstrap = function bootstrap() {
+	  var fullPath = _path2.default.join(__dirname, '../scripts/setup-local.sh');
+	  var options = {
+	    cwd: _configuration2.default.context,
+	    stdio: 'inherit',
+	    stdin: 'inherit'
+	  };
+
+	  (0, _child_process.spawn)('sh', [fullPath], options);
+	};
+
+	var bootstrapCMD = _cliparse2.default.command('bootstrap', {
+	  description: 'Bootstrap the backbase portal'
+	}, bootstrap);
+
+	exports.default = bootstrapCMD;
+
+/***/ },
+/* 28 */
+/***/ function(module, exports) {
+
+	module.exports = require("child_process");
 
 /***/ }
 /******/ ]);
