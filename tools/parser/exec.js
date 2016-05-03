@@ -4,14 +4,14 @@
 import { spawn } from 'child_process';
 import config from '../config/configuration';
 
-const execCMD = (command) => new Promise((resolve, reject) => {
+const execCMD = (command, args) => new Promise((resolve, reject) => {
   const options = {
     cwd: config.context,
     stdio: 'inherit',
     stdin: 'inherit',
   };
 
-  const cmd = spawn('node', [command], options);
+  const cmd = spawn(command, [args], options);
 
   cmd.stdout.on('data', (data) => {
     console.log(data);
