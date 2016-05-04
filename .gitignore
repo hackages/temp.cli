@@ -5,3 +5,4 @@ node_modules/
 mocha.json
 report/
 target/
+components/**/target/
