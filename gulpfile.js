@@ -1,29 +1,30 @@
+'use strict';
 /**
  * a script that creates dist file without using bb cli
  */
-var gulp = require('gulp-help')(require('gulp'));
-var uglify = require('gulp-uglify');
+const gulp = require('gulp-help')(require('gulp'));
+const uglify = require('gulp-uglify');
 const pathExists = require('path-exists');
-var filter = require('gulp-filter');
-var gulpsync = require('gulp-sync')(gulp);
-var gulputil = require('gulp-util');
-var cssnano = require('gulp-cssnano');
-var glob = require('glob');
-var util = require('util');
-var exec = require('child_process').exec;
-var execSync = require('child_process').execSync;
-var path = require('path');
-var fs = require('fs');
-var walk = require('walk');
-var del = require('del');
+const filter = require('gulp-filter');
+const gulpsync = require('gulp-sync')(gulp);
+const gulputil = require('gulp-util');
+const cssnano = require('gulp-cssnano');
+const glob = require('glob');
+const util = require('util');
+const exec = require('child_process').exec;
+const execSync = require('child_process').execSync;
+const path = require('path');
+const fs = require('fs');
+const walk = require('walk');
+const del = require('del');
 const chalk = require('chalk');
 const request = require('request');
-var _ = require('lodash');
-var formattor = require('formattor');
-var jxon = require('jxon');
-var file = require('gulp-file');
+const _ = require('lodash');
+const formattor = require('formattor');
+const jxon = require('jxon');
+const file = require('gulp-file');
 
-var typeList = {};
+const typeList = {};
 
 const logInfo = (message) => {
   console.log(chalk.bold.green(message));
@@ -45,11 +46,11 @@ gulp.task('clean', function () {
 });
 
 gulp.task('generate-manifest', function () {
-  var itemManifest = {};
-  var outputString = '';
+  let itemManifest = {};
+  let outputString = '';
 
   function isModelMissing(filePath) {
-    var err, stats;
+    let err, stats;
 
     try {
       stats = fs.statSync(filePath);
@@ -61,7 +62,7 @@ gulp.task('generate-manifest', function () {
   }
 
   function autoCreateFeatureModel(name, dest) {
-    var feature = createFeature(name),
+    let feature = createFeature(name),
       featureXml = getXml(feature);
 
       saveModelXML(dest, featureXml);
@@ -204,7 +205,7 @@ gulp.task('zip-dist', function () {
 
   const components = glob.sync('components/*');
 
-  components.map((dir) => {
+  getDirs().map((dir) => {
     const srcPath = path.resolve(dir);
     const item = path.basename(dir);
     const zips = 'target/zips';
