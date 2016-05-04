@@ -23,6 +23,7 @@ const _ = require('lodash');
 const formattor = require('formattor');
 const jxon = require('jxon');
 const file = require('gulp-file');
+const shelljs = require('shelljs');
 
 const typeList = {};
 
@@ -158,8 +159,9 @@ gulp.task('generate-manifest', function () {
 });
 
 
+const server = "http://cn6023.crelan.be:7777/portalserver/";
+
 gulp.task('check-portal', () => {
-  const server = "http://127.0.0.1:7777/portalserver/";
   return request.get(server, {
     'auth': {
       'user': 'admin',
@@ -180,10 +182,8 @@ gulp.task('import-zips', () => {
   const user = 'admin';
   const password = 'admin';
 
-  const url = "http://127.0.0.1:7777/portalserver/import";
-
   glob(path.resolve('tools/*.jar'), (err, importer) => {
-    const importCMD = `java -jar ${importer} import-package -u ${user} -p ${password} -s ${url}`;
+    const importCMD = `java -jar ${importer} import-package -u ${user} -p ${password} -s ${server}`;
 
     glob('target/zips/*.zip', (err, zips) => {
       zips.map(zip => {
@@ -210,17 +210,14 @@ gulp.task('zip-dist', function () {
     const item = path.basename(dir);
     const zips = 'target/zips';
     const zipsPath = path.resolve(dir, `${zips}`);
-    logInfo('zips path: ' +zipsPath);
 
     const fullPath = pathExists.sync(zipsPath) ? zipsPath: path.resolve(dir, `../../${zips}`);
 
-    const zipCMD = `zip -r ${path.join(fullPath, item + '.zip')} ${srcPath}`;
+    const zipCMD = `cd ${srcPath} && zip -r ${path.join(fullPath, item + '.zip')} .`;
 
-    logInfo(`Zipping ${item}`);
-
-    exec(zipCMD,(error) => {
+    exec(zipCMD, (error) => {
       if (error !== null) {
-        logError(`error while running this command: ${zipCMD}`);;
+        logError(`error while running this command: ${zipCMD}`);
       } else {
         logInfo(`Zipping of ${item} is done successfully`);
       }
