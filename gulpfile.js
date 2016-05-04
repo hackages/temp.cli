@@ -157,10 +157,9 @@ gulp.task('generate-manifest', function () {
   return file('itemManifest.txt', outputString, {src: true}).pipe(gulp.dest('target/zips'));
 });
 
-gulp.task('check-portal', () => {
-  // const server = "http://cn6023.crelan.be:7777/portalserver/";
-  const server = "http://localhost:7777/portalserver/";
 
+gulp.task('check-portal', () => {
+  const server = "http://localhost:7777/portalserver/";
   return request.get(server, {
     'auth': {
       'user': 'admin',
@@ -181,16 +180,20 @@ gulp.task('import-zips', () => {
   const user = 'admin';
   const password = 'admin';
 
+  const url = "http://localhost:7777/portalserver/import";
+
   glob(path.resolve('tools/*.jar'), (err, importer) => {
-    const importCMD = `java -jar ${importer} import-package -u ${user} -p ${password} -s ${server}`;
+    logInfo(importer);
+    const importCMD = `java -jar ${importer} import-package -u ${user} -p ${password} -s ${url}`;
     glob('target/zips/*.zip', (err, zips) => {
       zips.map(zip => {
         const component = path.basename(zip);
         logInfo(`Importing ${component}`);
 
-        zip = path.resolve(`${zip}`);
-        exec(`${importCMD} -f ${zip}`, (error) => {
-          if(error != null) {
+        const fullPath = path.resolve(`${zip}`);
+
+        exec(`${importCMD} -f ${fullPath}`, (error) => {
+          if (error != null) {
             logError(`error importing packages: ${error}`);
           } else {
             logInfo(`Done importing ${component}`);
@@ -202,9 +205,6 @@ gulp.task('import-zips', () => {
 });
 
 gulp.task('zip-dist', function () {
-
-  const components = glob.sync('components/*');
-
   getDirs().map((dir) => {
     const srcPath = path.resolve(dir);
     const item = path.basename(dir);

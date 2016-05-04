@@ -9,7 +9,9 @@
     "prebamboo": "cd components/feature-module-accounts && bower install && cd ../../ && bower install",
     "bamboo": "crelan ci",
     "server": "crelan bootstrap",
-    "manifest": "bower install && gulp generate-manifest"
+    "manifest": "bower install && gulp generate-manifest",
+    "zips": "gulp zip-dist",
+    "import": "gulp import-zips"
   },
   "keywords": [],
   "author": "Crelan Team",
