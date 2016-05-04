@@ -10,7 +10,6 @@
     "bamboo": "crelan ci",
     "server": "crelan bootstrap",
     "manifest": "bower install && gulp generate-manifest",
-    "prebamboo": "cd components/feature-module-account && bower install && cd ../../ && rm -rf report mocha.json && bower install",
     "zips": "gulp zip-dist",
     "import": "gulp import-zips"
   },
