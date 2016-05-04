@@ -22,7 +22,7 @@ var ModelMock = require('./model.mock');
 /*----------------------------------------------------------------*/
 /* Widget unit tests
 /*----------------------------------------------------------------*/
-describe('Widget accounts ', function() {
+xdescribe('Widget accounts ', function() {
 
     /*----------------------------------------------------------------*/
     /* Mock modules/Providers
