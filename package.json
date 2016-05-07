@@ -26,6 +26,8 @@
   "author": "Crelan Team",
   "license": "MIT",
   "dependencies": {
+    "angular": "^1.5.5",
+    "angular-mocks": "^1.5.5",
     "autoprefixer-loader": "^3.2.0",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
@@ -85,6 +87,7 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
     "webpack-bower-resolver": "0.0.1",
-    "webpack-node-externals": "^1.0.0"
+    "webpack-node-externals": "^1.0.0",
+    "phantomjs-polyfill": "0.0.2"
   }
 }
