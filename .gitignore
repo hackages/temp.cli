@@ -7,3 +7,4 @@ report/
 target/
 components/**/target/
 .*swp
+index.js
