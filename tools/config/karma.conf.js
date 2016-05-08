@@ -15,25 +15,29 @@ const localDeps = [
 const basePath = glob.sync('components/*').length > 0 ? 'components/*/' : '';
 
 const paths = {
-  scripts: `${basePath}test/**/*.spec.js`,
-  tests: `${basePath}scripts/**/test/**/*.spec.js`,
+  tests: `${basePath}test/**/*.spec.js`,
+  modules: `${basePath}modules/**/test/**/*.spec.js`,
+  vendors: `${basePath}dist/common.bundle.js`,
 };
 
-const externaleDeps = [paths.scripts].map(file => path.join(context, file));
+const testsFolder = [paths.tests].map(file => path.join(context, file));
 
-const files = localDeps.concat(externaleDeps);
+// This line here solve issue: webpackJsonp
+// we need to incluce vendors (angular, lodash...)
+localDeps.push(path.join(context, paths.vendors));
+const files = localDeps.concat(testsFolder);
 
 const reporters = ['mocha', 'coverage'];
 
 // preprocessors configuration
-const testsFiles = path.resolve(context, paths.scripts);
-const scriptsFiles = path.resolve(context, paths.tests);
+const tests = path.resolve(context, paths.tests);
+const modules = path.resolve(context, paths.modules);
 
 // Preprocessors and plugins: webpack and sourcemap
 const plugins = ['webpack', 'sourcemap'];
 const preprocessors = {
-  [scriptsFiles]: plugins,
-  [testsFiles]: plugins,
+  [modules]: plugins,
+  [tests]: plugins,
 };
 
 module.exports = (config) => {
