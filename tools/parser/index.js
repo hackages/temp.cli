@@ -10,6 +10,7 @@ import cliparse from 'cliparse';
 import watchFiles from './watchFiles';
 import bootstrap from './bootstrap';
 import live from './live';
+import lint from './linter';
 
 const cliParser = cliparse.cli({
   name: 'crelan <command> [options]',
@@ -22,6 +23,7 @@ const cliParser = cliparse.cli({
     karma,
     bootstrap,
     live,
+    lint,
   ],
   version: version(),
 });

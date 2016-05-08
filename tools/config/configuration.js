@@ -18,4 +18,13 @@ config.liveCMD = {
   command: 'node',
 };
 
+console.log(path.join(__dirname, '../.eslintrc'));
+
+config.eslintCMD = {
+  // args: `${config.nodeModules}/eslint/bin/eslint.js ${path.join(cwd, 'index.js')}`,
+  // args: `-c ${path.join(__dirname, '../.eslintrc')} ${path.join(cwd)}#<{(|.js`,
+  args: `${path.join(cwd)}/*.js`,
+  command: `${config.nodeModules}/eslint/bin/eslint.js`,
+};
+
 export default config;
