@@ -12,7 +12,10 @@ const config = {
 };
 
 config.npmCMD = `${config.nodeModules}/npm/bin/npm-cli.js`;
-config.liveCMD = `${config.nodeModules}/live-server/live-server.js`;
-config.deployCMD = `${config.nodeModules}/surge/lib/cli.js`;
+
+config.liveCMD = {
+  args: `${config.nodeModules}/live-server/live-server.js`,
+  command: 'node',
+};
 
 export default config;
