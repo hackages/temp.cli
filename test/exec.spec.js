@@ -22,7 +22,7 @@ describe('exec: run shell command', () => {
   it('should be called with one argument of type string');
   it('should throw an error if called without an argument');
 
-  it('should throw an error if the command is not valid', (done)=>{
+  xit('should throw an error if the command is not valid', (done)=>{
     const cmd = `${npmCMD} hep`;
     exec(cmd).catch((err) => {
       console.log(err);
@@ -31,7 +31,7 @@ describe('exec: run shell command', () => {
     });
   });
 
-  it('should log data from the process to stdout', (done)=>{
+  xit('should log data from the process to stdout', (done)=>{
     const cmd = `${npmCMD} help`;
     // exec(cmd).then((data)=>{
     //   expect(data).to.be.defined;
