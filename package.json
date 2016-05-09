@@ -1,12 +1,12 @@
 {
-  "name": "cli.crelan",
-  "version": "0.0.1",
+  "name": "crelan-cli",
+  "version": "0.0.3",
   "description": "CLI tools to speed up the development process",
   "main": "tools/index.js",
   "scripts": {
     "pretest": "eslint tools",
-    "preci": "rm -rf mocha.json && npm i",
-    "ci": "mocha -R mocha-bamboo-reporter",
+    "prebamboo": "rm -rf mocha.json && npm i",
+    "bamboo": "mocha -R mocha-bamboo-reporter",
     "test": "mocha test -w",
     "codecov": "mocha -- -R -spec && codecov",
     "lint": "eslint tools",
