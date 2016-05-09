@@ -9,6 +9,7 @@ const config = {
   nodeModules: path.join(__dirname, '../node_modules'),
   bowerComponents: path.join(cwd, 'bower_components'),
   context: cwd,
+  modules: path.join(cwd, 'components'),
 };
 
 config.npmCMD = `${config.nodeModules}/npm/bin/npm-cli.js`;
@@ -17,8 +18,6 @@ config.liveCMD = {
   args: `${config.nodeModules}/live-server/live-server.js`,
   command: 'node',
 };
-
-console.log(path.join(__dirname, '../.eslintrc'));
 
 config.eslintCMD = {
   // args: `${config.nodeModules}/eslint/bin/eslint.js ${path.join(cwd, 'index.js')}`,
