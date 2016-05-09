@@ -1,8 +1,10 @@
 import fs from 'fs';
+import del from 'del';
 import path from 'path';
 import glob from 'glob';
 import chalk from 'chalk';
 import { touch } from 'shelljs';
+import shelljs from 'shelljs';
 import pathExists from 'path-exists';
 const cwd = process.cwd();
 
@@ -42,3 +44,58 @@ export const getComponents = () => {
   const modules = path.join(cwd, 'components');
   return glob.sync(`${modules}/*`);
 };
+
+export const clean = (dirs) => {
+  const directories = dirs || ['./bower_components', './target/zips'];
+  return del(directories);
+};
+
+export const zipDist = () => {
+  const dirs = getComponents(null);
+
+  if (dirs.length === 0) {
+    throw new Error('No Components Found');
+  }
+
+  return dirs.map((dir) => {
+    const srcPath = path.resolve(dir);
+    const item = path.basename(dir);
+    const zips = 'target/zips';
+    const zipsPath = path.resolve(dir, `${zips}`);
+    const fullPath = pathExists.sync(zipsPath) ? zipsPath : path.resolve(dir, `../../${zips}`);
+
+    // const zipCMD = `cd ${srcPath} && zip -r ${path.join(fullPath, item + '.zip')} *`;
+    shelljs.cd(srcPath);
+    shelljs.exec(`zip -r ${path.join(fullPath, item)}.zip *`);
+    shelljs.cd('../..');
+
+    return true;
+  });
+};
+
+// export const importZips = () => {
+//   const user = 'admin';
+//   const password = 'admin';
+//
+//   return glob(path.resolve('tools#<{(|.jar'), (err, importer) => {
+//     const importCMD = `java -jar ${importer}
+//     import-package -u ${user} -p ${password} -s ${server}`;
+//
+//     glob('target/zips#<{(|.zip', (err, zips) => {
+//       zips.map(zip => {
+//         const component = path.basename(zip);
+//         logInfo(`Importing ${component}`);
+//
+//         const fullPath = path.resolve(`${zip}`);
+//
+//         exec(`${importCMD} -f ${fullPath}`, (error) => {
+//           if (error != null) {
+//             logError(`error importing packages: ${error}`);
+//           } else {
+//             logInfo(`Done importing ${component}`);
+//           }
+//         });
+//       });
+//     });
+//   });
+// };
