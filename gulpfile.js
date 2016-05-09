@@ -159,7 +159,7 @@ gulp.task('generate-manifest', function () {
 });
 
 
-const server = "http://cn6023.crelan.be:7777/portalserver/";
+const server = "http://localhost:7777/portalserver/";
 
 gulp.task('check-portal', () => {
   return request.get(server, {
