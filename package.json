@@ -1,5 +1,5 @@
 {
-  "name": "cli.crelan",
+  "name": "crelan-cli",
   "version": "0.0.1",
   "description": "CLI tools to speed up the development process",
   "main": "tools/index.js",
