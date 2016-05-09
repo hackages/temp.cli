@@ -7,7 +7,10 @@ const exclude = ['node_modules', 'bower_components'];
 
 const webpackConfig = {
   devtool: 'source-map',
-  entry: config.mainEntry,
+  entry: {
+    index: config.mainEntry,
+    common: ['angular', 'lodash'],
+  },
   output: {
     filename: 'index.js',
     path: config.outputDir,
@@ -72,6 +75,7 @@ const webpackConfig = {
       includes: /\.js$/,
       searchResolveModulesDirectories: true,
     }),
+    new webpack.optimize.CommonsChunkPlugin('common', 'common.bundle.js'),
   ],
 };
 
