@@ -7,7 +7,7 @@
     "pretest": "eslint tools",
     "prebamboo": "rm -rf mocha.json && npm i",
     "bamboo": "mocha -R mocha-bamboo-reporter",
-    "test": "mocha test -w",
+    "test": "mocha test",
     "codecov": "mocha -- -R -spec && codecov",
     "lint": "eslint tools",
     "precommit": "npm run lint",
