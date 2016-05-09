@@ -19,6 +19,9 @@
   "bin": {
     "crelan": "bin/index.js"
   },
+  "publishConfig": {
+    "registry": "http://hn198.crelan.be:8081/nexus/content/repositories/npm-internal"
+  },
   "keywords": [
     "angular",
     "javascript"
