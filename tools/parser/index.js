@@ -11,7 +11,7 @@ import cliparse from 'cliparse';
 import watchFiles from './watchFiles';
 import bootstrap from './bootstrap';
 import check from './check-server';
-import importComponents from './import-components';
+// import importComponents from './import-components';
 
 const cliParser = cliparse.cli({
   name: 'crelan <command> [options]',
@@ -26,7 +26,7 @@ const cliParser = cliparse.cli({
     live,
     eslint,
     check,
-    importComponents,
+    // importComponents,
   ],
   version: version(),
 });

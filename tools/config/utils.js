@@ -76,17 +76,25 @@ export const zipDist = () => {
 // export const importZips = () => {
 //   const user = 'admin';
 //   const password = 'admin';
+//   const server = "http://localhost:7777/portalserver";
+//   const tools = path.join(__dirname, '../scripts');
 //
-//   return glob(path.resolve('tools#<{(|.jar'), (err, importer) => {
+//   return glob(path.resolve(`${tools}#<{(|.jar`), (err, importer) => {
 //     const importCMD = `java -jar ${importer}
 //     import-package -u ${user} -p ${password} -s ${server}`;
 //
-//     glob('target/zips#<{(|.zip', (err, zips) => {
-//       zips.map(zip => {
+//     const zipsPath = path.join(cwd, 'target/zips');
+//
+//     return glob(`${zipsPath}#<{(|.zip`, (err, zips) => {
+//       return zips.map(zip => {
 //         const component = path.basename(zip);
 //         logInfo(`Importing ${component}`);
 //
 //         const fullPath = path.resolve(`${zip}`);
+//
+//         // const response = shelljs.exec(`${importCMD} -f ${fullPath}`);
+//         //
+//         // logInfo(response.code);
 //
 //         exec(`${importCMD} -f ${fullPath}`, (error) => {
 //           if (error != null) {
