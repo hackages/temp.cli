@@ -9,13 +9,14 @@ const webpackConfig = {
   devtool: 'source-map',
   entry: {
     index: config.mainEntry,
-    common: ['angular', 'lodash'],
+    common: ['angular'],
   },
   output: {
     filename: 'index.js',
     path: config.outputDir,
   },
   resolveLoader: {
+    root: [config.context],
     fallback: config.nodeModules,
   },
   resolve: {
