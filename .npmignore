@@ -1,6 +1,7 @@
 node_modules/
+tools/
 idea.md
-.:pmrc
+.npmrc
 .*.swp
 .git
 npm-debug.log

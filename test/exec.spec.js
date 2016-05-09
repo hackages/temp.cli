@@ -1,17 +1,42 @@
-const expect = require('chai').expect;
+import chai from 'chai';
+import path from 'path';
+import exec from '../tools/parser/exec';
+import config from '../tools/config/configuration';
+const expect = chai.expect;
 
-describe('Exec', function(){
-   it('', function () {
-     expect(5).equal(5);
-   });
+console.log('inside exec');
+const nodeModules = path.resolve(__dirname, '../node_modules');
+const npmCMD = `${nodeModules}/npm/bin/npm-cli.js`;
 
-  it('should be a function');
+describe('exec: run shell command', () => {
 
-  it('should be called with at least one argument');
+  it('should be a function', () => {
+    expect(exec).to.be.a('function');
+  });
 
-  it('should throw an error if no arg is passed');
+  it('should return a Promise', () => {
+    expect(exec().then).to.be.a('function');
+    expect(exec().catch).to.be.a('function');
+  });
 
-  it('should throw an error if the first argument is not a function');
+  it('should be called with one argument of type string');
+  it('should throw an error if called without an argument');
 
-  it('should execute the callback');
+  xit('should throw an error if the command is not valid', (done)=>{
+    const cmd = `${npmCMD} hep`;
+    exec(cmd).catch((err) => {
+      console.log(err);
+      expect(err).to.be.a('string');
+      done();
+    });
+  });
+
+  xit('should log data from the process to stdout', (done)=>{
+    const cmd = `${npmCMD} help`;
+    // exec(cmd).then((data)=>{
+    //   expect(data).to.be.defined;
+    //   done();
+    // });
+    done();
+  });
 });

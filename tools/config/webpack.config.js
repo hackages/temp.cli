@@ -1,49 +1,69 @@
-const cwd = process.cwd();
-const path = require('path');
-const webpack = require('webpack');
-const entry = path.resolve(cwd, 'index.js');
-const BowerWebpackPlugin = require('bower-webpack-plugin');
-const nodeModules = path.resolve(__dirname, '../node_modules');
+import path from 'path';
+import webpack from 'webpack';
+import BowerWebpackPlugin from 'bower-webpack-plugin';
+import config from './configuration';
 
-const config = {
-  devtool: 'inline-source-map',
-  entry: entry,
+const exclude = ['node_modules', 'bower_components'];
+
+const webpackConfig = {
+  devtool: 'source-map',
+  entry: {
+    index: config.mainEntry,
+    common: ['angular', 'lodash'],
+  },
   output: {
     filename: 'index.js',
-    path: path.join(cwd, 'dist'),
+    path: config.outputDir,
   },
   resolveLoader: {
-    fallback: nodeModules
+    fallback: config.nodeModules,
   },
   resolve: {
-    extensions: ['', '.js', '.html', '.css'],
+    extensions: ['', '.jsx', '.js', '.html', '.css'],
   },
   stats: {
-    hash: true,
-    chunks: true,
-    cached: true,
-    colors: true,
-    reasons: true,
+    chunks: false, // removed noise made by webpack while transpiling
+    colors: true,  // green color, yeah green is good
     timings: true,
-    versions: true,
-    cacheAssets: true,
-    chunkModules: true,
   },
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel',
         exclude: /(node_modules|bower_components)/,
-        plugins: ["transform-async-to-generator"],
+        plugins: ['transform-async-to-generator'],
         query: {
           presets: [
-            path.join(nodeModules, 'babel-preset-es2015'),
-            path.join(nodeModules, 'babel-preset-stage-0'),
-          ]
-        }
-      }
-    ]
+            path.join(config.nodeModules, 'babel-preset-es2015'),
+            path.join(config.nodeModules, 'babel-preset-react'),
+            path.join(config.nodeModules, 'babel-preset-stage-0'),
+          ],
+        },
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+        loader: 'url',
+        query: {
+          name: '[hash].[ext]',
+          limit: 10000,
+        },
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css', 'autoprefixer'],
+        exclude,
+      },
+      {
+        test: /\.html$/,
+        loader: 'html!html-minify',
+        exclude,
+      },
+    ],
   },
   plugins: [
     new webpack.ResolverPlugin(
@@ -51,12 +71,12 @@ const config = {
     ),
     new BowerWebpackPlugin({
       modulesDirectories: ['bower_components'],
-      manifestFiles:      'bower.json',
-      includes:           /\.js$/,
-      excludes:           [],
-      searchResolveModulesDirectories: true
-    })
-  ]
+      manifestFiles: 'bower.json',
+      includes: /\.js$/,
+      searchResolveModulesDirectories: true,
+    }),
+    new webpack.optimize.CommonsChunkPlugin('common', 'common.bundle.js'),
+  ],
 };
 
-module.exports = config;
+export default webpackConfig;

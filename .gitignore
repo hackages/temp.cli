@@ -1,5 +1,6 @@
 bower_components/
 node_modules/
 mocha.json
-dist/config/
-dist/
+npm-debug.log
+.idea
+dist/coverage

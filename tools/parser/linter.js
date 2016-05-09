@@ -1,30 +1,15 @@
 /**
-* CLI tools for Crelan Bank
-**/
-
-import path from 'path';
+ * CLI tools: Starting a live-server instance
+ **/
 import cliparse from 'cliparse';
-import lint from '../eslintRunner';
+import exec from './exec';
+import config from '../config/configuration';
 
-const {parsers} = cliparse;
+const { command, args } = config.eslintCMD;
 
-const lintCMD = cliparse.command('lint', {
-  description: 'Lint JS file following airBnB coding guidelines by default',
-  args: [
-    cliparse.argument("source", {
-      description: "Files or directory to be parsed",
-      parser (value) {
-        console.log(value)
-      }
-    }),
-  ],
-  options: [
-    cliparse.flag('watch', {
-      aliases: ['w'],
-      description: 'Enable auto watch'
-    }),
-  ]
+const cmd = cliparse.command('lint', {
+  description: 'Linter for your JavaScript',
 },
-lint);
+exec.bind(null, command, args));
 
-export default lintCMD;
+export default cmd;

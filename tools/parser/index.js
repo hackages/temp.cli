@@ -1,27 +1,35 @@
 /**
 * CLI tools: Command line tool
 **/
+import ci from './ci';
+import live from './live';
 import karma from './karma';
 import eslint from './linter';
-import bamboo from './bamboo';
+import version from './version';
 import webpack from './webpack';
 import cliparse from 'cliparse';
 import watchFiles from './watchFiles';
+import bootstrap from './bootstrap';
+import check from './check-server';
+// import importComponents from './import-components';
 
 const cliParser = cliparse.cli({
   name: 'crelan <command> [options]',
-  description: 'Crelan CLI tools to build web applications',
+  description: 'Speed up your development process using Crelan CLI',
   commands: [
     webpack,
     eslint,
     watchFiles,
-    bamboo,
+    ci,
     karma,
+    bootstrap,
+    live,
+    eslint,
+    check,
+    // importComponents,
   ],
-  version: require('../../package.json').version
+  version: version(),
 });
-
-
 
 cliparse.parse(cliParser);
 

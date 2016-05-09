@@ -25,17 +25,12 @@ const config = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules|bower_components/,
-        query: {
-          presets: [
-            'es2015'
-          ]
-        }
+        loaders: ['babel', 'eslint'],
+        exclude: /node_modules/,
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json',
       }
     ]
   }
