@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
-    <title>Hello World</title>
-
-    <link rel="stylesheet" type='text/css' href="dist/styles/base.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="scripts/main.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Template</title>
+  <link rel="stylesheet" type='text/css' href="dist/styles/base.css"/>
 </head>
+<body>
+  <account-module></account-module>
 
-<body ng-app="app">
-    <div ng-controller="MainCtrl as mainCtrl">
-
-            <div>  {{ mainCtrl.message }}</div>
-
-    </div>
+  <script src="dist/common.bundle.js"></script>
+  <script src="dist/index.js"></script>
 </body>
 </html>
