@@ -6,13 +6,13 @@ function NavMainCtrl() {
   var vm = this;
 
   vm.navigations = [
-    {"label": "Dashboard", "url": "#"},
-    {"label": "Rekeningen & kaarten", "url": "#"},
-    {"label": "Betalen", "url": "#"},
-    {"label": "Berichten & documenten", "url": "#"},
-    {"label": "Beleggen", "url": "#"},
-    {"label": "Kredieten", "url": "#"},
-    {"label": "Verzekeringen", "url": "#"}
+    {"label": "Dashboard", "url": "#", "active":"navigation__main__item--active"},
+    {"label": "Rekeningen & kaarten", "url": "#", "active":""},
+    {"label": "Betalen", "url": "#", "active":""},
+    {"label": "Berichten & documenten", "url": "#", "active":""},
+    {"label": "Beleggen", "url": "#", "active":""},
+    {"label": "Kredieten", "url": "#", "active":""},
+    {"label": "Verzekeringen", "url": "#", "active":""}
   ];
 }
 
