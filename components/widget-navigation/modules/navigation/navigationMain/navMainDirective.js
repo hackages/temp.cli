@@ -8,9 +8,6 @@ export default module.name;
 function navMainDirective(){
   return {
     restrict: 'EA',
-    template: navMainTemplate,
-    scioe: {},
-    controller: navMainController,
-    controllerAs: 'nav'
+    template: navMainTemplate
   }
 }

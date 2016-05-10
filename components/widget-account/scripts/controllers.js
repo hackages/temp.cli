@@ -13,7 +13,5 @@ define(function (require, exports, module) {
         vm.message = "Hello World";
     }
 
-
-
     exports.MainCtrl = MainCtrl;
 });
