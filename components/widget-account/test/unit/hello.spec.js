@@ -1,7 +1,7 @@
 // import angular from 'angular/index.js';
 // import 'angular-mocks';
 
-describe('Testing hello world', () => {
+describe('Testing account widget', () => {
   angular.module('app', [])
     .controller('MainCtrl', MainCtrl);
 
@@ -15,9 +15,9 @@ describe('Testing hello world', () => {
   beforeEach(inject(function(){}));
 
 
-  describe('hello world widget', () => {
+  describe('dummy test', () => {
    let vm;
-    
+
     it('should be a text', () => {
       // expect(vm.message).toBe('Hello World');
       // expect(vm.test.length).toEqual(2);
@@ -25,4 +25,3 @@ describe('Testing hello world', () => {
     });
   })
 });
-

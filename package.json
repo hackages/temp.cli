@@ -6,7 +6,7 @@
   "scripts": {
     "test": "crelan test -w",
     "start": "gulp",
-    "prebamboo": "npm install",
+    "prebamboo": "rm -rf mocha.json && npm install",
     "bamboo": "crelan ci",
     "server": "crelan bootstrap",
     "manifest": "gulp generate-manifest",
