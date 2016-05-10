@@ -1,4 +1,11 @@
-bower_components/ 
-statics/ 
-node_modules/ 
+bower_components/
+statics/
+node_modules/
 .idea/
+mocha.json
+report/
+target/
+components/**/target/
+.*swp
+index.js
+dist/
