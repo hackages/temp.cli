@@ -35,12 +35,8 @@ const logError = (message) => {
   console.log(chalk.bold.red(message));
 };
 
-const getDirs = () => {
-  const libs = glob.sync('bower_components/*');
-  const components = glob.sync('components/*');
+const getDirs = () => glob.sync('components/*');
 
-  return [...libs, ...components];
-};
 
 gulp.task('clean', function () {
   return del(['./bower_components', './target/zips']);
