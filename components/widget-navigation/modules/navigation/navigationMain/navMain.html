@@ -1,11 +1,13 @@
 <nav class="navigation__main">
     <ul>
-        <li ng-repeat="nav in navigations"></li>
-        <li class="navigation__main__item navigation__main__item--active">
+        <li class="navigation__main__item" ng-repeat="nav in navCtrl.navigations">
+            <a href={{nav.url}}>{{nav.label}}</a>
+        </li>
+  <!--      <li class="navigation__main__item navigation__main__item&#45;&#45;active">
             <a href="#">Dashboard</a>
         </li>
         <li class="navigation__main__item">
-            <a href="#">Rekeningen &amp; kaarten</a>
+           <a href="#">Rekeningen &amp; kaarten</a>
         </li>
         <li class="navigation__main__item">
             <a href="#">Betalen</a>
@@ -21,6 +23,6 @@
         </li>
         <li class="navigation__main__item">
             <a href="#">Verzekeringen</a>
-        </li>
+        </li>-->
     </ul>
 </nav>
