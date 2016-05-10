@@ -221,4 +221,16 @@ gulp.task('zip-dist', function () {
   });
 });
 
+gulp.task('sass', () => {
+  return gulp.src('themes/**/*.scss')
+      .pipe(sass({
+        includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
+      }).on('error', sass.logError))
+      .pipe(gulp.dest('./themes/dist'));
+});
+
+gulp.task('sass:watch', () => {
+  gulp.watch('themes/**/*.scss');
+});
+
 gulp.task('default', gulpsync.sync(['generate-manifest', 'zip-dist', 'check-portal', 'import-zips']));
