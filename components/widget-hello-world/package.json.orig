@@ -1,0 +1,39 @@
+{
+  "name": "account.module",
+  "version": "0.0.1",
+  "description": "account module",
+  "main": "index.js",
+  "directories": {
+    "test": "test",
+    "dist": "dist"
+  },
+  "scripts": {
+    "test": "crelan test -w",
+    "watch": "crelan watch",
+    "start": "crelan start",
+    "lint": "crelan lint"
+  },
+  "keywords": [
+    "angular",
+    "crelan",
+    "hackages"
+  ],
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "browser": true
+    }
+  },
+  "author": "crelan team",
+  "license": "MIT",
+  "dependencies": {
+<<<<<<< HEAD
+    "angular": "^1.5.5"
+=======
+    "angular": "^1.5.5",
+    "eslint": "^2.9.0",
+    "lodash": "^4.12.0"
+>>>>>>> origin/architecture
+  }
+}
