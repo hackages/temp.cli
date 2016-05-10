@@ -4,7 +4,7 @@
   "description": "private portal",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "bower install && crelan test -w",
+    "test": "crelan test -w",
     "start": "gulp",
     "bamboo": "crelan ci",
     "server": "crelan bootstrap",
