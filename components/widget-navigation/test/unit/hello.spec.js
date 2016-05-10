@@ -1,5 +1,5 @@
 
-describe('Testing hello world', function(){
+describe('Testing navigation widget', function(){
 
   function Controller () {
     this.message = 'Hello World';
@@ -9,7 +9,7 @@ describe('Testing hello world', function(){
 
   beforeEach(angular.mock.module('app'));
 
-  describe('hello world widget',() => {
+  describe('simple controller with controllerAs',() => {
     let vm;
     beforeEach(inject(function ($controller) {
       vm = $controller('MainCtrl');
@@ -20,4 +20,3 @@ describe('Testing hello world', function(){
     });
   });
 });
-

@@ -24,6 +24,9 @@ const formattor = require('formattor');
 const jxon = require('jxon');
 const file = require('gulp-file');
 const shelljs = require('shelljs');
+const git = require('git-rev');
+
+const server = process.env.BACKBASE_SERVER || 'http://localhost:7777/portalserver/';
 
 const typeList = {};
 
@@ -155,7 +158,6 @@ gulp.task('generate-manifest', function () {
 });
 
 
-const server = "http://localhost:7777/portalserver/";
 
 gulp.task('check-portal', () => {
   return request.get(server, {
@@ -174,7 +176,21 @@ gulp.task('check-portal', () => {
   });
 });
 
+gulp.task('import-zips-dev', () => {
+  git.branch(function(branch){
+    if (branch === 'develop') {
+      importZips();
+    } else {
+      logInfo('You can only import components when you are on develop branch!');
+    }
+  });
+});
+
 gulp.task('import-zips', () => {
+  importZips();
+});
+
+const importZips = () => {
   const user = 'admin';
   const password = 'admin';
 
@@ -191,14 +207,14 @@ gulp.task('import-zips', () => {
         exec(`${importCMD} -f ${fullPath}`, (error) => {
           if (error != null) {
             logError(`error importing packages: ${error}`);
-          } else {
+          } else  {
             logInfo(`Done importing ${component}`);
           }
         });
       });
     });
   });
-});
+}
 
 gulp.task('zip-dist', function () {
   getDirs().map((dir) => {
