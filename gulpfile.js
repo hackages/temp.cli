@@ -26,6 +26,7 @@ const file = require('gulp-file');
 const shelljs = require('shelljs');
 const git = require('git-rev');
 
+const server = process.env.BACKBASE_SERVER || 'http://localhost:7777/portalserver/';
 
 const typeList = {};
 
@@ -159,7 +160,6 @@ gulp.task('generate-manifest', function () {
 
 
 gulp.task('check-portal', () => {
-  const server = "http://hn5613.crelan.be:6080/portalserver/";
   return request.get(server, {
     'auth': {
       'user': 'admin',
@@ -179,8 +179,7 @@ gulp.task('check-portal', () => {
 gulp.task('import-zips-dev', () => {
   git.branch(function(branch){
     if (branch === 'develop') {
-      const server = "http://hn5613.crelan.be:6080/portalserver/";
-      importZips(server);
+      importZips();
     } else {
       logInfo('You can only import components when you are on develop branch!');
     }
@@ -188,11 +187,10 @@ gulp.task('import-zips-dev', () => {
 });
 
 gulp.task('import-zips', () => {
-  const server = 'http://localhost:7777/portalserver/';
-  importZips(server);
+  importZips();
 });
 
-const importZips = (server) => {
+const importZips = () => {
   const user = 'admin';
   const password = 'admin';
 
