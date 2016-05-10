@@ -1,11 +1,11 @@
 import angular from 'angular/index.js';
 import accountTemplate from './account.html';
 
-let module = angular.module('accountComponent', [])
-  .directive('accountModule', accountComponent);
+let module = angular.module('accountDirective', [])
+  .directive('accountModule', accountDirective);
 export default module.name;
 
-function accountComponent(){
+function accountDirective(){
   return {
     restrict: 'EA',
     template: accountTemplate

@@ -1,3 +1,57 @@
-.navigation{positionfixed;top0;left0;bottom0;width50%;max-width350px;padding-left30px;padding-top50px;padding-right80px;padding-bottom50px;background#fff;overflowauto}@media (min-width 720px){.navigation{padding-left80px}}.navigation__logo{displayblock;max-width150px;margin0 auto}.navigation__main{margin-right-80px}.navigation__main ul,.navigation__main li{list-stylenone;margin0;padding0}.navigation__main__item a{displayblock;padding20px 10px;color#666;text-decorationnone;border-bottom1px solid #efefef;transition0.3s ease-in-out color}.navigation__main__item ahover{backgroundlinear-gradient(to right, rgba(239,239,239,0), rgba(239,239,239,0.4));color#278a55}.navigation__main__item--active a,.navigation__main__item--active ahover{backgroundlinear-gradient(to right, rgba(255,222,0,0), rgba(255,222,0,0.4));color#666}
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    max-width: 350px;
+    padding-left: 30px;
+    padding-top: 50px;
+    padding-right: 80px;
+    padding-bottom: 50px;
+    background: #fff;
+    overflow: auto
+}
 
-# sourceMappingURL=navigation.css.map 
+@media (min-width: 720px) {
+    .navigation {
+        padding-left: 80px
+    }
+}
+
+.navigation__logo {
+    display: block;
+    max-width: 150px;
+    margin: 0 auto
+}
+
+.navigation__main {
+    margin-right: -80px
+}
+
+.navigation__main ul, .navigation__main li {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.navigation__main__item a {
+    display: block;
+    padding: 20px 10px;
+    color: #666;
+    text-decoration: none;
+    border-bottom: 1px solid #efefef;
+    transition: 0.3s ease-in-out color
+}
+
+.navigation__main__item a:hover {
+    background: linear-gradient(to right, rgba(239, 239, 239, 0), rgba(239, 239, 239, 0.4));
+    color: #278a55
+}
+
+.navigation__main__item--active a, .navigation__main__item--active a:hover {
+    background: linear-gradient(to right, rgba(255, 222, 0, 0), rgba(255, 222, 0, 0.4));
+    color: #666
+}
+
+/*# sourceMappingURL=navigation.css.map */

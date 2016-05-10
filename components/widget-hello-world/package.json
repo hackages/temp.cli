@@ -28,6 +28,8 @@
   "author": "crelan team",
   "license": "MIT",
   "dependencies": {
-    "eslint": "^2.9.0"
+    "angular": "^1.5.5",
+    "eslint": "^2.9.0",
+    "lodash": "^4.12.0"
   }
 }
