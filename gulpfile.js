@@ -24,6 +24,8 @@ const formattor = require('formattor');
 const jxon = require('jxon');
 const file = require('gulp-file');
 const shelljs = require('shelljs');
+const git = require('git-rev');
+
 
 const typeList = {};
 
@@ -155,9 +157,9 @@ gulp.task('generate-manifest', function () {
 });
 
 
-const server = "http://localhost:7777/portalserver/";
 
 gulp.task('check-portal', () => {
+  const server = "http://hn5613.crelan.be:6080/portalserver/";
   return request.get(server, {
     'auth': {
       'user': 'admin',
@@ -174,7 +176,23 @@ gulp.task('check-portal', () => {
   });
 });
 
+gulp.task('import-zips-dev', () => {
+  git.branch(function(branch){
+    if (branch === 'develop') {
+      const server = "http://hn5613.crelan.be:6080/portalserver/";
+      importZips(server);
+    } else {
+      logInfo('You can only import components when you are on develop branch!');
+    }
+  });
+});
+
 gulp.task('import-zips', () => {
+  const server = 'http://localhost:7777/portalserver/';
+  importZips(server);
+});
+
+const importZips = (server) => {
   const user = 'admin';
   const password = 'admin';
 
@@ -191,14 +209,14 @@ gulp.task('import-zips', () => {
         exec(`${importCMD} -f ${fullPath}`, (error) => {
           if (error != null) {
             logError(`error importing packages: ${error}`);
-          } else {
+          } else  {
             logInfo(`Done importing ${component}`);
           }
         });
       });
     });
   });
-});
+}
 
 gulp.task('zip-dist', function () {
   getDirs().map((dir) => {
