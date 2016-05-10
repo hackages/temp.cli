@@ -1,7 +1,7 @@
-
 describe('Testing hello world', function(){
 
   function Controller () {
+    console.log('inside controller');
     this.message = 'Hello World';
   }
 
@@ -9,8 +9,7 @@ describe('Testing hello world', function(){
 
   beforeEach(angular.mock.module('app'));
 
-  describe('hello world widget',() => {
-    let vm;
+    var vm;
     beforeEach(inject(function ($controller) {
       vm = $controller('MainCtrl');
     } ));
@@ -18,6 +17,5 @@ describe('Testing hello world', function(){
     it('should be a text', function() {
       expect(vm.message).toBe('Hello World');
     });
-  });
 });
 
