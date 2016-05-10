@@ -2,7 +2,7 @@
   "name": "scripts",
   "version": "1.0.0",
   "description": "private portal",
-  "main": "gulpfile.js",
+  "main": "index.js",
   "scripts": {
     "test": "crelan test -w",
     "start": "gulp",
