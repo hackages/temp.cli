@@ -26,7 +26,7 @@ const file = require('gulp-file');
 const shelljs = require('shelljs');
 const git = require('git-rev');
 
-const server = process.env.BACKBASE_SERVER || 'http://localhost:7777/portalserver/';
+const server = process.env.BACKBASE_SERVER || 'http://cn6130.crelan.be:7777/portalserver/';
 
 const typeList = {};
 
@@ -248,5 +248,7 @@ gulp.task('sass', () => {
 gulp.task('sass:watch', () => {
   gulp.watch('themes/**/*.scss');
 });
+
+gulp.task('bamboo', gulpsync.sync(['generate-manifest', 'zip-dist', 'check-portal', 'import-zips-dev']));
 
 gulp.task('default', gulpsync.sync(['generate-manifest', 'zip-dist', 'check-portal', 'import-zips']));
