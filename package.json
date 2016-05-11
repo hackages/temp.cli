@@ -5,13 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "crelan test -w",
-    "start": "gulp",
     "prebamboo": "rm -rf mocha.json && npm install",
     "bamboo": "crelan ci",
     "server": "crelan bootstrap",
-    "manifest": "gulp generate-manifest",
-    "zips": "gulp zip-dist",
-    "import": "gulp import-zips-dev"
+    "import-bamboo": "gulp bamboo",
+    "import": "gulp"
   },
   "config": {
     "ghooks": {
