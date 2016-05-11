@@ -250,9 +250,14 @@ gulp.task('sass:watch', () => {
   gulp.watch('themes/**/*.scss');
 });
 
+gulp.task('wait', () => {
+  console.log('started waiting');
+  setTimeout(()=>{console.log("stopped waiting")}, 10000);
+});
+
 gulp.task('bamboo',  (callback) =>  {
-  runSequence('clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips-dev', callback);
+  runSequence('clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips-dev', 'wait', callback);
 });
 
 gulp.task('default', (callback) => {
-  runSequence('clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips', callback)});
+  runSequence('clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips', 'wait', callback)});
