@@ -25,6 +25,7 @@ const jxon = require('jxon');
 const file = require('gulp-file');
 const shelljs = require('shelljs');
 const git = require('git-rev');
+const runSequence = require('run-sequence');
 
 const server = process.env.BACKBASE_SERVER || 'http://cn6130.crelan.be:7777/portalserver/';
 
@@ -42,7 +43,7 @@ const getDirs = () => glob.sync('components/*');
 
 
 gulp.task('clean', function () {
-  return del(['./bower_components', './target/zips']);
+  return del(['./target/zips']);
 });
 
 gulp.task('generate-manifest', function () {
@@ -249,6 +250,7 @@ gulp.task('sass:watch', () => {
   gulp.watch('themes/**/*.scss');
 });
 
-gulp.task('bamboo', gulpsync.sync(['generate-manifest', 'zip-dist', 'check-portal', 'import-zips-dev']));
+gulp.task('bamboo', gulpsync.sync(['clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips-dev']));
 
-gulp.task('default', gulpsync.sync(['generate-manifest', 'zip-dist', 'check-portal', 'import-zips']));
+gulp.task('default', function(callback) {
+  runSequence('clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips', callback)});
