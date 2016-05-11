@@ -1,0 +1,37 @@
+{namespace templates_TwoColumnsTemplate}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  angular.bootstrap(document.body, ['app']);
+});
+</script>
+/**
+ * Two Columns Layout
+ * @param item Item in context
+ */
+{template .TwoColumnsTemplate}
+    <div class="bp-container" data-pid="{$item.name}">
+    <div class="leftcolumn">
+            {for $i in range(3)}
+                <div class="TwoColumns--area bp-area">
+                    {foreach $child in $item.children}
+                        {if parseInt($child.preferences.area.value) == $i}
+                            {include($child) |noAutoescape}
+                        {/if}
+                    {/foreach}
+                </div>
+            {/for}
+        </div>
+        <div class="rightcolumn">
+            {for $i in range(3,6)}
+                <div class="TwoColumns--area bp-area">
+                    {foreach $child in $item.children}
+                        {if parseInt($child.preferences.area.value) == $i}
+                            {include($child) |noAutoescape}
+                        {/if}
+                    {/foreach}
+                </div>
+            {/for}
+        </div>
+        <div class="clear"></div>
+    </div>
+{/template}

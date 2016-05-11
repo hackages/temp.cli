@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <container>
+        <name>twoColumnContainer</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="TemplateName">
+                <value type="string">TwoColumnsTemplate</value>
+            </property>
+            <property name="viewNamespace">
+                <value type="string">templates_twoColumnsTemplate</value>
+            </property>
+            <property name="title" label="Title" viewHint="admin,designModeOnly">
+                <value type="string">TwoColumnContainer</value>
+            </property>
+            <property name="config">
+                <value type="string">$(itemRoot)/config.xml</value>
+            </property>
+            <property name="csr">
+                <value type="boolean">false</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(itemRoot)/media/icon.png</value>
+            </property>
+        </properties>
+        <tags>
+          <tag type="section">container</tag>
+          
+          <tag type="regular">container</tag>
+          
+        </tags>
+    </container>
+</catalog>
