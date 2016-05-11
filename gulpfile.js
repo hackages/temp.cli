@@ -25,9 +25,8 @@ const jxon = require('jxon');
 const file = require('gulp-file');
 const shelljs = require('shelljs');
 const git = require('git-rev');
-const runSequence = require('run-sequence');
 
-const server = process.env.BACKBASE_SERVER || 'http://cn6130.crelan.be:7777/portalserver/';
+const server = process.env.BACKBASE_SERVER || `http://${process.env.COMPUTERNAME}.crelan.be:7777/portalserver/`;
 
 const typeList = {};
 
@@ -255,9 +254,3 @@ gulp.task('wait', () => {
   setTimeout(()=>{console.log("stopped waiting")}, 10000);
 });
 
-gulp.task('bamboo',  (callback) =>  {
-  runSequence('clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips-dev', 'wait', callback);
-});
-
-gulp.task('default', (callback) => {
-  runSequence('clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips', 'wait', callback)});
