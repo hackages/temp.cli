@@ -2,15 +2,14 @@
   "name": "scripts",
   "version": "1.0.0",
   "description": "private portal",
-  "main": "gulpfile.js",
+  "main": "index.js",
   "scripts": {
     "test": "crelan test -w",
-    "start": "gulp",
+    "prebamboo": "rm -rf mocha.json && npm install",
     "bamboo": "crelan ci",
     "server": "crelan bootstrap",
-    "manifest": "gulp generate-manifest",
-    "zips": "gulp zip-dist",
-    "import": "gulp import-zips"
+    "import-bamboo": "gulp bamboo",
+    "import": "gulp"
   },
   "config": {
     "ghooks": {
@@ -49,6 +48,7 @@
     "lodash": "^4.11.1",
     "nodegit": "^0.13.0",
     "phantomjs": "^2.1.7",
+    "run-sequence": "^1.1.5",
     "util": "^0.10.3",
     "walk": "^2.3.9"
   },
@@ -56,6 +56,8 @@
     "angular": "^1.5.5",
     "chalk": "^1.1.3",
     "file-exists": "^1.0.0",
+    "git-branch": "^0.3.0",
+    "git-rev": "^0.2.1",
     "lodash": "^4.12.0",
     "path-exists": "^3.0.0",
     "request": "^2.72.0"

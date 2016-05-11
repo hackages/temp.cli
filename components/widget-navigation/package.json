@@ -1,7 +1,7 @@
 {
-  "name": "account.module",
+  "name": "main.navigation",
   "version": "0.0.1",
-  "description": "account module",
+  "description": "main navigation",
   "main": "index.js",
   "directories": {
     "test": "test",

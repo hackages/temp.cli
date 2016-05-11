@@ -8,3 +8,4 @@ target/
 components/**/target/
 .*swp
 dist/
+npm-debug.log
