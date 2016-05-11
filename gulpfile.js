@@ -250,7 +250,9 @@ gulp.task('sass:watch', () => {
   gulp.watch('themes/**/*.scss');
 });
 
-gulp.task('bamboo', gulpsync.sync(['clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips-dev']));
+gulp.task('bamboo',  (callback) =>  {
+  runSequence('clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips-dev', callback);
+});
 
-gulp.task('default', function(callback) {
+gulp.task('default', (callback) => {
   runSequence('clean', 'generate-manifest', 'zip-dist', 'check-portal', 'import-zips', callback)});
