@@ -258,13 +258,14 @@
 	  devtool: 'source-map',
 	  entry: {
 	    index: _configuration2.default.mainEntry,
-	    common: ['angular', 'lodash']
+	    common: ['angular']
 	  },
 	  output: {
 	    filename: 'index.js',
 	    path: _configuration2.default.outputDir
 	  },
 	  resolveLoader: {
+	    root: [_configuration2.default.context],
 	    fallback: _configuration2.default.nodeModules
 	  },
 	  resolve: {
@@ -788,15 +789,15 @@
 /***/ function(module, exports) {
 
 	module.exports = {
-		"name": "cli.crelan",
-		"version": "0.0.1",
+		"name": "crelan-cli",
+		"version": "0.0.3",
 		"description": "CLI tools to speed up the development process",
 		"main": "tools/index.js",
 		"scripts": {
 			"pretest": "eslint tools",
-			"preci": "rm -rf mocha.json && npm i",
-			"ci": "mocha -R mocha-bamboo-reporter",
-			"test": "mocha test -w",
+			"prebamboo": "rm -rf mocha.json && npm i",
+			"bamboo": "mocha -R mocha-bamboo-reporter",
+			"test": "mocha test",
 			"codecov": "mocha -- -R -spec && codecov",
 			"lint": "eslint tools",
 			"precommit": "npm run lint",
@@ -807,6 +808,9 @@
 		},
 		"bin": {
 			"crelan": "bin/index.js"
+		},
+		"publishConfig": {
+			"registry": "http://hn198.crelan.be:8081/nexus/content/repositories/npm-internal"
 		},
 		"keywords": [
 			"angular",
