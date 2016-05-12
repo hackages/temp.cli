@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <template>
+        <type>CONTAINER</type>
+        <name>TwoColumnsTemplate</name>
+        <properties>
+            <property name="title"><value type="string">Two Columns Template</value></property>
+            <property name="Web"><value type="string">templates/TwoColumns-web</value></property>
+            <property name="BundleName"><value type="string">$(itemRoot)</value></property>
+            <property name="DefaultDevice"><value type="string">Web</value></property>
+        </properties>
+        <tags>
+            <tag>documentation</tag>
+            <tag>container template</tag>
+        </tags>
+    </template>
+</catalog>

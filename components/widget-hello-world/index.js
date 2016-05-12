@@ -1,7 +1,7 @@
-import account from './modules/account';
+import helloWorld from './modules/helloWorld';
 
-angular.module('app', [account]);
+angular.module('helloWorldApp', [helloWorld]);
 
 document.addEventListener('DOMContentLoaded', function () {
-  angular.bootstrap(document.body, ['app']);
+  angular.bootstrap(document.body, ['helloWorldApp']);
 });
