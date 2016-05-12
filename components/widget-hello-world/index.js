@@ -1,4 +1,4 @@
-import helloWorld from './modules/helloWorld';
+import helloWorld from './modules/helloworld';
 
 angular.module('helloWorldApp', [helloWorld]);
 
