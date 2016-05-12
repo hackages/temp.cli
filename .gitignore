@@ -9,3 +9,4 @@ components/**/target/
 .*swp
 dist/
 npm-debug.log
+Thumbs.db
