@@ -8,8 +8,8 @@
     "prebamboo": "rm -rf mocha.json && npm install",
     "bamboo": "crelan ci",
     "server": "crelan bootstrap",
-    "import-bamboo": "gulp bamboo",
-    "import": "gulp"
+    "import-bamboo": "gulp clean && gulp generate-manifest && gulp zip-dist && gulp check-portal && gulp import-zips-dev",
+    "import": "gulp clean && gulp generate-manifest && gulp zip-dist && gulp check-portal && gulp import-zips"
   },
   "config": {
     "ghooks": {
@@ -48,7 +48,6 @@
     "lodash": "^4.11.1",
     "nodegit": "^0.13.0",
     "phantomjs": "^2.1.7",
-    "run-sequence": "^1.1.5",
     "util": "^0.10.3",
     "walk": "^2.3.9"
   },
