@@ -1,3 +1,4 @@
-import account from './modules/account';
+import helloWorld from './modules/helloWorld';
 
-angular.module('app', [account]);
+angular.module('app', [helloWorld]);
+
