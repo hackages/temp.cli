@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
     <widget>
-        <name>HelloWorld Widget</name>
+        <name>HelloWorldWidget</name>
         <contextItemName>[BBHOST]</contextItemName>
         <properties>
             <property label="Title" name="title" viewHint="text-input,admin">
-                <value type="string">HelloWorld Widget</value>
+                <value type="string">HelloWorldWidget</value>
             </property>
             <property name="TemplateName">
                 <value type="string">Standard_Widget</value>
@@ -22,7 +22,9 @@
             <property name="area">
                 <value type="string">0</value>
             </property>
-
+            <property name="area">
+                <value type="string"/>
+            </property>
         </properties>
     </widget>
 </catalog>
