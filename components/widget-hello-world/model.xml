@@ -22,9 +22,6 @@
             <property name="area">
                 <value type="string">0</value>
             </property>
-            <property name="area">
-                <value type="string"/>
-            </property>
         </properties>
     </widget>
 </catalog>
