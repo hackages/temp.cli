@@ -1,3 +1,3 @@
-import helloWorld from './helloWorldDirective';
+import helloWorld from './helloworlddirective';
 
 export default angular.module('helloWorld', [helloWorld]).name;
