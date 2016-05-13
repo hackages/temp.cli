@@ -1,7 +1,7 @@
 import angular from 'angular/index.js';
-import helloWorldTemplate from './helloWorld.html';
-import HelloWorldCtrl from './HelloWorldCtrl';
-import helloWorldService from './services/HelloWorldService';
+import helloWorldTemplate from './helloworld.html';
+import HelloWorldCtrl from './helloworldctrl';
+import helloWorldService from './services/helloworldservice';
 
 let module = angular.module('helloWorldDirective', [helloWorldService])
   .directive('helloWorld', helloWorldDirective);
