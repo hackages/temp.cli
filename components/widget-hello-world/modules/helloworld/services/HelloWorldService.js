@@ -6,14 +6,14 @@ HelloWorldService.$inject = ['$http'];
 function HelloWorldService($http) {
 
   function getHelloWorld() {
-    return $http.get('./mocks/messages.json')
+    return $http.get('/mocks/messages.json')
       .then(function (response) {
         return response.data;
       });
   }
 
   return {
-    getHelloWorld : getHelloWorld
+    getHelloWorld
   }
 }
 
