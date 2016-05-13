@@ -13,7 +13,7 @@ function HelloWorldService($http) {
   }
 
   return {
-    getHelloWorld : getHelloWorld
+    getHelloWorld
   }
 }
 
