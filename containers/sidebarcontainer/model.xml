@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <catalog>
     <container>
-        <name>twoColumnContainer</name>
+        <name>sidebarcontainer</name>
         <contextItemName>[BBHOST]</contextItemName>
         <properties>
             <property name="TemplateName">
-                <value type="string">TwoColumnsTemplate</value>
+                <value type="string">sidebartemplate</value>
             </property>
             <property name="viewNamespace">
-                <value type="string">templates_twoColumnsTemplate</value>
+                <value type="string">templates_sidebartemplate</value>
             </property>
             <property name="title" label="Title" viewHint="admin,designModeOnly">
-                <value type="string">TwoColumnContainer</value>
+                <value type="string">sidebarcontainer</value>
             </property>
             <property name="config">
                 <value type="string">$(itemRoot)/config.xml</value>
+            </property>
+            <property name="area">
+                <value type="string"/>
             </property>
             <property name="csr">
                 <value type="boolean">false</value>
@@ -24,10 +27,8 @@
             </property>
         </properties>
         <tags>
-          <tag type="section">container</tag>
-          
-          <tag type="regular">container</tag>
-          
+            <tag blacklist="false" type="regular">container</tag>
+            <tag blacklist="false" type="section">layouts</tag>
         </tags>
     </container>
 </catalog>

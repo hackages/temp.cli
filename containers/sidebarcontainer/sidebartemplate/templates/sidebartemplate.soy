@@ -1,0 +1,29 @@
+{namespace templates_sidebartemplate}
+/**
+ * Container Template
+ * @param item Item in context
+ */
+{template .sidebartemplate}
+    <div class="bp-container bp-ui-dragRoot act-tiles-container" data-pid="{$item.name}">
+
+            <div class="container">
+                <div class="bp-area --area" style="background: blue; padding: 10px 0">
+                    {foreach $child in $item.children}
+                        {if parseInt($child.preferences.area.value) == 0}
+                            {include($child) |noAutoescape}
+                        {/if}
+                    {/foreach}
+                </div>
+            </div>
+
+             <div class="container">
+                <div class="bp-area --area" style="background: red; padding: 10px 0">
+                    {foreach $child in $item.children}
+                        {if parseInt($child.preferences.area.value) == 1}
+                            {include($child) |noAutoescape}
+                        {/if}
+                    {/foreach}
+                </div>
+            </div>
+         </div>
+{/template}
