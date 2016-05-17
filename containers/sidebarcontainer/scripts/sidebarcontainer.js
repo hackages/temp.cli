@@ -1,3 +1,4 @@
+/* global b$ */
 (function () {
     'use strict';
 
@@ -7,8 +8,8 @@
         Container.apply(this, arguments);
         this.isPossibleDragTarget = true;
     }, {
-        localName: 'twoColumnTemplate',
-        namespaceURI: 'templates_twoColumnTemplate'
+        localName: 'sidebartemplate',
+        namespaceURI: 'templates_sidebartemplate'
     }, {
         template: function(json) {
             var data = {item: json.model.originalItem};
