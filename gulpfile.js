@@ -225,8 +225,8 @@ gulp.task('zip-dist', function () {
 
     const fullPath = pathExists.sync(zipsPath) ? zipsPath: path.resolve(dir, `../../${zips}`);
 
-    const zipCMD = `cd ${srcPath} && zip -r ${path.join(fullPath, item + '.zip')} .`;
-
+    const zipCMD = `cd ${srcPath} && zip -r ${path.join(fullPath, item + '.zip')} . dist styles`;
+    console.log(`Executing: ${zipCMD}`);
     exec(zipCMD, (error) => {
       if (error !== null) {
         logError(`error while running this command: ${zipCMD}`);
