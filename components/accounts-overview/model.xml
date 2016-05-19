@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
     <widget>
-        <name>AccountsOverviewWidget</name>
+        <name>accounts-overview</name>
         <contextItemName>[BBHOST]</contextItemName>
         <properties>
             <property label="Title" name="title" viewHint="text-input,admin">
-                <value type="string">AccountsOverviewWidget</value>
+                <value type="string">accounts-overview</value>
             </property>
             <property name="TemplateName">
                 <value type="string">Standard_Widget</value>
