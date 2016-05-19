@@ -229,7 +229,8 @@ gulp.task('zip-dist', function () {
     console.log(`Executing: ${zipCMD}`);
     exec(zipCMD, (error) => {
       if (error !== null) {
-        logError(`error while running this command: ${zipCMD}`);
+        logError(`error while running this command: ${zipCMD}: ${error}`);
+        process.env.exit(1);
       } else {
         logInfo(`Zipping of ${item} is done successfully`);
       }
