@@ -1,7 +1,9 @@
-/*import mocks from './mocks';*/
+import anonymousLogin from './modules/anonymouslogin'
 
-angular.module('app', [/*mocks*/]);
+const crelanAnonymousLogin = 'crelan.anonymouslogin';
+
+angular.module(crelanAnonymousLogin, [anonymousLogin]);
 
 document.addEventListener('DOMContentLoaded', function () {
-  angular.bootstrap(document.body, ['app']);
+  angular.bootstrap(document.body, [crelanAnonymousLogin]);
 });
