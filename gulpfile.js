@@ -36,6 +36,7 @@ const logInfo = (message) => {
 
 const logError = (message) => {
   console.log(chalk.bold.red(message));
+  process.exit(1);
 };
 
 const getDirs = () => glob.sync('components/*');
@@ -230,7 +231,7 @@ gulp.task('zip-dist', function () {
     exec(zipCMD, (error) => {
       if (error !== null) {
         logError(`error while running this command: ${zipCMD}: ${error}`);
-        process.env.exit(1);
+        process.exit(1);
       } else {
         logInfo(`Zipping of ${item} is done successfully`);
       }
