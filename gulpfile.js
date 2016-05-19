@@ -36,6 +36,7 @@ const logInfo = (message) => {
 
 const logError = (message) => {
   console.log(chalk.bold.red(message));
+  process.exit(1);
 };
 
 const getDirs = () => glob.sync('components/*');
@@ -204,7 +205,7 @@ const importZips = () => {
 
         const fullPath = path.resolve(`${zip}`);
 
-        exec(`${importCMD} -f ${fullPath}`, (error) => {
+        exec(`${importCMD} -f ${fullPath}`, {maxBuffer: 1024 * 500}, (error) => {
           if (error != null) {
             logError(`error importing packages: ${error}`);
           } else  {
@@ -227,9 +228,10 @@ gulp.task('zip-dist', function () {
 
     const zipCMD = `cd ${srcPath} && zip -r ${path.join(fullPath, item + '.zip')} . dist styles`;
     console.log(`Executing: ${zipCMD}`);
-    exec(zipCMD, (error) => {
+    exec(zipCMD, {maxBuffer: 1024 * 500}, (error) => {
       if (error !== null) {
-        logError(`error while running this command: ${zipCMD}`);
+        logError(`error while running this command: ${zipCMD}: ${error}`);
+        process.exit(1);
       } else {
         logInfo(`Zipping of ${item} is done successfully`);
       }
