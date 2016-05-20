@@ -1,0 +1,14 @@
+.links {
+  &__anonymous {
+    text-align: center;
+    padding: 7px 0;
+    a {
+
+      color: currentColor;
+
+      &:hover {
+        color: currentColor;
+      }
+    }
+  }
+}

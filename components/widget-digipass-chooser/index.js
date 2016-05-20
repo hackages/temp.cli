@@ -1,8 +1,4 @@
-/*import helloWorld from './modules/digipasschooser';
-import mocks from './mocks';*/
+import digipasschooser from './modules/digipasschooser';
+/*import mocks from './mocks';*/
 
-angular.module('app', [/*digipasschooser, mocks*/]);
-
-document.addEventListener('DOMContentLoaded', function () {
-  angular.bootstrap(document.body, ['app']);
-});
+angular.module('crelan.digipasschooser', [digipasschooser/*, mocks*/]);

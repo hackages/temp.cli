@@ -1,0 +1,66 @@
+.cards {
+  margin-bottom: 15px;
+  &__card {
+    display: block;
+    @include material(1);
+    margin-bottom: 15px;
+    background: $white;
+    color: $grey-xl;
+
+    &:hover {
+      text-decoration: none;
+    }
+    &__title {
+      font-size: 1.7em;
+      @media (min-width: $screen-lg) {
+        font-size: 2em;
+      }
+      margin-bottom: 0.2em;
+    }
+    &__header {
+      img {
+        width: 100%;
+        max-width: none;
+      }
+    }
+    &__content {
+      text-align: center;
+      padding: 20px;
+      .button {
+        margin-top: 10px;
+      }
+    }
+  }
+
+}
+
+&__new-card {
+  background: $green-l;
+  display: block;
+  @include material(1);
+  &__header {
+    position: relative;
+    color: $white;
+    &:after {
+      content: '';
+      display: block;
+      padding-top: 81.54%;
+    }
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      fill: $yellow;
+    }
+  }
+  &__content {
+    color: $white;
+    background: $green-xl;
+    text-align: center;
+    padding: 20px;
+    .button {
+      margin-top: 10px;
+    }
+  }
+}
