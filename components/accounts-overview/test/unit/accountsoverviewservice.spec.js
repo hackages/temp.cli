@@ -2,12 +2,12 @@ import service from './../../modules/accountsoverview/services/accountsoverviews
 
 describe('Account Overview', function () {
 
-    beforeEach(angular.mock.module('crelan.accounts.service'));
+    beforeEach(angular.mock.module(service));
 
     describe('The service', () => {
 
         let accountsOverviewService, $httpBackend;
-        
+
         beforeEach(angular.mock.inject((_AccountsOverviewService_, _$httpBackend_) => {
             accountsOverviewService = _AccountsOverviewService_;
             $httpBackend = _$httpBackend_;
@@ -22,7 +22,6 @@ describe('Account Overview', function () {
             let actual = accountsOverviewService.getAllAccounts();
 
             actual.then((response) => {
-                console.log('moo');
                 expect(response).toEqual({"Account": "1"});
                 done();
             }).catch((err) => {
