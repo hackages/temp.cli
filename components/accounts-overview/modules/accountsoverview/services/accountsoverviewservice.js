@@ -1,3 +1,5 @@
+import angular from 'angular/index.js';
+
 /**
  *
  * @param $http
@@ -20,10 +22,12 @@ const AccountsOverviewService = ($http) => {
     return {
         getAllAccounts
     };
-}
+};
 AccountsOverviewService.$inject = ['$http'];
 
-const module = angular.module('crelan.accounts.service', [])
-    .service('AccountsOverviewService', AccountsOverviewService);
+export const AccountsOverviewServiceName = 'AccountsOverviewService';
+
+const module = angular.module('crelan.accounts.overview.service', [])
+    .service(AccountsOverviewServiceName, AccountsOverviewService);
 export default module.name;
 
