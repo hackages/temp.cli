@@ -9,7 +9,7 @@ const directiveName = 'accountsOverviewList';
  * accountsOverviewList directive to list the accounts
  * @returns {{restrict: string, template, scope: {}, controller: AccountsOverviewController, controllerAs: string}}
  */
-const accountsOverviewList = function () {
+const accountsOverviewList = () => {
     return {
         restrict: 'E',
         template: accountsOverviewTemplate,
@@ -17,7 +17,7 @@ const accountsOverviewList = function () {
         controller: AccountsOverviewController,
         controllerAs: 'accountsCtrl'
     }
-}
+};
 
 let module = angular.module('crelan.accounts.overview.list', [AccountOverviewService, AccountsOverviewCard])
     .directive(directiveName, accountsOverviewList);
