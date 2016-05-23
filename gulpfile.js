@@ -25,6 +25,7 @@ const jxon = require('jxon');
 const file = require('gulp-file');
 const shelljs = require('shelljs');
 const git = require('git-rev');
+const sass = require('gulp-sass');
 
 const server = process.env.BACKBASE_SERVER || `http://${process.env.COMPUTERNAME}.crelan.be:7777/portalserver/`;
 
@@ -247,9 +248,6 @@ gulp.task('sass', () => {
       .pipe(gulp.dest('./themes/dist'));
 });
 
-gulp.task('sass:watch', () => {
-  gulp.watch('themes/**/*.scss');
-});
 
 gulp.task('wait', () => {
   console.log('started waiting');

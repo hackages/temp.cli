@@ -1,0 +1,48 @@
+@if($render-components){
+  /*
+  @name Box
+  @description a default white box with material--1 applied to it.
+  @markup
+      <section class="box">
+          <div class="row">
+              <div class="col-md-6">
+                  lorem
+              </div>
+              <div class="col-md-6">
+                  ipsum
+              </div>
+          </div>
+      </section>
+      <!-- interactive when applied to an "a" tag !-->
+      <a class="box" href="#">
+          <div class="row">
+              <div class="col-md-6">
+                  lorem
+              </div>
+              <div class="col-md-6">
+                  ipsum
+              </div>
+          </div>
+      </a>
+  */
+  .box{
+    @include material(1, false);
+    background:$white;
+    padding:20px;
+    margin:15px 0;
+    color:$grey-xl;
+    .svg{
+      margin-bottom:1em;
+    }
+    @media (min-width: $screen-md){
+      &__vertical-seperator{
+        border-right:1px solid $grey-xs;
+      }
+    }
+  }
+  a.box{
+    display:block;
+    @include material(1);
+  }
+
+}

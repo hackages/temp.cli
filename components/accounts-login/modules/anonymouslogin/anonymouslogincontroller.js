@@ -1,3 +1,7 @@
+/**
+ * Anonymous login controller.
+ * @controller
+ */
 function AnonymousLoginController() {
 
   this.sendToAnonymousLogin = function() {

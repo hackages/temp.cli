@@ -36,6 +36,8 @@
     "gulp-file": "^0.2.0",
     "gulp-filter": "^4.0.0",
     "gulp-help": "^1.6.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-swig": "^0.8.0",
     "gulp-sync": "^0.1.4",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
