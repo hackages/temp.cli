@@ -4,6 +4,8 @@
  * @param item Item in context
  */
 {template .sidebartemplate}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<div id="crelan-app" ng-app="crelanApp">
     <div class="bp-container bp-ui-dragRoot act-tiles-container" data-pid="{$item.name}">
         <div class="container">
             <div class="bp-area --area" style="background: blue; padding: 10px 0">
@@ -23,7 +25,14 @@
                     {/if}
                 {/foreach}
             </div>
+<<<<<<< HEAD
         </div>
      </div>
      <script src="{$ij.portalContextRoot}/static/features/[BBHOST]/angular/angular.min.js"></script>
 {/template}
+=======
+         </div>
+</div>
+
+{/template}
+>>>>>>> f51d1668b1ed566ae31365459a6b8d318e64851a
