@@ -1,14 +1,15 @@
 import angular from 'angular/index.js';
-import accountsOverviewTemplate from './accountsoverview.html';
+import accountsOverviewTemplate from './accountsoverviewlist.html';
 import AccountsOverviewController from './accountsoverviewctrl';
 import AccountOverviewService from './services/accountsoverviewservice';
+import AccountsOverviewCard from './accountsoverviewcard';
 
-const directiveName = 'accountsOverview';
+const directiveName = 'accountsOverviewList';
 /**
- * accountsOverviewDirective
+ * accountsOverviewList directive to list the accounts
  * @returns {{restrict: string, template, scope: {}, controller: AccountsOverviewController, controllerAs: string}}
  */
-const accountsOverviewDirective = function () {
+const accountsOverviewList = () => {
     return {
         restrict: 'E',
         template: accountsOverviewTemplate,
@@ -16,9 +17,9 @@ const accountsOverviewDirective = function () {
         controller: AccountsOverviewController,
         controllerAs: 'accountsCtrl'
     }
-}
+};
 
-let module = angular.module('crelan.accounts.overview.directive', [AccountOverviewService])
-    .directive(directiveName, accountsOverviewDirective);
+let module = angular.module('crelan.accounts.overview.list', [AccountOverviewService, AccountsOverviewCard])
+    .directive(directiveName, accountsOverviewList);
 export default module.name;
 

@@ -1,6 +1,6 @@
-import directive from './../../modules/accountsoverview/accountsoverviewdirective';
+import directive from './../../modules/accountsoverview/accountsoverviewlist';
 
-describe('Accounts Overview Directive', function() {
+describe('Accounts Overview list Directive', function() {
     beforeEach(angular.mock.module(directive));
     let $compile, $rootScope, $httpBackend;
     beforeEach(angular.mock.inject(function(_$compile_, _$rootScope_, _$httpBackend_){
@@ -12,10 +12,10 @@ describe('Accounts Overview Directive', function() {
     it('Replaces the element with the appropriate content', function() {
         $httpBackend.whenGET('/portal/accounts/list/all').respond(200, {"Account": "1"});
         // Compile a piece of HTML containing the directive
-        var element = $compile("<accounts-overview></accounts-overview>")($rootScope);
+        var element = $compile("<accounts-overview-list></accounts-overview-list>")($rootScope);
         // fire all the watches, so the scope expression {{1 + 1}} will be evaluated
         $rootScope.$digest();
         // Check that the compiled element contains the templated content
-        expect(element.html()).toContain("All Accounts:");
+        expect(element.html()).toContain("Zichtrekeningen");
     });
 });
