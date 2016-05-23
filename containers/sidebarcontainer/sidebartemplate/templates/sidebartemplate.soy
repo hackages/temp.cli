@@ -4,6 +4,8 @@
  * @param item Item in context
  */
 {template .sidebartemplate}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<div id="crelan-app" ng-app="crelanApp">
     <div class="bp-container bp-ui-dragRoot act-tiles-container" data-pid="{$item.name}">
 
             <div class="container">
@@ -26,4 +28,6 @@
                 </div>
             </div>
          </div>
+</div>
+
 {/template}

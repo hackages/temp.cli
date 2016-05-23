@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
     <widget>
-        <name>anonymous-login</name>
+        <name>accounts-login</name>
         <contextItemName>[BBHOST]</contextItemName>
         <properties>
             <property label="Title" name="title" viewHint="text-input,admin">
-                <value type="string">anonymous-login</value>
+                <value type="string">accounts login widget</value>
             </property>
             <property name="TemplateName">
                 <value type="string">Standard_Widget</value>
             </property>
             <property name="src">
                 <value type="string">$(itemRoot)/index.html</value>
+            </property>
+            <property label="Url" name="url" viewHint="text-input,admin">
+                <value type="string">#</value>
             </property>
             <property name="thumbnailUrl">
                 <value type="string">$(itemRoot)/icon.png</value>

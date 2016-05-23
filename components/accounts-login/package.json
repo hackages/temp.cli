@@ -1,7 +1,7 @@
 {
-  "name": "digipass-chooser",
+  "name": "accounts-login",
   "version": "0.0.1",
-  "description": "digipass chooser",
+  "description": "accounts login",
   "main": "index.js",
   "directories": {
     "test": "test",
