@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+  <container>
+    <name>deck-container</name>
+    <contextItemName>[BBHOST]</contextItemName>
+    <properties>
+      <property name="viewNamespace">
+        <value type="string">launchpad</value>
+      </property>
+      <property label="Title" name="title" viewHint="text-input,designModeOnly,user">
+        <value type="string">Deck Container</value>
+      </property>
+      <property name="Description">
+        <value type="string">Generic container for holding several panels which can be shown one at a time.</value>
+      </property>
+      <property name="thumbnailUrl">
+        <value type="string">$(itemRoot)/icon.png</value>
+      </property>
+      <property name="TemplateName">
+        <value type="string">DeckContainer</value>
+      </property>
+      <property name="config">
+        <value type="string">$(itemRoot)/config.xml</value>
+      </property>
+      <property name="csr">
+        <value type="boolean">false</value>
+      </property>
+      <property name="state" label="State" viewHint="text-input,designModeOnly,manager">
+        <value type="string">[$1]</value>
+      </property>
+      <property name="defaultPanel" label="Default Panel" viewHint="text-input,designModeOnly,manager">
+        <value type="string"/>
+      </property>
+      <property label="Version" name="version" viewHint="text-input,admin,designModeOnly">
+        <value type="string">1.1.2</value>
+      </property>
+    </properties>
+    <tags>
+      <tag type="section">layouts</tag>
+      <tag type="regular">container</tag>
+    </tags>
+  </container>
+</catalog>
