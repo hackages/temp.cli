@@ -1,0 +1,23 @@
+<div class="col-md-4">
+    <section class="bank-account">
+        <div class="bank-account__top">
+            <svg class="icon icon--big">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cards"></use>
+            </svg>
+            <h4 class="bank-account__title">Lorem ipsum</h4>
+            <div class="bank-account__owner">
+                {{$ctrl.primaryAlias}}
+            </div>
+            <div class="bank-account__nr">
+                {{$ctrl.accountNumber}}
+            </div>
+        </div>
+        <div class="bank-account__bottom">
+            <div>
+                <span class="bank-account__ammount">{{$ctrl.amount}}</span> <span
+                    class="bank-account__currency">EUR</span>
+            </div>
+            <div><span class="bank-account__ammount-available">{{$ctrl.limit}} EUR available</span></div>
+        </div>
+    </section>
+</div>

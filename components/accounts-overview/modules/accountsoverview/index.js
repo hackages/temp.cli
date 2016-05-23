@@ -1,3 +1,3 @@
-import accountsOverviewDirective from './accountsoverviewdirective';
+import accountsOverviewList from './accountsoverviewlist';
 
-export default angular.module('crelan.accounts.overview', [accountsOverviewDirective]).name;
+export default angular.module('crelan.accounts.overview', [accountsOverviewList]).name;

@@ -1,0 +1,32 @@
+<div class="row">
+    <h3>Zichtrekeningen</h3>
+    <div class="row">
+        <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '30'}"
+                                primary-alias="account.accountHolder"
+                                secondary-alias="account.secondaryName"
+                                account-number="account.accountNumber"
+                                amount="account.balance"
+                                limit="account.availableAmount">
+        </accounts-overview-card>
+    </div>
+    <h3>Spaarrekeningen</h3>
+    <div class="row">
+        <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '32'}"
+                                primary-alias="account.accountHolder"
+                                secondary-alias="account.secondaryName"
+                                account-number="account.accountNumber"
+                                amount="account.balance"
+                                limit="account.availableAmount">
+        </accounts-overview-card>
+    </div>
+    <h3>kredietkaarten</h3>
+    <div class="row">
+        <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '20'}"
+                                primary-alias="account.accountHolder"
+                                secondary-alias="account.secondaryName"
+                                account-number="account.accountNumber"
+                                amount="account.balance"
+                                limit="account.availableAmount">
+        </accounts-overview-card>
+    </div>
+</div>

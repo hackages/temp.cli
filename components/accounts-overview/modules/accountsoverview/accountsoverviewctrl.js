@@ -7,7 +7,7 @@ import {AccountsOverviewServiceName} from './services/accountsoverviewservice'
 const AccountsOverviewController = function(AccountsOverviewService) {
     const accountsPromise = AccountsOverviewService.getAllAccounts();
     accountsPromise.then((result) => {
-        this.allAccounts =  result;
+        this.allAccounts =  result.payload;
     }).catch((error) => {
         console.error(error);
         throw error;
