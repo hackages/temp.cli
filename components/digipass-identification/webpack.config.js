@@ -1,8 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-console.log(__dirname);
-
 const config = {
   entry: './index.js',
   output: {
@@ -13,7 +11,7 @@ const config = {
     extensions: ['', '.js', '.json']
   },
   resolveLoader: {
-      root: [path.join(__dirname)],
+      root: [__dirname],
       //fallback: config.nodeModules,
     },
     resolve: {

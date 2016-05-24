@@ -1,4 +1,5 @@
-const crelanIdentification= 'crelan.identification';
+const crelanIdentification = 'crelan.identification';
+
 import mocks from './mocks';
 import digipassIdentification from './modules/digipass-identification/digipassidentificationdirective';
 
