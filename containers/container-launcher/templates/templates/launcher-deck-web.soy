@@ -19,32 +19,17 @@
         <div class="lp-lc--main">
             <!-- tabs -->
 
-            <div class="bp-container bp-ui-dragRoot sidebartemplate" data-pid="{$item.name}">
-                <div class="container">
-                    <div class="bp-area --area" style="background: blue; padding: 10px 0">
-                        {foreach $child in $item.children}
-                            {if parseInt($child.preferences.area.value) == 0}
-                                {include($child) |noAutoescape}
-                            {/if}
-                        {/foreach}
-                    </div>
-                </div>
+            <div class="left-panel-sidebar col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                <ul class="lp-launcher--tabs lp-u lp-lc--left">
+                    {call .tabs}
+                        {param item: $item /}
+                        {param designmode: $ij.designmode /}
+                        {param pullRight: $pullRight /}
+                        {param pullLeft: $pullLeft /}
+                        {param arrow: $arrow /}
+                    {/call}
+                </ul>
             </div>
-
-            <div class="">
-                <div class="left-panel-sidebar col-xs-12 col-sm-5 col-md-4 col-lg-3">
-                    <ul class="lp-launcher--tabs lp-u lp-lc--left">
-                        {call .tabs}
-                            {param item: $item /}
-                            {param designmode: $ij.designmode /}
-                            {param pullRight: $pullRight /}
-                            {param pullLeft: $pullLeft /}
-                            {param arrow: $arrow /}
-                        {/call}
-                    </ul>
-                </div>
-            </div>
-
 
             <!-- main content -->
             <div class="lp-u lp-lc--content col-xs-12 col-sm-7 col-md-8 col-lg-9">
