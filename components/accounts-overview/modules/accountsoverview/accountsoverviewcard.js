@@ -8,6 +8,7 @@ const cardModule = angular.module('crelan.accounts.overview.card', []);
 cardModule.component('accountsOverviewCard', {
     template: accountoverviewcardtemplate,
     bindings: {
+        "accountTitle" : "=",
         "primaryAlias": "=",
         "secondaryAlias": "=",
         "accountNumber": "=",

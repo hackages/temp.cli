@@ -2,6 +2,7 @@
     <h3>Zichtrekeningen</h3>
     <div class="row">
         <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '30'}"
+                                account-title="account.accountName"
                                 primary-alias="account.accountHolder"
                                 secondary-alias="account.secondaryName"
                                 account-number="account.accountNumber"
@@ -12,6 +13,7 @@
     <h3>Spaarrekeningen</h3>
     <div class="row">
         <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '32'}"
+                                account-title="account.accountName"
                                 primary-alias="account.accountHolder"
                                 secondary-alias="account.secondaryName"
                                 account-number="account.accountNumber"
@@ -22,6 +24,7 @@
     <h3>kredietkaarten</h3>
     <div class="row">
         <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '20'}"
+                                account-title="account.accountName"
                                 primary-alias="account.accountHolder"
                                 secondary-alias="account.secondaryName"
                                 account-number="account.accountNumber"
