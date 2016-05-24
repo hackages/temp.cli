@@ -1,7 +1,9 @@
 import directive from '../../modules/login/digipasslogindirective';
 
 describe('Digipass Login Directive', function() {
+
     beforeEach(angular.mock.module(directive));
+
     let $compile, $rootScope;
     beforeEach(angular.mock.inject(function(_$compile_, _$rootScope_){
         $rootScope = _$rootScope_;

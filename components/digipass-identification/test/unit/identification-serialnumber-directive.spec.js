@@ -1,4 +1,4 @@
-import directive from '../../modules/identification/identification-serialnumber/serialnumberdirective';
+import directive from '../../modules/identification-serialnumber/serialnumberdirective';
 
 describe('Digipass SerialNumber Directive', function() {
     beforeEach(angular.mock.module(directive));

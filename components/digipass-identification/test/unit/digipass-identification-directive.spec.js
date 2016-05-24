@@ -1,4 +1,4 @@
-import directive from '../../modules/identification/identificationdirective';
+import directive from '../../modules/digipass-identification/digipassidentificationdirective';
 
 describe('Digipass Identification Directive', function() {
     beforeEach(angular.mock.module(directive));
@@ -10,7 +10,7 @@ describe('Digipass Identification Directive', function() {
 
     it('Replaces the element with the appropriate content', function() {
         // Compile a piece of HTML containing the directive
-        var element = $compile("<identification></identification>")($rootScope);
+        var element = $compile("<digipass-identification></digipass-identification>")($rootScope);
         // fire all the watches, so the scope expression {{1 + 1}} will be evaluated
         $rootScope.$digest();
         // Check that the compiled element contains the templated content

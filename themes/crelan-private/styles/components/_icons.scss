@@ -1,26 +1,53 @@
-/* SG
-# Glyphs/Style
+@import "icons.config";
 
-You may resize and change the colors of the icons with the `glyph-`-classes. Available sizes and colors listed:
-```
-<p>
-    <i class="icon-search glyph-1x"></i>
-    <i class="icon-search glyph-1_5x"></i>
-    <i class="icon-search glyph-2x"></i>
-    <i class="icon-search glyph-3x"></i>
-</p>
-```
-*/
+@if($render-components){
+  /*
+   @name Icon
+   @description icon set
+   @state .icon--medium - medium icon
+   @state .icon--big - big icon
+   @markup
+          {% for icon in ["lock","circle-plus","circle-close","function-1-button", "arrow-button"] %}
+          <svg class="icon"><use xlink:href="../images/svg.svg#{{ icon }}"></use></svg>
+          <svg class="icon icon--medium"><use xlink:href="../images/svg.svg#{{ icon }}"></use></svg>
+          <svg class="icon icon--big"><use xlink:href="../images/svg.svg#{{ icon }}"></use></svg>
+          {% endfor %}
+  */
 
-a [class^="icon-"],
-a [class*=" icon-"] {
-  text-decoration: none;
-}
+  .icon{
+    vertical-align: middle;
+    width:1.5em;
+    height:1.5em;
+    fill:currentColor;
+    &--medium{
+      width:3em;
+      height:3em;
+    }
+    &--big{
+      width:5em;
+      height:5em;
+    }
+  }
 
-[class^="icon-"],
-[class*=" icon-"] {
-  &.glyph-1x { font-size: 1em; }
-  &.glyph-1_5x { font-size: 1.5em; }
-  &.glyph-2x { font-size: 2em; }
-  &.glyph-3x { font-size: 3em; }
+  .svg{
+    display:block;
+    margin:0 auto;
+    fill:$green-xs;
+    color:$yellow;
+    max-width:100%;
+    &--direct-mail-identification{
+      width:85px;
+      width:85px;
+    }
+    &--digipass-serialnumber{
+      width:65px;
+      height:125px;
+    }
+    &--digipass-token{
+      width:228px;
+      height:194px;
+    }
+  }
+
+
 }

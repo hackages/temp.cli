@@ -1,9 +1,9 @@
-const crelanDigipassIdentification= 'crelan.digipass-identification';
+const crelanIdentification= 'crelan.identification';
+import mocks from './mocks';
+import digipassIdentification from './modules/digipass-identification/digipassidentificationdirective';
 
-import identification from './modules/identification';
-import login from './modules/login';
-angular.module(crelanDigipassIdentification, [identification, login]);
+angular.module(crelanIdentification, [digipassIdentification, mocks ]);
 
 document.addEventListener('DOMContentLoaded', function () {
-  angular.bootstrap(document.body, [crelanDigipassIdentification]);
+  angular.bootstrap(document.body, [crelanIdentification]);
 });
