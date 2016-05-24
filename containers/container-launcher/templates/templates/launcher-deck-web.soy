@@ -17,20 +17,22 @@
 <div data-pid="{$item.name}" class="bp-container bp-ui-dragRoot lp-lc{if not($autohideTabs)} lp-launcher-left{/if}">
     <div class="row">
         <div class="lp-lc--main">
-
             <!-- tabs -->
-            <ul class="col-xs-12 col-sm-5 col-md-4 col-lg-3 lp-u lp-lc--left lp-launcher--tabs">
-                {call .tabs}
-                    {param item: $item /}
-                    {param designmode: $ij.designmode /}
-                    {param pullRight: $pullRight /}
-                    {param pullLeft: $pullLeft /}
-                    {param arrow: $arrow /}
-                {/call}
-            </ul>
+
+            <div class="left-panel-sidebar col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                <ul class="lp-launcher--tabs lp-u lp-lc--left">
+                    {call .tabs}
+                        {param item: $item /}
+                        {param designmode: $ij.designmode /}
+                        {param pullRight: $pullRight /}
+                        {param pullLeft: $pullLeft /}
+                        {param arrow: $arrow /}
+                    {/call}
+                </ul>
+            </div>
 
             <!-- main content -->
-            <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9 lp-u lp-lc--content">
+            <div class="lp-u lp-lc--content col-xs-12 col-sm-7 col-md-8 col-lg-9">
                 {foreach $child in $item.children}
 
                     {let $panel: $child.preferences.panel ? $child.preferences.panel.value : 'main' /}
@@ -47,18 +49,9 @@
                         <div class="lp-launcher-area lp-launcher-area-{$panel}
                                 {if $fixDefaultPanel == true } lp-launcher-area-fixed{/if}
                                 {if (strContains($panel, 'main') or strContains($panel, '2nd')) and not($default) and $showChrome} widget widget-default{/if}
-                                {if $default} lp-lc--default{/if}" 
+                                {if $default} lp-lc--default{/if}"
                                  data-panel="{$child.name}" tabindex="-1">
 
-                            <!-- area header -->
-                            {if not($default) and $showChrome}
-                                <div class="lp-lc-heading widget-heading{if $autohideHeader} hidden-xs{/if}">
-                                    <button type="button" class="close {$pullRight}" tabindex="0" data-action="lp-tab-hide" aria-label="close {$title}">&times;</button>
-                                    <h3 class="widget-title lp-launcher-chrome-title">
-                                        <i class="lp-icon lp-icon-{$icon} {$pullLeft}"></i><span class="--lp-i18n" data-lp-i18n="{$title}">{$title}</span>
-                                    </h3>
-                                </div>
-                            {/if}
                             <div class="bp-area --area">
                                 {include($child) |noAutoescape}
                             </div>
@@ -89,8 +82,8 @@
         {let $customClasses: $child.preferences.customClasses ? $child.preferences.customClasses.value : '' /}
 
         {if $panel != 'mainhidden' or $designmode}
-            <li 
-                data-panel="{$child.name}" 
+            <li
+                data-panel="{$child.name}"
                 class="{$customClasses}
                     {if $panel == 'inline' or $panel == 'inlineopen'} lp-launcher-slide
                         {if $panel=='inlineopen'} lp-launcher-open
@@ -106,8 +99,8 @@
 
                 {if not(strContains($panel, 'hidden')) or $designmode}
                     <div class="lp-launcher-tab">
-                        <a 
-                            class="lp-lc-tab-{$panel} 
+                        <a
+                            class="lp-lc-tab-{$panel}
                                 {if $child.referencedLinks} external-link{/if}
                                 {if $panel=='opened2nd'} lp-launchpad-open{/if}
                                 {if strContains($panel, 'hidden')} lp-launcher-tab-hidden{/if}"
@@ -159,6 +152,3 @@
         {/if}
     {/foreach}
 {/template}
-
-
-
