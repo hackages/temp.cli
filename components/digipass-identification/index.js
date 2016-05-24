@@ -1,9 +1,9 @@
-const crelanDigipassIdentification= 'crelan.digipass-identification';
+const crelanIdentification= 'crelan.identification';
 
-import identification from './modules/identification';
-import login from './modules/login';
-angular.module(crelanDigipassIdentification, [identification, login]);
+import digipassIdentification from './modules/digipass-identification/digipassidentificationdirective';
+
+angular.module(crelanIdentification, [digipassIdentification]);
 
 document.addEventListener('DOMContentLoaded', function () {
-  angular.bootstrap(document.body, [crelanDigipassIdentification]);
+  angular.bootstrap(document.body, [crelanIdentification]);
 });
