@@ -14,7 +14,8 @@ cardModule.component('accountsOverviewCard', {
         "secondaryAlias": "=",
         "accountNumber": "=",
         "amount": "=",
-        "limit": "="
+        "limit": "=",
+        "icon": "@"
     }
 });
 cardModule.filter('iban', () => {

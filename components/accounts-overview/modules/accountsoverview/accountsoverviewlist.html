@@ -1,12 +1,16 @@
+<div class="section">
+    <h3>Zichtrekeningen</h3>
+    <div class="overview-switch">
+        <a href="#">
+            <svg class="icon" ng-click="accountsCtrl.toggleGridView()">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/svg.svg#list"></use>
+            </svg>
+        </a>
+    </div>
+</div>
 <div class="row">
     <div class="overview {{accountsCtrl.grid ? 'overview--grid' : 'overview--list'}}">
         <div class="overview__row">
-            <h3>Zichtrekeningen</h3>
-            <a href="#" >
-                <svg class="icon" ng-click="accountsCtrl.toggleGridView()">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/svg.svg#list"></use>
-                </svg>
-            </a>
             <div class="row">
                 <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '30'}"
                                         account-title="account.accountName"
@@ -14,39 +18,42 @@
                                         secondary-alias="account.secondaryName"
                                         account-number="account.accountNumber"
                                         amount="account.balance"
-                                        limit="account.availableAmount">
+                                        limit="account.availableAmount"
+                                        icon="/images/svg.svg#card">
                 </accounts-overview-card>
             </div>
         </div>
     </div>
-    <h3>Spaarrekeningen</h3>
-    <div class="row">
-        <div class="overview overview--grid">
-            <div class="overview__row">
-                <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '32'}"
-                                        account-title="account.accountName"
-                                        primary-alias="account.accountHolder"
-                                        secondary-alias="account.secondaryName"
-                                        account-number="account.accountNumber"
-                                        amount="account.balance"
-                                        limit="account.availableAmount">
-                </accounts-overview-card>
-            </div>
+</div>
+<h3>Spaarrekeningen</h3>
+<div class="row">
+    <div class="overview overview--grid">
+        <div class="overview__row">
+            <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '32'}"
+                                    account-title="account.accountName"
+                                    primary-alias="account.accountHolder"
+                                    secondary-alias="account.secondaryName"
+                                    account-number="account.accountNumber"
+                                    amount="account.balance"
+                                    limit="account.availableAmount"
+                                    icon="/images/svg.svg#piggybank">
+            </accounts-overview-card>
         </div>
     </div>
-    <h3>kredietkaarten</h3>
-    <div class="row">
-        <div class="overview overview--grid">
-            <div class="overview__row">
-                <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '20'}"
-                                        account-title="account.accountName"
-                                        primary-alias="account.accountHolder"
-                                        secondary-alias="account.secondaryName"
-                                        account-number="account.accountNumber"
-                                        amount="account.balance"
-                                        limit="account.availableAmount">
-                </accounts-overview-card>
-            </div>
+</div>
+<h3>kredietkaarten</h3>
+<div class="row">
+    <div class="overview overview--grid">
+        <div class="overview__row">
+            <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '20'}"
+                                    account-title="account.accountName"
+                                    primary-alias="account.accountHolder"
+                                    secondary-alias="account.secondaryName"
+                                    account-number="account.accountNumber"
+                                    amount="account.balance"
+                                    limit="account.availableAmount"
+                                    icon="/images/svg.svg#mastercard">
+            </accounts-overview-card>
         </div>
     </div>
 </div>

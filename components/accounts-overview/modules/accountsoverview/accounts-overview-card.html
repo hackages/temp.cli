@@ -1,16 +1,24 @@
-<div class="col-md-4">
+<div class="overview__cell col-md-4">
     <section class="bank-account">
+        <div class="bank-account__star">
+            <a href="#">
+                <svg class="icon">
+                    <use xlink:href="/images/svg.svg#star"/>
+                </svg>
+            </a>
+        </div>
         <div class="bank-account__top">
-            <svg class="icon icon--big">
-                <use xlink:href="../images/svg.svg#cards"/>
+            <svg class=" bank-account__icon icon icon--big">
+                <use xlink:href="{{$ctrl.icon}}"/>
             </svg>
             <h4 class="bank-account__title">{{$ctrl.accountTitle}}</h4>
-            <div class="bank-account__owner">
+            <div class="bank-account__owner__name">
                 {{$ctrl.primaryAlias}}
             </div>
-            <div ng-if="$ctrl.secondaryAlias" class="bank-account__owner">
+            <div ng-if="$ctrl.secondaryAlias" class="bank-account__owner__alias">
                 {{$ctrl.secondaryAlias}}
             </div>
+
             <div class="bank-account__nr">
                 {{$ctrl.accountNumber | iban}}
             </div>
