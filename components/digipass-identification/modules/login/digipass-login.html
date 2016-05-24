@@ -33,13 +33,13 @@
                     <div class="row bleed--xs">
                         <div class="col-md-6 pad--xs">
                             <div class="form-group">
-                                <input class="form-control form-control--dotted" type="text" name="token"
-                                       ng-model="identification.token" ng-model-options="{ 'updateOn': 'blur' }"
+                                <input class="form-control form-control--dotted" type="text" name="otp"
+                                       ng-model="logon.otp" ng-model-options="{ 'updateOn': 'blur' }"
                                        ui-mask="9999999999" ui-mask-placeholder ui-mask-placeholder-char="•" required>
                             </div>
                         </div>
                         <div class="col-md-4 pad--xs">
-                            <button name="submit" class="button button--ghost">Aanmelden</button>
+                            <button type="submit" name="action" class="button button--ghost">Aanmelden</button>
                         </div>
                     </div>
                 </li>

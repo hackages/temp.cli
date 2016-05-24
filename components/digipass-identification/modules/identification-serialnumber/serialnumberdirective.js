@@ -1,7 +1,7 @@
 import angular from 'angular/index.js';
 import serialnumberTemplate from './serialnumber.html';
 
-let module = angular.module('crelan.serialnumberDirective', [])
+const module = angular.module('crelan.serialnumberDirective', [])
   .directive('serialnumber', serialnumberDirective);
 export default module.name;
 
