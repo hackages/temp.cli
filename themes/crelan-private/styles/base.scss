@@ -1,4 +1,4 @@
-@import "vendor/bootstrap/bootstrap.utils";
+@import "libs/bootstrap/_bootstrap";
 
 @import "components/_site";
 @import "components/_colors";
@@ -6,11 +6,12 @@
 @import "components/_grid";
 @import "components/_equal-heights";
 
+@import "libs/material/_material";
+
 @import "components/_forms";
 @import "components/_icons";
 @import "components/_links";
 @import "components/_buttons";
 @import "components/_select";
-@import "components/material/material";
 @import "components/_box";
 @import "components/_cards";
