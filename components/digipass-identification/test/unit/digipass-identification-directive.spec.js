@@ -1,4 +1,4 @@
-import directive from '../../modules/identification/identificationdirective';
+import directive from '../../modules/digipass-identification/digipassidentificationdirective';
 
 describe('Digipass Identification Directive', function() {
     beforeEach(angular.mock.module(directive));
