@@ -13,7 +13,7 @@ const webpackConfig = {
     path: config.outputDir,
   },
   resolveLoader: {
-    root: [config.context],
+    //root: [config.context],
     fallback: config.nodeModules,
   },
   resolve: {
@@ -64,7 +64,7 @@ const webpackConfig = {
     ],
   },
   externals: {
-     angular: 'angular'
+    angular: 'angular',
   },
   plugins: [
     new webpack.ResolverPlugin(
