@@ -28,8 +28,10 @@
   "license": "MIT",
   "dependencies": {
     "angular": "^1.5.5",
+    "angular-i18n": "^1.5.5",
     "angular-mocks": "^1.5.5",
     "eslint": "^2.9.0",
+    "iban": "0.0.6",
     "lodash": "^4.12.0"
   }
 }
