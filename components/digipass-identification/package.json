@@ -29,6 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "^1.5.5",
+    "angular-messages": "^1.5.5",
     "angular-mocks": "^1.5.5",
     "angular-ui-mask": "^1.8.4",
     "eslint": "^2.9.0",
