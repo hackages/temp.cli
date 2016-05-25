@@ -1,22 +1,7 @@
 @import "_bootstrap.config";
+@import "mixins/_clearfix";
+@import "mixins/_grid";
 
-
-/*@import "bootstrap-sass/assets/stylesheets/bootstrap/normalize";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";
-
-@import "bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/type";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/code";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/grid";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/forms";
-*/
-
-/*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;

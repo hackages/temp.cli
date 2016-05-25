@@ -19,18 +19,34 @@
         <div class="lp-lc--main">
             <!-- tabs -->
 
-            <div class="left-panel-sidebar col-xs-12 col-sm-5 col-md-4 col-lg-3">
-                <ul class="lp-launcher--tabs lp-u lp-lc--left">
-                    {call .tabs}
-                        {param item: $item /}
-                        {param designmode: $ij.designmode /}
-                        {param pullRight: $pullRight /}
-                        {param pullLeft: $pullLeft /}
-                        {param arrow: $arrow /}
-                    {/call}
-                </ul>
-            </div>
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                <div class="navigation">
+                    <div class="navigation__row">
+                        <div class="navigation__row__cell">
+                            <a href="/" class="navigation__logo">
+                                <svg><use xlink:href="images/svg.svg#crelan"></use></svg>
+                            </a>
+                        </div>
+                    </div>
 
+                    <div class="navigation__row">
+                        <div class="navigation__row__cell align--bottom">
+                            <nav class="navigation__main">
+                                <ul class="lp-u lp-lc--left">
+                                    {call .tabs}
+                                        {param item: $item /}
+                                        {param designmode: $ij.designmode /}
+                                        {param pullRight: $pullRight /}
+                                        {param pullLeft: $pullLeft /}
+                                        {param arrow: $arrow /}
+                                    {/call}
+                                </ul>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- main content -->
             <div class="lp-u lp-lc--content col-xs-12 col-sm-7 col-md-8 col-lg-9">
                 {foreach $child in $item.children}
@@ -79,13 +95,11 @@
         {let $panel: $child.preferences.panel ? $child.preferences.panel.value : 'main' /}
         {let $title: $child.preferences.title ? $child.preferences.title.value : '' /}
         {let $icon: $child.preferences.icon ? $child.preferences.icon.value : 'blank' /}
-        {let $customClasses: $child.preferences.customClasses ? $child.preferences.customClasses.value : '' /}
 
         {if $panel != 'mainhidden' or $designmode}
             <li
                 data-panel="{$child.name}"
-                class="{$customClasses}
-                    {if $panel == 'inline' or $panel == 'inlineopen'} lp-launcher-slide
+                class="'navigation__main__item {if $panel == 'inline' or $panel == 'inlineopen'} lp-launcher-slide
                         {if $panel=='inlineopen'} lp-launcher-open
                             {else} lp-launcher-close{/if}
                     {/if}

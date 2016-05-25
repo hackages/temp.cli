@@ -1,0 +1,140 @@
+.navigation{
+    padding-left:30px;
+    padding-top:50px;
+    padding-right:80px;
+    padding-bottom:50px;
+    display: table;
+    width: 100%;
+    height: 100vh;
+    background:$white;
+    z-index: 1;
+    @include material(3, false);
+    @media (min-width:$screen-md){
+        padding-left:80px;
+    }
+    &__breadcrumb{
+        &__back{
+            display: block;
+            margin-bottom:10px;
+        }
+        h2{
+            margin-top:0.3em;
+            margin-bottom:0.3em;
+        }
+    }
+    &__logo{
+        display:block;
+        max-width: 150px;
+        margin:0 auto;
+        position:relative;
+        margin-bottom: 20px;
+
+        &:after{
+            display:block;
+            content:'';
+            padding-bottom:27%;
+        }
+        svg{
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            width:100%;
+            height:100%;
+        }
+    }
+    &__row{
+        display: table-row;
+        &__cell{
+            display: table-cell;
+        }
+    }
+    &__main{
+        margin-right:-80px;
+        ul,li{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+        &__item{
+            position:relative;
+            .icon{
+                position:absolute;
+                left:0;
+                top:50%;
+                transform: translate(0,-50%);
+                width:1.3em;
+                height:1.3em;
+            }
+            a{
+                display:block;
+                padding:7px 10px;
+                padding-left:40px;
+                color:$grey-xl;
+                text-decoration: none;
+                border-bottom:1px solid $grey-xs;
+                transition: 0.3s ease-in-out color;
+                &:hover{
+                    background:rgba($grey-xs,0.4);
+                    background:linear-gradient(to right, rgba($grey-xs,0), rgba($grey-xs,0.6));
+                    color:$green-xl;
+                }
+            }
+            &--active{
+                a, a:hover{
+                    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{ie-hex-str(rgba($yellow,0))}', EndColorStr='#{ie-hex-str(rgba($yellow,0.4))}', GradientType=1)"; /* IE8 */
+
+                    background:linear-gradient(to right, rgba($yellow,0), rgba($yellow,0.4));
+                    color:$grey-xl;
+                }
+
+            }
+        }
+    }
+    &__digipass-switch{
+        @include clearfix();
+        margin-bottom:2em;
+        ul,li{
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        li{
+            @include make-xs-column(6);
+            padding:0;
+            &:first-child a{
+                margin-right:3px;
+            }
+            &:last-child a{
+                margin-left:3px;
+            }
+        }
+        a{
+            display:block;
+            text-align: center;
+            .svg{
+
+                fill:$green-xs;
+                transition: 0.3s ease-in-out all;
+                width:80px;
+                height:80px;
+            }
+            .navigation__digipass-switch__image{
+                background:$grey-xs;
+                padding:10px 0;
+                margin-bottom:10px;
+            }
+            &:hover, &.is--active{
+                text-decoration: none;
+                .navigation__digipass-switch__image{
+                    background:$green-xs;
+                }
+                .svg{
+                    fill:$white;
+                }
+            }
+        }
+
+    }
+}
