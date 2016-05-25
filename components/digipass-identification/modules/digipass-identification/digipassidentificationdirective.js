@@ -8,15 +8,17 @@ import logonService from './services/logonservice';
 import logonController from './logoncontroller';
 import login from './../login';
 
-const module = angular.module('crelan.digipassIdentificationDirective', [ngMessages, uiMask, identificationcode, serialnumber, login, logonService])
-  .directive('digipassIdentification', digipassIdentificationDirective);
-export default module.name;
 
-function digipassIdentificationDirective(){
+function digipassIdentificationDirective() {
   return {
     restrict: 'EA',
     template: digipassIdentificationTemplate,
     controller: logonController,
-    controllerAs: 'logon'
-  }
+    controllerAs: 'logon',
+  };
 }
+const module = angular.module('crelan.digipassIdentificationDirective',
+  [ngMessages, uiMask, identificationcode, serialnumber, login, logonService])
+  .directive('digipassIdentification', digipassIdentificationDirective);
+
+export default module.name;

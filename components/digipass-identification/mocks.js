@@ -3,8 +3,8 @@ import 'angular-mocks';
 import logonInfo from './mocks/logon.json';
 
 const mockConfiguration = ($httpBackend) => {
-    $httpBackend.whenPOST('/portal/auth/logon').respond(logonInfo);
-    $httpBackend.whenPOST().passThrough();
+  $httpBackend.whenPOST('/portal/auth/logon').respond('200', logonInfo);
+  $httpBackend.whenPOST().passThrough();
 };
 mockConfiguration.$inject = ['$httpBackend'];
 

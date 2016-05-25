@@ -1,22 +1,18 @@
-import {LogonServiceName} from './services/logonservice'
+import { LogonServiceName } from './services/logonservice';
 
 /**
  * LogonController Controller
  * @ngInject LogonService
  */
-const LogonController = function(LogonService) {
-
+const LogonController = function (LogonService) {
   this.doLogon = () => {
-    console.log(this);
     const logonPromise = LogonService.doLogon(this);
     logonPromise.then((result) => {
-      this.logon =  result.payload;
-    }).catch((error) => {
-      console.error(error);
-      throw error;
-    })
-  }
-
+      this.logon = result.payload;
+      console.log(result);
+    });
+  };
 };
+
 LogonController.$inject = [LogonServiceName];
 export default LogonController;

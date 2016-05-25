@@ -1,8 +1,8 @@
 {
-  "statusCode" : 200,
-  "success" : true,
-  "payload" : {
-    "roleCode" : "??",
-    "emailNeeded" : false
-  }
+  "statusCode" : 500,
+  "success" : false,
+  "errors" : [ {
+    "message" : "De gebruikersidentificatie en/of het serienummer van de Digipass zijn niet correct.",
+    "errorCode" : 301
+  } ]
 }

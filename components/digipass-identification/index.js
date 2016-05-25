@@ -1,10 +1,12 @@
+import angular from 'angular/index.js';
+import mocks from './mocks';
+import digipassIdentification
+  from './modules/digipass-identification/digipassidentificationdirective';
+
 const crelanIdentification = 'crelan.identification';
 
-import mocks from './mocks';
-import digipassIdentification from './modules/digipass-identification/digipassidentificationdirective';
+angular.module(crelanIdentification, [digipassIdentification, mocks]);
 
-angular.module(crelanIdentification, [digipassIdentification, mocks ]);
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   angular.bootstrap(document.body, [crelanIdentification]);
 });
