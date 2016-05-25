@@ -92,5 +92,9 @@
     "webpack": "^1.12.14",
     "webpack-bower-resolver": "0.0.1",
     "webpack-node-externals": "^1.0.0"
+  },
+  "devDependencies": {
+    "request": "^2.72.0",
+    "shelljs": "^0.7.0"
   }
 }
