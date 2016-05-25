@@ -81,6 +81,28 @@
                     color:$green-xl;
                 }
             }
+
+            .lp-launcher-tab {
+                background: none;
+                border-bottom: none;
+                -moz-transition: none;
+                -o-transition: none;
+                transition: none;
+                border-radius: 0;
+                min-height: auto;
+
+                &:hover {
+                    background: none;
+                }
+            }
+
+            .active {
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{ie-hex-str(rgba($yellow,0))}', EndColorStr='#{ie-hex-str(rgba($yellow,0.4))}', GradientType=1)"; /* IE8 */
+
+                background:linear-gradient(to right, rgba($yellow,0), rgba($yellow,0.4));
+                color:$grey-xl;
+            }
+
             &--active{
                 a, a:hover{
                     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{ie-hex-str(rgba($yellow,0))}', EndColorStr='#{ie-hex-str(rgba($yellow,0.4))}', GradientType=1)"; /* IE8 */

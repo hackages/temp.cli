@@ -225,7 +225,7 @@
 
                 var isActive;
                 if (tabType === '2ndLevel') {
-                    isActive = $current.closest('.lp-launcher-tab').hasClass('navigation__main__item--active');
+                    isActive = $current.closest('.lp-launcher-tab').hasClass('active');
                     if (isActive) {
                         this._closeActivePanel();
                     } else {
@@ -235,7 +235,7 @@
                     if (tabType === '2ndParent' && !bd.designMode) {
                         var $ul2nd = $li.children('ul');
                         // when hiding close if some child is open
-                        var isActive = $ul2nd.find('.lp-launcher-tab.navigation__main__item--active').length !== 0;
+                        var isActive = $ul2nd.find('.lp-launcher-tab.active').length !== 0;
                         if (isActive) this._closeActivePanel();
 
                         $ul2nd.toggleClass('hide');
@@ -336,7 +336,7 @@
         // $el - $li of the tab to toggle or undefined
         _toggleTab: function($el) {
             var UI = this._getUI();
-            var $active = $(UI.left).find('.lp-launcher-tab.navigation__main__item--active');
+            var $active = $(UI.left).find('.lp-launcher-tab.active');
             if ($el === undefined) $el = $active.closest('li');
             if (!$el || !$el.length) return;
             $active = $active.closest('li');
@@ -390,7 +390,7 @@
                 if(tab.children('a.lp-lc-tab-inlinehidden').length > 0){
                     return;
                 }
-                isActive = area.hasClass('navigation__main__item--active');
+                isActive = area.hasClass('active');
                 isHidden = area.hasClass('lp-launcher-area-mainhidden');
                 is2ndLevel = tab.find('ul').hasClass('lp-lc-2ndlevel');
 
@@ -606,7 +606,7 @@
             this._toggleTab();
             setSlug(0);
 
-            UI.areas.hide().removeClass('navigation__main__item--active');
+            UI.areas.hide().removeClass('active');
             $(this.getDisplay('default')).show();
 
             this.state = null;
