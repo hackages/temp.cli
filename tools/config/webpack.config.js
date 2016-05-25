@@ -7,10 +7,7 @@ const exclude = ['node_modules', 'bower_components'];
 
 const webpackConfig = {
   devtool: 'source-map',
-  entry: {
-    index: config.mainEntry,
-    common: ['angular'],
-  },
+  entry: config.mainEntry,
   output: {
     filename: 'index.js',
     path: config.outputDir,
@@ -61,10 +58,13 @@ const webpackConfig = {
       },
       {
         test: /\.html$/,
-        loader: 'html!html-minify',
+        loader: 'html',
         exclude,
       },
     ],
+  },
+  externals: {
+     angular: 'angular'
   },
   plugins: [
     new webpack.ResolverPlugin(
