@@ -1,23 +1,36 @@
-<div class="col-md-4">
+<div class="overview__cell col-md-4">
     <section class="bank-account">
+        <div class="bank-account__star">
+            <a href="#">
+                <svg class="icon">
+                    <use xlink:href="/images/svg.svg#star"/>
+                </svg>
+            </a>
+        </div>
         <div class="bank-account__top">
-            <svg class="icon icon--big">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cards"></use>
+            <svg class=" bank-account__icon icon icon--big">
+                <use xlink:href="{{$ctrl.icon}}"/>
             </svg>
-            <h4 class="bank-account__title">Lorem ipsum</h4>
-            <div class="bank-account__owner">
+            <h4 class="bank-account__title">{{$ctrl.accountTitle}}</h4>
+            <div class="bank-account__owner__name">
                 {{$ctrl.primaryAlias}}
             </div>
+            <div ng-if="$ctrl.secondaryAlias" class="bank-account__owner__alias">
+                {{$ctrl.secondaryAlias}}
+            </div>
+
             <div class="bank-account__nr">
-                {{$ctrl.accountNumber}}
+                {{$ctrl.accountNumber | iban}}
             </div>
         </div>
         <div class="bank-account__bottom">
             <div>
-                <span class="bank-account__ammount">{{$ctrl.amount}}</span> <span
-                    class="bank-account__currency">EUR</span>
+                <span class="bank-account__ammount">{{$ctrl.amount | number}}</span>
+                <span class="bank-account__currency">EUR</span>
             </div>
-            <div><span class="bank-account__ammount-available">{{$ctrl.limit}} EUR available</span></div>
+            <div>
+                <span class="bank-account__ammount-available">{{$ctrl.limit | number}} EUR available</span>
+            </div>
         </div>
     </section>
 </div>

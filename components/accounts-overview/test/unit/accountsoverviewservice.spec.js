@@ -1,5 +1,26 @@
 import service from './../../modules/accountsoverview/services/accountsoverviewservice';
 
+const accountsPayload = {
+    "statusCode": 200,
+    "success": true,
+    "payload": [
+        {
+            "accountNumber": "BE08860110466713",
+            "accountType": "30",
+            "accountName": "Pakketrekening",
+            "accountHolder": "VAN DER KELEN F. - MERTENS D",
+            "secondaryName": "Gezamelijke",
+            "currency": "EUR",
+            "balance": 0,
+            "availableAmount": 0,
+            "excluded": false,
+            "favorite": true,
+            "issuerTransferAllowed": true,
+            "externalTransferAllowed": true
+        }
+    ]
+};
+
 describe('Account Overview', function () {
 
     beforeEach(angular.mock.module(service));
@@ -18,11 +39,30 @@ describe('Account Overview', function () {
         });
 
         it('should return a list of accounts', (done) => {
-            $httpBackend.whenGET('/portal/accounts/list/all').respond(200, {"Account": "1"});
-            let actual = accountsOverviewService.getAllAccounts();
+            $httpBackend.whenGET('/portal/accounts/list/all').respond(200, accountsPayload);
+            let actualPromise = accountsOverviewService.getAllAccounts();
 
-            actual.then((response) => {
-                expect(response).toEqual({"Account": "1"});
+            actualPromise.then((response) => {
+                expect(response).toEqual(
+                    {
+                        "savingAccounts": [],
+                        "checkingAccounts": [{
+                            "accountNumber": "BE08860110466713",
+                            "accountType": "30",
+                            "accountName": "Pakketrekening",
+                            "accountHolder": "VAN DER KELEN F. - MERTENS D",
+                            "secondaryName": "Gezamelijke",
+                            "currency": "EUR",
+                            "balance": 0,
+                            "availableAmount": 0,
+                            "excluded": false,
+                            "favorite": true,
+                            "issuerTransferAllowed": true,
+                            "externalTransferAllowed": true
+                        }],
+                        "creditAccounts": []
+                    }
+                );
                 done();
             }).catch((err) => {
                 fail(err);

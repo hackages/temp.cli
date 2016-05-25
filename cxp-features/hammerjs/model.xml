@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog totalSize="1">
+    <feature>
+        <name>hammerjs</name>
+        <tags/>
+        <lockState>UNLOCKED</lockState>
+        <properties>
+            <property label="Title" name="title" viewHint="admin,designModeOnly">
+                <value type="string">Hammerjs</value>
+            </property>
+            <property label="Version" name="version" viewHint="designModeOnly">
+                <value type="string">2.0.4</value>
+            </property>
+        </properties>
+    </feature>
+</catalog>

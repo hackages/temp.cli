@@ -241,11 +241,11 @@ gulp.task('zip-dist', function () {
 });
 
 gulp.task('sass', () => {
-  return gulp.src('themes/**/*.scss')
+  return gulp.src('themes/crelan-private/**/*.scss')
       .pipe(sass({
         includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
       }).on('error', sass.logError))
-      .pipe(gulp.dest('./themes/dist'));
+      .pipe(gulp.dest('./themes/crelan-private/dist'));
 });
 
 
@@ -253,4 +253,3 @@ gulp.task('wait', () => {
   console.log('started waiting');
   setTimeout(()=>{console.log("stopped waiting")}, 10000);
 });
-

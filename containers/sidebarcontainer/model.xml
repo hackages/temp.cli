@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalog>
+<catalog totalSize="1">
     <container>
         <name>sidebarcontainer</name>
-        <contextItemName>[BBHOST]</contextItemName>
+        <tags>
+            <tag blacklist="false" manageable="true" type="regular">container</tag>
+            <tag blacklist="false" manageable="true" type="section">layouts</tag>
+        </tags>
+        <lockState>UNLOCKED</lockState>
         <properties>
-            <property name="TemplateName">
-                <value type="string">sidebartemplate</value>
-            </property>
             <property name="viewNamespace">
                 <value type="string">templates_sidebartemplate</value>
             </property>
-            <property name="title" label="Title" viewHint="admin,designModeOnly">
-                <value type="string">sidebarcontainer</value>
+            <property name="TemplateName">
+                <value type="string">sidebartemplate</value>
             </property>
-            <property name="config">
-                <value type="string">$(itemRoot)/config.xml</value>
+            <property label="Title" name="title" viewHint="admin,designModeOnly">
+                <value type="string">sidebarcontainer</value>
             </property>
             <property name="area">
                 <value type="string"/>
             </property>
+            <property name="thumbnailUrl" manageable="true">
+                <value type="string">$(itemRoot)/media/icon.png</value>
+            </property>
+            <property name="config" manageable="true">
+                <value type="string">$(itemRoot)/config.xml</value>
+            </property>
             <property name="csr">
                 <value type="boolean">false</value>
             </property>
-            <property name="thumbnailUrl">
-                <value type="string">$(itemRoot)/media/icon.png</value>
+            <property name="Description">
+                <value type="String"/>
             </property>
         </properties>
-        <tags>
-            <tag blacklist="false" type="regular">container</tag>
-            <tag blacklist="false" type="section">layouts</tag>
-        </tags>
+        <children/>
     </container>
 </catalog>
