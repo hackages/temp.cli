@@ -1,3 +1,4 @@
+import angular from 'angular/index.js'
 import {AccountsOverviewServiceName} from './services/accountsoverviewservice'
 
 /**
@@ -12,7 +13,7 @@ const AccountsOverviewController = function (AccountsOverviewService) {
 
     const accountsPromise = AccountsOverviewService.getAllAccounts();
     accountsPromise.then((allAccounts) => {
-        Object.assign(this, allAccounts);
+        angular.extend(this, allAccounts);
     }).catch((error) => {
         throw error;
     });
