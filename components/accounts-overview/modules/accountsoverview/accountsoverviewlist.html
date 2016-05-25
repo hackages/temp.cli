@@ -12,7 +12,7 @@
     <div class="overview {{accountsCtrl.grid ? 'overview--grid' : 'overview--list'}}">
         <div class="overview__row">
             <div class="row">
-                <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '30'}"
+                <accounts-overview-card ng-repeat="account in accountsCtrl.checkingAccounts"
                                         account-title="account.accountName"
                                         primary-alias="account.accountHolder"
                                         secondary-alias="account.secondaryName"
@@ -29,7 +29,7 @@
 <div class="row">
     <div class="overview overview--grid">
         <div class="overview__row">
-            <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '32'}"
+            <accounts-overview-card ng-repeat="account in accountsCtrl.savingAccounts"
                                     account-title="account.accountName"
                                     primary-alias="account.accountHolder"
                                     secondary-alias="account.secondaryName"
@@ -45,7 +45,7 @@
 <div class="row">
     <div class="overview overview--grid">
         <div class="overview__row">
-            <accounts-overview-card ng-repeat="account in accountsCtrl.allAccounts | filter: {accountType: '20'}"
+            <accounts-overview-card ng-repeat="account in accountsCtrl.creditAccounts"
                                     account-title="account.accountName"
                                     primary-alias="account.accountHolder"
                                     secondary-alias="account.secondaryName"

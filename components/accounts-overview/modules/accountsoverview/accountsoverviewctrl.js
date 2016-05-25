@@ -5,14 +5,17 @@ import {AccountsOverviewServiceName} from './services/accountsoverviewservice'
  * @ngInject AccountsOverviewService
  */
 const AccountsOverviewController = function (AccountsOverviewService) {
+
     this.grid = true;
+
+    this.toggleGridView = () => this.grid = !this.grid;
+
     const accountsPromise = AccountsOverviewService.getAllAccounts();
-    accountsPromise.then((result) => {
-        this.allAccounts = result.payload;
+    accountsPromise.then((allAccounts) => {
+        Object.assign(this, allAccounts);
     }).catch((error) => {
         throw error;
     });
-    this.toggleGridView = () => this.grid = !this.grid;
 };
 AccountsOverviewController.$inject = [AccountsOverviewServiceName];
 export default AccountsOverviewController;
