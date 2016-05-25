@@ -1,0 +1,47 @@
+<form name="identificationForm" novalidate>
+    <h3>Identificatie</h3>
+    <div class="box">
+        <div class="equal-heights">
+            <div class="equal-heights__cell col-md-6 box__vertical-seperator">
+                <identification-code></identification-code>
+            </div>
+            <div class="equal-heights__cell col-md-6">
+                <serialnumber></serialnumber>
+            </div>
+        </div>
+        <div ng-messages-multiple
+             ng-show="identificationForm.userName.$touched" ng-messages="identificationForm.userName.$error"
+             role="alert">
+            <div ng-message="required">Error message is not finalized yet userName</div>
+            <div ng-message="mask">De code van 6 cijfers is niet correct</div>
+            <div ng-message="incorrect">De gebruikersidentificatie en/of het serienummer van de digipass zijn niet
+                correct
+            </div>
+        </div>
+        <div ng-messages-multiple
+             ng-show="identificationForm.serialNumber.$touched" ng-messages="identificationForm.serialNumber.$error"
+             role="alert">
+            <div ng-message="required">Error message is not finalized yet serialNumber</div>
+            <div ng-message="mask">Het serienummer van uw Digipass is niet correct</div>
+            <div ng-message="incorrect">De gebruikersidentificatie en/of het serienummer van de digipass zijn niet
+                correct
+            </div>
+        </div>
+    </div>
+    <h3>Aanmelden</h3>
+    <div class="box">
+        <digipass-login></digipass-login>
+        <div ng-messages-multiple
+             ng-show="identificationForm.token.$touched"
+             ng-messages="identificationForm.token.$error" role="alert">
+            <div ng-message="required">Error message is not finalized yet OTP token</div>
+            <div ng-message="mask">De code van 6 cijfers is niet correct</div>
+            <div ng-message="incorrect">De ingebrachte gegevens onder punt 5 zijn niet correct. Gelieve dit veld opnieuw
+                in te vullen. U kunt nog XX maal proberen.
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
