@@ -4,5 +4,9 @@
   "errors" : [ {
     "message" : "De gebruikersidentificatie en/of het serienummer van de Digipass zijn niet correct.",
     "errorCode" : 301
-  } ]
+  } ],
+  "payload" : {
+    "roleCode" : "??",
+    "emailNeeded" : false
+  }
 }

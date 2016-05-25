@@ -14,7 +14,7 @@ const LogonService = ($http) => {
     const postBody = {
       digipassType: 'Physical',
     };
-    Object.assign(postBody, loginInfo);
+    angular.extend(postBody, loginInfo);
 
     return $http.post('/portal/auth/logon', postBody)
       .then((response) => response.data)

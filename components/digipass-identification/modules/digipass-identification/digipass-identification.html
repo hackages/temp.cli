@@ -19,7 +19,8 @@
             </div>
         </div>
         <div ng-messages-multiple
-             ng-show="identificationForm.serialNumberDigipass.$touched" ng-messages="identificationForm.serialNumberDigipass.$error"
+             ng-show="identificationForm.serialNumberDigipass.$touched"
+             ng-messages="identificationForm.serialNumberDigipass.$error"
              role="alert">
             <div ng-message="required">Error message is not finalized yet serialNumber</div>
             <div ng-message="mask">Het serienummer van uw Digipass is niet correct</div>
@@ -39,6 +40,9 @@
             <div ng-message="incorrect">De ingebrachte gegevens onder punt 5 zijn niet correct. Gelieve dit veld opnieuw
                 in te vullen. U kunt nog XX maal proberen.
             </div>
+        </div>
+        <div ng-repeat="errorMessage in logon.logonErrors">
+            <div>{{ errorMessage.message }}</div>
         </div>
     </div>
 </form>
