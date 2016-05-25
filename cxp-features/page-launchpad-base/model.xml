@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog totalSize="1">
+	<page>
+		<type>page</type>
+		<name>page-launchpad-base</name>
+		<contextItemName>[BBHOST]</contextItemName>
+		<properties>
+			<property name="TemplateName" manageable="true">
+				<value type="string">LaunchpadPageTemplate</value>
+			</property>
+			<property label="Title" name="title" manageable="true">
+				<value type="String">Launchpad</value>
+			</property>
+			<property name="Description" manageable="true">
+				<value type="String"></value>
+			</property>
+			<property label="Preferred Balance View" name="preferredBalanceView" manageable="true">
+				<value type="string">available</value>
+			</property>
+			<property label="Preferred Name" name="preferredName" manageable="true">
+				<value type="string">Lisa</value>
+			</property>
+			<property label="Default Account" name="defaultAccount" manageable="true">
+				<value type="string"></value>
+			</property>
+			<property name="behaviors" manageable="true">
+				<value type="string">be.perspective.Manager be.portalClientExt.PortalManagerPreferencesForm</value>
+			</property>
+			<property label="Theme" name="themeName" viewHint="text-input,designModeOnly,manager" manageable="true">
+				<value type="string">theme-default</value>
+			</property>
+			<property label="Locale" name="locale" manageable="true">
+				<value type="string">en</value>
+			</property>
+			<property label="Mask Account Number" name="maskAccountNumber" manageable="true">
+				<value type="boolean">false</value>
+			</property>
+			<property label="Enable Timeout" name="enableTimeout" viewHint="checkbox,designModeOnly,admin" manageable="true">
+				<value type="boolean">true</value>
+			</property>
+            <property label="Http Cache Timeout" name="httpCacheTimeout" viewHint="text-input,designModeOnly,admin" manageable="true">
+				<value type="long">0</value>
+			</property>
+		</properties>
+		<lockState>UNLOCKED</lockState>
+	</page>
+</catalog>

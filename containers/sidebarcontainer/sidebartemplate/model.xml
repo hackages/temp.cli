@@ -3,18 +3,20 @@
     <template>
         <type>CONTAINER</type>
         <name>sidebartemplate</name>
+        <tags/>
+        <lockState>UNLOCKED</lockState>
         <properties>
-            <property name="Web">
-                <value type="string">templates/sidebartemplate</value>
-            </property>
-            <property name="BundleName">
-                <value type="string">$(itemRoot)</value>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
             </property>
             <property name="title">
                 <value type="string">sidebartemplate</value>
             </property>
-            <property name="DefaultDevice">
-                <value type="string">Web</value>
+            <property name="BundleName" manageable="true">
+                <value type="string">$(itemRoot)</value>
+            </property>
+            <property name="Web">
+                <value type="string">templates/sidebartemplate</value>
             </property>
         </properties>
     </template>
