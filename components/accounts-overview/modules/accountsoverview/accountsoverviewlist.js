@@ -1,5 +1,5 @@
 import angular from 'angular/index.js';
-import accountsOverviewTemplate from './accountsoverviewlist.html';
+import accountsOverviewTemplate from './accounts-overview-list.html';
 import AccountsOverviewController from './accountsoverviewctrl';
 import AccountOverviewService from './services/accountsoverviewservice';
 import AccountsOverviewCard from './accountsoverviewcard';
