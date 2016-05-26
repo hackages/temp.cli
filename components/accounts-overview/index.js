@@ -11,5 +11,5 @@ angular.module(crelanAccountsModule, [accountsOverview, mocks, localeNlBe]);
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  angular.bootstrap(document.body, [crelanAccountsModule]);
+  angular.bootstrap(document.querySelector('#accounts-overview'), [crelanAccountsModule]);
 });
