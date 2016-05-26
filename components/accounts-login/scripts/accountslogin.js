@@ -2,6 +2,6 @@
 window.accountslogin = window.accountslogin || {};
 accountslogin.accountslogin = {
   init: function (widgetInstance) {
-    console.log(widgetInstance.name);
+    console.log(widgetInstance);
   }
 };

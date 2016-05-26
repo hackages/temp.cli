@@ -8,6 +8,7 @@
     "dist": "dist"
   },
   "scripts": {
+    "pretest": "npm i && crelan build",
     "test": "crelan test -w",
     "watch": "crelan watch",
     "start": "crelan start",

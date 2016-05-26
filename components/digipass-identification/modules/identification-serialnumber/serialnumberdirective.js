@@ -1,13 +1,13 @@
 import angular from 'angular/index.js';
 import serialnumberTemplate from './serialnumber.html';
 
-let module = angular.module('crelan.serialnumberDirective', [])
-  .directive('serialnumber', serialnumberDirective);
-export default module.name;
-
-function serialnumberDirective(){
+function serialnumberDirective() {
   return {
     restrict: 'EA',
-    template: serialnumberTemplate
-  }
+    template: serialnumberTemplate,
+  };
 }
+
+const module = angular.module('crelan.serialnumberDirective', [])
+  .directive('serialnumber', serialnumberDirective);
+export default module.name;

@@ -5,5 +5,5 @@ const crelandigipasschooser = 'crelan.digipasschooser';
 angular.module(crelandigipasschooser, [digipasschooser]);
 
 document.addEventListener('DOMContentLoaded', function () {
-  angular.bootstrap(document.body, [crelandigipasschooser]);
+  angular.bootstrap(document.querySelector('#digipass-chooser'), [crelandigipasschooser]);
 });

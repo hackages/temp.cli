@@ -1,4 +1,4 @@
-<form name="identificationForm" novalidate>
+<form name="identificationForm" novalidate ng-submit="logon.doLogon()">
     <h3>Identificatie</h3>
     <div class="box">
         <div class="equal-heights">
@@ -9,8 +9,8 @@
                 <serialnumber></serialnumber>
             </div>
         </div>
-        <div ng-messages-multiple
-             ng-show="identificationForm.userName.$touched" ng-messages="identificationForm.userName.$error"
+        <div class="error" ng-messages-multiple
+             ng-show="identificationForm.userCode.$touched" ng-messages="identificationForm.userCode.$error"
              role="alert">
             <div ng-message="required">Error message is not finalized yet userName</div>
             <div ng-message="mask">De code van 6 cijfers is niet correct</div>
@@ -18,8 +18,9 @@
                 correct
             </div>
         </div>
-        <div ng-messages-multiple
-             ng-show="identificationForm.serialNumber.$touched" ng-messages="identificationForm.serialNumber.$error"
+        <div class="error" ng-messages-multiple
+             ng-show="identificationForm.serialNumberDigipass.$touched"
+             ng-messages="identificationForm.serialNumberDigipass.$error"
              role="alert">
             <div ng-message="required">Error message is not finalized yet serialNumber</div>
             <div ng-message="mask">Het serienummer van uw Digipass is niet correct</div>
@@ -31,14 +32,17 @@
     <h3>Aanmelden</h3>
     <div class="box">
         <digipass-login></digipass-login>
-        <div ng-messages-multiple
-             ng-show="identificationForm.token.$touched"
-             ng-messages="identificationForm.token.$error" role="alert">
+        <div class="error" ng-messages-multiple
+             ng-show="identificationForm.otp.$touched"
+             ng-messages="identificationForm.otp.$error" role="alert">
             <div ng-message="required">Error message is not finalized yet OTP token</div>
             <div ng-message="mask">De code van 6 cijfers is niet correct</div>
             <div ng-message="incorrect">De ingebrachte gegevens onder punt 5 zijn niet correct. Gelieve dit veld opnieuw
                 in te vullen. U kunt nog XX maal proberen.
             </div>
+        </div>
+        <div class="error" ng-repeat="errorMessage in logon.logonErrors">
+            <div>{{ errorMessage.message }}</div>
         </div>
     </div>
 </form>

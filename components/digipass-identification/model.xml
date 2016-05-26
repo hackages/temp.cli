@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
     <widget>
-        <name>digipass-identifier</name>
+        <name>digipass-identification</name>
         <contextItemName>[BBHOST]</contextItemName>
         <properties>
             <property label="Title" name="title" viewHint="text-input,admin">
-                <value type="string">digipass-identifier</value>
+                <value type="string">digipass-identification</value>
             </property>
             <property name="TemplateName">
                 <value type="string">Standard_Widget</value>
