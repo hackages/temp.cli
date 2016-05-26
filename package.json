@@ -1,6 +1,6 @@
 {
   "name": "crelan-cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "CLI tools to speed up the development process",
   "main": "tools/index.js",
   "scripts": {
