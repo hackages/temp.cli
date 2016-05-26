@@ -1,4 +1,5 @@
 import angular from 'angular/index.js';
+import svgxuse from 'svgxuse';
 import mocks from './mocks';
 import digipassIdentification
   from './modules/digipass-identification/digipassidentificationdirective';
