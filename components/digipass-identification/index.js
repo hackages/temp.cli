@@ -8,5 +8,5 @@ const crelanIdentification = 'crelan.identification';
 angular.module(crelanIdentification, [digipassIdentification, mocks]);
 
 document.addEventListener('DOMContentLoaded', () => {
-  angular.bootstrap(document.body, [crelanIdentification]);
+  angular.bootstrap(document.querySelector('#digipass-identification'), [crelanIdentification]);
 });
