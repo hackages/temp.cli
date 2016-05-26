@@ -256,16 +256,12 @@
 
 	var webpackConfig = {
 	  devtool: 'source-map',
-	  entry: {
-	    index: _configuration2.default.mainEntry,
-	    common: ['angular']
-	  },
+	  entry: _configuration2.default.mainEntry,
 	  output: {
 	    filename: 'index.js',
 	    path: _configuration2.default.outputDir
 	  },
 	  resolveLoader: {
-	    root: [_configuration2.default.context],
 	    fallback: _configuration2.default.nodeModules
 	  },
 	  resolve: {
@@ -301,9 +297,12 @@
 	      exclude: exclude
 	    }, {
 	      test: /\.html$/,
-	      loader: 'html!html-minify',
+	      loader: 'html',
 	      exclude: exclude
 	    }]
+	  },
+	  externals: {
+	    angular: 'angular'
 	  },
 	  plugins: [new _webpack2.default.ResolverPlugin(new _webpack2.default.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])), new _bowerWebpackPlugin2.default({
 	    modulesDirectories: ['bower_components'],
@@ -790,7 +789,7 @@
 
 	module.exports = {
 		"name": "crelan-cli",
-		"version": "0.0.3",
+		"version": "0.0.6",
 		"description": "CLI tools to speed up the development process",
 		"main": "tools/index.js",
 		"scripts": {
@@ -876,14 +875,16 @@
 			"phantomjs-prebuilt": "^2.1.6",
 			"protractor": "^3.2.2",
 			"raw-loader": "^0.5.1",
-			"react": "^15.0.0",
-			"react-dom": "^15.0.0",
 			"style-loader": "^0.13.1",
 			"surge": "^0.17.7",
 			"url-loader": "^0.5.7",
 			"webpack": "^1.12.14",
 			"webpack-bower-resolver": "0.0.1",
 			"webpack-node-externals": "^1.0.0"
+		},
+		"devDependencies": {
+			"request": "^2.72.0",
+			"shelljs": "^0.7.0"
 		}
 	};
 
