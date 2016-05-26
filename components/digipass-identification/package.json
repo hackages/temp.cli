@@ -52,6 +52,7 @@
     "html-minify": "^0.3.1",
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.1",
+    "svgxuse": "^1.1.16",
     "webpack": "^1.13.1"
   }
 }
