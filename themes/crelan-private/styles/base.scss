@@ -36,6 +36,10 @@ body {
     background: transparent !important;
 }
 
+.bp-widget {
+    padding: 2rem;
+}
+
 // wait for design on text color
 .cards .h3,
 .cards h3 {
@@ -57,4 +61,8 @@ body {
 
 .lp-lc--left {
 	width: 100%;
+}
+
+.row {
+    margin: 0 !important;
 }
