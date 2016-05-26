@@ -16,7 +16,6 @@ describe('Anonymous Login Directive', function () {
 
     // fire all the watches, so the scope expression {{1 + 1}} will be evaluated
     // Check that the compiled element contains the templated content
-    //expect(element.html()).toContain("klik hier als je anoniem wil inloggen");
-    expect(element.html()).toEqual("");
+    expect(element.html()).toContain("klik hier als je anoniem wil inloggen");
   });
 });

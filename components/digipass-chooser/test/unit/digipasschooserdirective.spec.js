@@ -15,7 +15,6 @@ describe('Digipass Chooser Directive', function() {
         // fire all the watches, so the scope expression {{1 + 1}} will be evaluated
         $scope.$digest();
         // Check that the compiled element contains the templated content
-        //expect(element.html()).toContain("via Digipass");
-        expect(element.html()).toContain("");
+        expect(element.html()).toContain("via Digipass");
     });
 });
