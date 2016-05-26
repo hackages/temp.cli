@@ -2,6 +2,7 @@
 
 @import "components/_site";
 @import "components/_colors";
+@import "components/_fonts";
 @import "components/typo/_typo";
 @import "components/_grid";
 @import "components/_equal-heights";
@@ -22,6 +23,8 @@
 
 body {
     background: radial-gradient(at top left, #c4d700, #2a935b);
+    font-family:'Montserrat';
+    height: 100vh;
 }
 
 .widget-default {

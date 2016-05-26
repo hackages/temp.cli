@@ -1,0 +1,21 @@
+$fonts:(
+    (name:"Montserrat-Black", weight:900),
+    (name:"Montserrat-Bold", weight:700),
+    (name:"Montserrat-Light", weight:100),
+    (name:"Montserrat-Regular", weight:400)
+);
+
+@each $font in $fonts{
+    @font-face {
+        font-family:'Montserrat';
+        src: url('../fonts/#{map-get($font,"name")}_gdi.eot');
+        src: url('../fonts/#{map-get($font,"name")}_gdi.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/#{map-get($font,"name")}_gdi.woff') format('woff'),
+            url('../fonts/#{map-get($font,"name")}_gdi.ttf') format('truetype'),
+            url('../fonts/#{map-get($font,"name")}_gdi.svg##{map-get($font,"name")}') format('svg');
+        font-weight: map-get($font,"weight");
+        font-style: normal;
+        font-stretch: normal;
+        unicode-range: U+0020-25CA;
+    }
+}

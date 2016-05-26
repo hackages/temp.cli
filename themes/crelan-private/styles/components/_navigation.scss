@@ -4,8 +4,9 @@
     padding-right:80px;
     padding-bottom:50px;
     display: table;
-    width: 100%;
+    width: 25%;
     height: 100vh;
+    position: fixed;
     background:$white;
     z-index: 1;
     @include material(3, false);
