@@ -12,11 +12,13 @@
                 <use xlink:href="{{accountCardCtrl.getIcon({icon: accountCardCtrl.icon})}}"></use>
             </svg>
             <h4 class="bank-account__title">{{accountCardCtrl.accountTitle}}</h4>
-            <div class="bank-account__owner__name">
-                {{accountCardCtrl.primaryAlias}}
-            </div>
-            <div ng-if="accountCardCtrl.secondaryAlias" class="bank-account__owner__alias">
-                {{accountCardCtrl.secondaryAlias}}
+            <div class="bank-account__owner">
+                <div class="bank-account__owner__name">
+                    {{accountCardCtrl.primaryAlias}}
+                </div>
+                <div ng-if="accountCardCtrl.secondaryAlias" class="bank-account__owner__alias">
+                    {{accountCardCtrl.secondaryAlias}}
+                </div>
             </div>
 
             <div class="bank-account__nr">
