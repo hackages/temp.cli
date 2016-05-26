@@ -3,33 +3,33 @@
         <div class="bank-account__star">
             <a href="#">
                 <svg class="icon">
-                    <use xlink:href="${contextRoot}/static/features/[BBHOST]/icons/dist/icons.svg#star"></use>
+                    <use xlink:href="{{accountCardCtrl.getIcon({icon:'star'})}}"></use>
                 </svg>
             </a>
         </div>
         <div class="bank-account__top">
             <svg class=" bank-account__icon icon icon--big">
-                <use xlink:href="${contextRoot}/static/features/[BBHOST]/icons/dist/icons.svg#{{$ctrl.icon}}"></use>
+                <use xlink:href="{{accountCardCtrl.getIcon({icon: accountCardCtrl.icon})}}"></use>
             </svg>
-            <h4 class="bank-account__title">{{$ctrl.accountTitle}}</h4>
+            <h4 class="bank-account__title">{{accountCardCtrl.accountTitle}}</h4>
             <div class="bank-account__owner__name">
-                {{$ctrl.primaryAlias}}
+                {{accountCardCtrl.primaryAlias}}
             </div>
-            <div ng-if="$ctrl.secondaryAlias" class="bank-account__owner__alias">
-                {{$ctrl.secondaryAlias}}
+            <div ng-if="accountCardCtrl.secondaryAlias" class="bank-account__owner__alias">
+                {{accountCardCtrl.secondaryAlias}}
             </div>
 
             <div class="bank-account__nr">
-                {{$ctrl.accountNumber | iban}}
+                {{accountCardCtrl.accountNumber | iban}}
             </div>
         </div>
         <div class="bank-account__bottom">
             <div>
-                <span class="bank-account__ammount">{{$ctrl.amount | number}}</span>
+                <span class="bank-account__ammount">{{accountCardCtrl.amount | number}}</span>
                 <span class="bank-account__currency">EUR</span>
             </div>
             <div>
-                <span class="bank-account__ammount-available">{{$ctrl.limit | number}} EUR available</span>
+                <span class="bank-account__ammount-available">{{accountCardCtrl.limit | number}} EUR available</span>
             </div>
         </div>
     </section>
