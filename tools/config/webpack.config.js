@@ -13,7 +13,6 @@ const webpackConfig = {
     path: config.outputDir,
   },
   resolveLoader: {
-    //root: [config.context],
     fallback: config.nodeModules,
   },
   resolve: {
