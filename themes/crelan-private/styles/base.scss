@@ -34,6 +34,7 @@ body {
     outline: 0;
     margin: 0 !important;
     background: transparent !important;
+    padding: 2rem;
 }
 
 // wait for design on text color
@@ -57,4 +58,8 @@ body {
 
 .lp-lc--left {
 	width: 100%;
+}
+
+.row {
+    margin: 0 !important;
 }
