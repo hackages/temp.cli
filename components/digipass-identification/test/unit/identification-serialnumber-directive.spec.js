@@ -1,3 +1,4 @@
+/*
 import directive from '../../modules/identification-serialnumber/serialnumberdirective';
 
 xdescribe('Digipass SerialNumber Directive', function() {
@@ -17,3 +18,4 @@ xdescribe('Digipass SerialNumber Directive', function() {
         expect(element.html()).toContain("stap 2");
     });
 });
+*/
