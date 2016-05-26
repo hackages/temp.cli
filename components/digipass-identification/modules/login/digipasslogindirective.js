@@ -1,4 +1,4 @@
-import angular from 'angular';
+import angular from 'angular/index.js';
 import digipassloginTemplate from './digipass-login.html';
 
 function digipassLoginDirective() {

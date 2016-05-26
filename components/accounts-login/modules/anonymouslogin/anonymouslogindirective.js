@@ -1,4 +1,4 @@
-import angular from 'angular/index.js';
+import angular from 'angular';
 import anonymousLoginTemplate from './anonymouslogin.html';
 
 let module = angular.module('crelan.anonymousLogin.anonymousLoginDirective', [])
