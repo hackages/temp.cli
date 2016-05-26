@@ -1,0 +1,80 @@
+@if($render-components){
+    /*
+     @name Lists
+     @description A set of list styles
+     @state .list--steps - list of steps (used for digipass instructions)
+     @state .list--definitions - list with title and description (used for user information in the sidebar)
+     @state .list--bullets - bullet list
+     @markup
+        <ul class="list list--steps">
+            <li><span class="list--steps__label">step 1</span><p>a value</p></li>
+            <li><span class="list--steps__label">step 2</span><p>a value</p></li>
+            <li><span class="list--steps__label">step 3</span><p>a value</p></li>
+        </ul>
+        <dl class="list list--definitions">
+            <dt>title</dt>
+            <dd>value<dd>
+            <dt>title</dt>
+            <dd>value<dd>
+        </dl>
+        <ul class="list list--bullets">
+            <li>a value</li>
+            <li>a value</li>
+            <li>a value</li>
+        </ul>
+    */
+    .list{
+        &,li{
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+        &--bullets{
+            li{
+                padding-left:20px;
+                position:relative;
+                &:before{
+                    content:'';
+                    display:block;
+                    width:5px;
+                    height:5px;
+                    border-radius:50%;
+                    background:currentColor;
+                    position:absolute;
+                    left:5px;
+                    top:0.8em;
+                    transform: translate(0,-50%);
+                }
+            }
+        }
+        &--definitions{
+            dt{
+                font-weight:normal;
+            }
+            dd{
+                margin-bottom:1em;
+            }
+        }
+        &--steps{
+            li{
+                
+                padding-left:90px;
+                position: relative;
+            }
+            p{
+                margin-bottom:2em;
+            }
+            &__label{
+                font-weight:bold;
+                width:60px;
+                display:block;
+                position:absolute;
+                top:0;
+                left:0;
+            }
+            .icon{
+                fill:$green-xs;
+            }
+        }
+    }
+}

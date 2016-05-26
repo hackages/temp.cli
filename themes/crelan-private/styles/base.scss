@@ -11,11 +11,13 @@
 @import "components/_forms";
 @import "components/_icons";
 @import "components/_links";
+@import "components/_lists";
 @import "components/_buttons";
 @import "components/_select";
 @import "components/_box";
 @import "components/_cards";
 @import "components/_navigation";
+<<<<<<< HEAD
 
 @import "components/_bank-account";
 
@@ -40,3 +42,6 @@ body {
 .cards h3 {
     color: white;
 }
+=======
+@import "components/_bank-account";
+>>>>>>> develop

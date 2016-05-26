@@ -9,14 +9,16 @@ const cardModule = angular.module('crelan.accounts.overview.card', []);
 cardModule.component('accountsOverviewCard', {
     template: accountoverviewcardtemplate,
     bindings: {
-        "accountTitle" : "=",
+        "getIcon": "&",
+        "accountTitle": "=",
         "primaryAlias": "=",
         "secondaryAlias": "=",
         "accountNumber": "=",
         "amount": "=",
         "limit": "=",
-        "icon": "@"
-    }
+        "icon": "@",
+    },
+    controllerAs: 'accountCardCtrl',
 });
 cardModule.filter('iban', () => {
     return (input) => {

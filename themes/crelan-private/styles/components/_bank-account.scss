@@ -1,0 +1,217 @@
+
+.bank-account{
+        $self: &;
+        @include material(1, true);
+        display:block;
+        
+        background:darken($green-m,2%);
+        color:$grey-xl;
+        margin-bottom:30px;
+        text-align: center;
+        position: relative;
+        padding:0;
+
+        &--new{
+            color:$white;
+            #{$self}__icon{
+                fill:$yellow;
+            }
+            #{$self}__title{
+                color:$white;
+            }
+        }
+
+        &__icon{
+            fill:$green-xs;
+        }
+        &__top{
+            padding:20px;
+            background:$white;
+        }
+        &__title{
+            color:$green-xl;
+            font-weight: 400;
+            margin:0 0 0.3em 0;
+        }
+        &__ammount{
+            font-size:2.5em;
+        }
+        &__currency{
+            font-size:1.5em;
+        }
+
+        &__star{
+
+            a{
+                color:$grey-xs;
+                &.is--active,&:hover{
+                    color:$yellow;
+                }
+            }
+
+        }
+
+        .overview--grid &{
+            &__top{
+                min-height:170px;
+            }
+            &__bottom{
+                min-height:110px;
+                padding:20px;
+                color:$white;
+                .icon--arrow{
+                    display: none;
+                }
+            }
+            &__ammount-available{
+                color:$yellow;
+            }
+
+            &__star{
+                position:absolute;
+                top:10px;
+                right:10px;
+            }
+
+            &--new{
+                #{$self}__top{
+                    position:relative;
+                    background:$green-m;
+                }
+                #{$self}__bottom{
+                    padding-top:25px;
+                    p{
+                        font-size:1.2em;
+                    }
+                }
+                #{$self}__icon{
+                    position:absolute;
+                    top:50%;
+                    left:50%;
+                    transform:translate(-50%,-50%);
+                }
+
+            }
+
+
+        }
+
+        .overview--list &{
+            background:$white;
+            margin-bottom:1px;
+            padding-left:60px;
+            text-align:left;
+            @include clearfix();
+            &__top{
+                @include make-md-column(8);
+                padding-top:10px;
+                padding-bottom:10px;
+            }
+            &__bottom{
+                position:relative;
+                @include make-md-column(4);
+                padding-top:5px;
+                padding-bottom:5px;
+                &:before{
+                    content:'';
+                    display: block;
+                    position:absolute;
+                    border-top:1px solid $grey-xs;
+                    top:0;
+                    left:0;
+                    right:0;
+
+                    @media(min-width:$screen-md){
+                        border-left:1px solid $grey-xs;
+                        top:5px;
+                        left:0;
+                        height:45px;
+                        right:auto;
+                    }
+                }
+            }
+            @media(min-width:$screen-md){
+                &__owner{
+                    position:absolute;
+                    left:50%;
+                    top:50%;
+                    right:10px;
+                    text-align: center;
+                    transform:translate(0,-50%);
+                }
+            }
+            &__currency{
+                font-size:1.1em;
+            }
+            &__ammount{
+                font-size:1.5em;
+            }
+            &__icon{
+                display: none;
+            }
+            &__ammount{
+                color:$green-xl;
+            }
+            &__currency{
+                color:$green-xl;
+            }
+            &__ammount-available{
+                color:$green-xs;
+            }
+            &__star{
+                position:absolute;
+                left:0;
+                top:0;
+                width:60px;
+                height:55px;
+                a{
+                    display: inline-block;
+                    position:absolute;
+                    top:50%;
+                    left:50%;
+                    transform:translate(-50%,-50%);
+                }
+            }
+            &__title{
+                margin:0;
+            }
+
+            &--new{
+                background:$green-m;
+                #{$self}__star{
+                    display: none;
+                }
+                #{$self}__icon{
+                    display: block;
+                    position:absolute;
+                    top:0;
+                    left:-60px;
+                    width:60px;
+                    height:55px;
+                    padding:10px 10px;
+                }
+                #{$self}__top{
+                    padding:0;
+                    background:none;
+                }
+                #{$self}__bottom{
+                    width:100%;
+                    padding:13px;
+                    p{
+                        margin:0;
+                        font-size:1.5em;
+                    }
+                    &:before{
+                        display: none;
+                    }
+                    .icon--arrow{
+                        display:block;
+                        position:absolute;
+                        top:50%;
+                        right:10px;
+                        transform: translate(0,-50%);
+                    }
+                }
+            }
+        }
+}
