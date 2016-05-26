@@ -15,6 +15,11 @@ const LogonController = function LogonController(LogonService) {
       }
     });
   };
+
+  let staticRoot = window.launchpad ? window.launchpad.staticRoot : '/static';
+  this.getIcon = function getIcon(icon) {
+    return `${staticRoot}/features/[BBHOST]/icons/dist/icons.svg#${icon}`;
+  };
 };
 
 LogonController.$inject = [LogonServiceName];
