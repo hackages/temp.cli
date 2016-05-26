@@ -8,11 +8,11 @@ $fonts:(
 @each $font in $fonts{
     @font-face {
         font-family:'Montserrat';
-        src: url('../fonts/#{map-get($font,"name")}_gdi.eot');
-        src: url('../fonts/#{map-get($font,"name")}_gdi.eot?#iefix') format('embedded-opentype'),
-            url('../fonts/#{map-get($font,"name")}_gdi.woff') format('woff'),
-            url('../fonts/#{map-get($font,"name")}_gdi.ttf') format('truetype'),
-            url('../fonts/#{map-get($font,"name")}_gdi.svg##{map-get($font,"name")}') format('svg');
+        src: url('../#{map-get($font,"name")}_gdi.eot');
+        src: url('../#{map-get($font,"name")}_gdi.eot?#iefix') format('embedded-opentype'),
+            url('../#{map-get($font,"name")}_gdi.woff') format('woff'),
+            url('../#{map-get($font,"name")}_gdi.ttf') format('truetype'),
+            url('../#{map-get($font,"name")}_gdi.svg##{map-get($font,"name")}') format('svg');
         font-weight: map-get($font,"weight");
         font-style: normal;
         font-stretch: normal;
