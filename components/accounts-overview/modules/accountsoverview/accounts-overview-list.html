@@ -3,7 +3,7 @@
     <div class="overview-switch">
         <a href="#">
             <svg class="icon" ng-click="accountsCtrl.toggleGridView()">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/svg.svg#list"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{accountsCtrl.getIcon('list')}}"></use>
             </svg>
         </a>
     </div>
@@ -12,6 +12,7 @@
     <div class="overview {{accountsCtrl.grid ? 'overview--grid' : 'overview--list'}}">
         <div class="overview__row">
             <accounts-overview-card ng-repeat="account in accountsCtrl.checkingAccounts"
+                                    get-icon="accountsCtrl.getIcon(icon)"
                                     account-title="account.accountName"
                                     primary-alias="account.accountHolder"
                                     secondary-alias="account.secondaryName"
@@ -28,6 +29,7 @@
     <div class="overview {{accountsCtrl.grid ? 'overview--grid' : 'overview--list'}}">
         <div class="overview__row">
             <accounts-overview-card ng-repeat="account in accountsCtrl.savingAccounts"
+                                    get-icon="accountsCtrl.getIcon(icon)"
                                     account-title="account.accountName"
                                     primary-alias="account.accountHolder"
                                     secondary-alias="account.secondaryName"
@@ -44,6 +46,7 @@
     <div class="overview overview--grid">
         <div class="overview__row">
             <accounts-overview-card ng-repeat="account in accountsCtrl.creditAccounts"
+                                    get-icon="accountsCtrl.getIcon(icon)"
                                     account-title="account.accountName"
                                     primary-alias="account.accountHolder"
                                     secondary-alias="account.secondaryName"

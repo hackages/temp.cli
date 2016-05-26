@@ -17,6 +17,11 @@ const AccountsOverviewController = function (AccountsOverviewService) {
     }).catch((error) => {
         throw error;
     });
+
+    let staticRoot = window.launchpad ? window.launchpad.staticRoot : '/static';
+    this.getIcon = function getIcon(icon) {
+        return `${staticRoot}/features/[BBHOST]/icons/dist/icons.svg#${icon}`;
+    };
 };
 AccountsOverviewController.$inject = [AccountsOverviewServiceName];
 export default AccountsOverviewController;
