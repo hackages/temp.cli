@@ -206,7 +206,7 @@ const importZips = () => {
 
         const fullPath = path.resolve(`${zip}`);
 
-        exec(`${importCMD} -f ${fullPath}`, {maxBuffer: 1024 * 500}, (error) => {
+        exec(`${importCMD} -f ${fullPath}`, {maxBuffer: 1024 * 500 * 1024}, (error) => {
           if (error != null) {
             logError(`error importing packages: ${error}`);
           } else  {
@@ -229,7 +229,7 @@ gulp.task('zip-dist', function () {
 
     const zipCMD = `cd ${srcPath} && zip -r ${path.join(fullPath, item + '.zip')} . dist styles scripts`;
     console.log(`Executing: ${zipCMD}`);
-    exec(zipCMD, {maxBuffer: 1024 * 500}, (error) => {
+    exec(zipCMD, {maxBuffer: 1024 * 500 * 1024}, (error) => {
       if (error !== null) {
         logError(`error while running this command: ${zipCMD}: ${error}`);
         process.exit(1);
