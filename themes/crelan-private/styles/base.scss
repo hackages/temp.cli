@@ -16,3 +16,25 @@
 @import "components/_box";
 @import "components/_cards";
 @import "components/_navigation";
+
+body {
+    background: $grey-xl;
+}
+
+.widget-default {
+    border: none !important
+}
+
+.widget {
+    border:none !important;
+    box-shadow: none !important;
+    outline: 0;
+    margin: 0 !important;
+    background: transparent !important;
+}
+
+// wait for design on text color
+.cards .h3,
+.cards h3 {
+    color: white;
+}
