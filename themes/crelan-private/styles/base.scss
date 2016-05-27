@@ -19,12 +19,11 @@
 @import "components/_cards";
 @import "components/_navigation";
 
-@import "components/_bank-account";
+@import "components/_bank-account"; // merge into cards
 
-body {
-    background: $grey-xs;
-    font-family:'Montserrat';
-    height: 100vh;
+html{
+  background: $grey-xs;
+  font-family:'Montserrat';
 }
 
 .widget-default {
