@@ -2,6 +2,7 @@
 
 @import "components/_site";
 @import "components/_colors";
+@import "components/_fonts";
 @import "components/typo/_typo";
 @import "components/_grid";
 @import "components/_equal-heights";
@@ -21,7 +22,9 @@
 @import "components/_bank-account";
 
 body {
-    background: $grey-xl;
+    background: $grey-xs;
+    font-family:'Montserrat';
+    height: 100vh;
 }
 
 .widget-default {
@@ -38,12 +41,6 @@ body {
 
 .bp-widget {
     padding: 2rem;
-}
-
-// wait for design on text color
-.cards .h3,
-.cards h3 {
-    color: white;
 }
 
 .lp-page-children .bp-container {

@@ -240,13 +240,22 @@ gulp.task('zip-dist', function () {
   });
 });
 
-gulp.task('sass', () => {
-  return gulp.src('themes/crelan-private/**/*.scss')
-      .pipe(sass({
-        includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
-      }).on('error', sass.logError))
-      .pipe(gulp.dest('./themes/crelan-private/dist'));
+
+gulp.task('fonts', () => {
+     return gulp.src('themes/crelan-private/styles/components/fonts/*')
+        .pipe(gulp.dest('./themes/crelan-private/dist'));
 });
+
+gulp.task('sass', ['fonts'], () => {
+
+     return  gulp.src('themes/crelan-private/**/*.scss')
+       .pipe(sass({
+         includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
+       }).on('error', sass.logError))
+       .pipe(gulp.dest('./themes/crelan-private/dist'));
+
+});
+
 
 
 gulp.task('wait', () => {
