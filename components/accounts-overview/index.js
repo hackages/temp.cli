@@ -2,6 +2,7 @@ import angular from 'angular/index.js';
 import accountsOverview from './modules/accountsoverview';
 import localeNlBe from 'angular-i18n/nl-be';
 import mocks from './mocks';
+import svgxuse from 'svgxuse';
 
 const crelanAccountsModule = 'crelan.accounts';
 /**
