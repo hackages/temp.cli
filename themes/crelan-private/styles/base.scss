@@ -9,7 +9,6 @@
 
 @import "libs/material/_material";
 
-@import "components/_forms";
 @import "components/_icons";
 @import "components/_links";
 @import "components/_lists";
@@ -20,10 +19,15 @@
 @import "components/_navigation";
 
 @import "components/_bank-account"; // merge into cards
+@import "components/_forms";
 
 html{
   background: $grey-xs;
   font-family:'Montserrat';
+}
+
+body{
+  background: transparent;
 }
 
 .widget-default {
