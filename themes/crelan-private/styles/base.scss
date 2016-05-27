@@ -22,7 +22,7 @@
 @import "components/_bank-account";
 
 body {
-    background: radial-gradient(at top left, #c4d700, #2a935b);
+    background: $grey-xs;
     font-family:'Montserrat';
     height: 100vh;
 }
