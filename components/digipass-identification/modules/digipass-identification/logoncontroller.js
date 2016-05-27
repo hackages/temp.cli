@@ -6,14 +6,23 @@ import { LogonServiceName } from './services/logonservice';
  */
 const LogonController = function LogonController(LogonService) {
   this.doLogon = () => {
+    console.log('changed');
     const logonPromise = LogonService.doLogon(this);
     logonPromise.then((result) => {
       if (result.success) {
-        this.logon = result.payload;
+        window.location.href = this.getUri('app');
       } else {
         this.logonErrors = result.errors;
       }
     });
+
+    this.getUri = function getUri(to) {
+      if (window.b$) {
+        return `${window.b$.portal.config.serverRoot}/${window.b$.portal.portalName}/${to}`;
+      } else {
+        return `/${to}`
+      }
+    };
   };
 
   let staticRoot = window.launchpad ? window.launchpad.staticRoot : '/static';
