@@ -11,7 +11,7 @@
                 <p>Zet de digipass aan via de pijltjestoets
                     <svg class="icon">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                             xlink:href="/media/svg.svg#arrow-button"></use>
+                             xlink:href="{{logon.getIcon('arrow-button')}}"></use>
                     </svg>
                     en voer uw geheime code in
                 </p>
@@ -22,18 +22,19 @@
                     drukt u op de functietoets
                     <svg class="icon">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                             xlink:href="../../media/svg.svg#function-1-button"></use>
+                             xlink:href="{{logon.getIcon('function-1-button')}}"></use>
                     </svg>
                 </p>
             </li>
             <li>
                 <span class="list--steps__label">stap 5</span>
-                <p>Geef de 6 cijfers die op het scherm van uw digipass verschijnen hieronder in. </p>
+                <p>Geef de 10 cijfers die op het scherm van uw digipass verschijnen hieronder in. </p>
                 <div class="row bleed--xs">
                     <div class="col-md-6 pad--xs">
                         <div class="form-group">
                             <input class="form-control form-control--dotted" type="text" name="otp"
                                    ng-model="logon.otp" ng-model-options="{ 'updateOn': 'blur' }"
+                                   ui-options="{ 'clearOnBlur': false}"
                                    ui-mask="9999999999" ui-mask-placeholder ui-mask-placeholder-char="•" required>
                         </div>
                     </div>

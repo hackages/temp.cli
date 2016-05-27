@@ -1,6 +1,6 @@
 import angular from 'angular/index.js';
 import 'angular-mocks';
-import logonInfo from './mocks/logon.json';
+import logonInfo from './mocks/logon_success.json';
 
 const mockConfiguration = ($httpBackend) => {
   $httpBackend.whenPOST('/portal/auth/logon').respond(logonInfo);
