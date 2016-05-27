@@ -14,6 +14,14 @@ function digipassChooserDirective() {
       this.getIcon = function getIcon(icon) {
         return `${staticRoot}/features/[BBHOST]/icons/dist/icons.svg#${icon}`;
       };
+
+      this.getUri = function getUri(to) {
+        if (window.b$) {
+          return `${window.b$.portal.config.serverRoot}/${window.b$.portal.portalName}/${to}`;
+        } else {
+          return `/${to}`
+        }
+      };
     },
     controllerAs: 'digipassChooserCtrl',
   }
