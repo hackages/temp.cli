@@ -8,7 +8,7 @@ const crelanAccountsModule = 'crelan.accounts';
 /**
  * Set up the module with the default mocks configuration and the locale.
  */
-angular.module(crelanAccountsModule, [accountsOverview, mocks, localeNlBe, svgxuse]);
+angular.module(crelanAccountsModule, [accountsOverview, mocks, localeNlBe]);
 
 
 document.addEventListener('DOMContentLoaded', () => {
