@@ -19,7 +19,7 @@
         <div class="lp-lc--main">
             <!-- tabs -->
 
-            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3" style="padding: 0">
                 <div class="navigation">
                     <div class="navigation__row">
                         <div class="navigation__row__cell">
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <!-- main content -->
-            <div class="lp-u lp-lc--content col-xs-12 col-sm-7 col-md-8 col-lg-9">
+            <div class="lp-u lp-lc--content col-xs-12 col-sm-7 col-md-7 col-lg-8" style="padding: 0">
                 {foreach $child in $item.children}
 
                     {let $panel: $child.preferences.panel ? $child.preferences.panel.value : 'main' /}

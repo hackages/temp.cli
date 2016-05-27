@@ -5,6 +5,6 @@ const crelanAccountslogin = 'crelan.accountslogin';
 angular.module(crelanAccountslogin, [anonymousLogin]);
 
 document.addEventListener('DOMContentLoaded', function () {
-  angular.bootstrap(document.body, [crelanAccountslogin]);
+  angular.bootstrap(document.querySelector('#accounts-login'), [crelanAccountslogin]);
 });
 

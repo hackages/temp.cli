@@ -1,6 +1,6 @@
 <div class="col-md-4">
     <svg class="svg svg--digipass-serialnumber">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/media/svg.svg#digipass-serialnumber"></use>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{logon.getIcon('digipass-serialnumber')}}"></use>
     </svg>
 </div>
 <div class="col-md-8">
@@ -8,8 +8,9 @@
     <p>Vul hier de <strong>serienummer</strong> van uw <strong>digipass</strong> in. Dit staat vermeld op de achterzijde
         van de digipass.</p>
     <div class="form-group">
-        <input class="form-control form-control--dotted" type="text" name="serialNumber"
-               ng-model="identification.serialNumber" ng-model-options="{ 'updateOn': 'blur' }"
-               required ui-mask="99-9999999-9" ui-mask-placeholder ui-mask-placeholder-char="•" ui-options="{ 'clearOnBlur': false}">
+        <input class="form-control form-control--dotted" type="text" name="serialNumberDigipass"
+               ng-model="logon.serialNumberDigipass" ng-model-options="{ 'updateOn': 'blur' }"
+               required ui-mask="99-9999999-9" ui-mask-placeholder ui-mask-placeholder-char="•"
+               ui-options="{ 'clearOnBlur': false}">
     </div>
 </div>
