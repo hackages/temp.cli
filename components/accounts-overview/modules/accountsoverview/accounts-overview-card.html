@@ -30,7 +30,7 @@
                 <span class="bank-account__ammount">{{accountCardCtrl.amount | number}}</span>
                 <span class="bank-account__currency">EUR</span>
             </div>
-            <div>
+            <div ng-if="accountCardCtrl.amount !== accountCardCtrl.limit">
                 <span class="bank-account__ammount-available">{{accountCardCtrl.limit | number}} EUR available</span>
             </div>
         </div>
