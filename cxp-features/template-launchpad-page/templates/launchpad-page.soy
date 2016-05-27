@@ -106,7 +106,6 @@
     {if $ij.groupAuthority}
         b$.portal.loggedInUserGroup = [{foreach $operand in $ij.groupAuthority}'{$operand}'{if not isLast($operand)},{/if}{/foreach}];
     {/if}
-
     window.launchpad = window.launchpad || {lb}
         staticRoot: '{$ij.portalContextRoot |noAutoescape}' + '/static'
     {rb};

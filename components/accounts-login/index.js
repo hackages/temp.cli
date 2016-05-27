@@ -1,3 +1,4 @@
+import angular from 'angular/index.js'
 import anonymousLogin from './modules/anonymouslogin'
 
 const crelanAccountslogin = 'crelan.accountslogin';
