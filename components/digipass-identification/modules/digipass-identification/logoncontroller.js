@@ -6,7 +6,6 @@ import { LogonServiceName } from './services/logonservice';
  */
 const LogonController = function LogonController(LogonService) {
   this.doLogon = () => {
-    console.log('changed');
     const logonPromise = LogonService.doLogon(this);
     logonPromise.then((result) => {
       if (result.success) {
