@@ -13,7 +13,7 @@
              ng-show="identificationForm.userCode.$touched" ng-messages="identificationForm.userCode.$error"
              role="alert">
             <div ng-message="required">Error message is not finalized yet userName</div>
-            <div ng-message="mask">De code van 6 cijfers is niet correct</div>
+            <div ng-message="mask">De code van 6 karakters is niet correct</div>
             <div ng-message="incorrect">De gebruikersidentificatie en/of het serienummer van de digipass zijn niet
                 correct
             </div>
@@ -36,7 +36,7 @@
              ng-show="identificationForm.otp.$touched"
              ng-messages="identificationForm.otp.$error" role="alert">
             <div ng-message="required">Error message is not finalized yet OTP token</div>
-            <div ng-message="mask">De code van 10 cijfers is niet correct</div>
+            <div ng-message="mask">De code van 6 cijfers is niet correct</div>
             <div ng-message="incorrect">De ingebrachte gegevens onder punt 5 zijn niet correct. Gelieve dit veld opnieuw
                 in te vullen. U kunt nog XX maal proberen.
             </div>
