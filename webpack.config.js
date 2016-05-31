@@ -21,9 +21,9 @@ const config = {
     extensions: ['', '.js', '.json']
   },
   plugins: [
-    function () {
+    function timespan() {
       this.plugin('watch-run', (watching, callback) => {
-        console.log(`Begin compile at  ${new Date()}`);
+        console.log(`Begin compile at  ${new Date()}`);;
         callback();
       });
     },
