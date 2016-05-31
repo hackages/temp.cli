@@ -20,7 +20,14 @@ const config = {
   resolve: {
     extensions: ['', '.js', '.json']
   },
-  plugins: [],
+  plugins: [
+    function () {
+      this.plugin('watch-run', (watching, callback) => {
+        console.log(`Begin compile at  ${new Date()}`);
+        callback();
+      });
+    },
+  ],
   module: {
     loaders: [
       {
