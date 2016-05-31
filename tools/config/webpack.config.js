@@ -1,6 +1,4 @@
 import path from 'path';
-import webpack from 'webpack';
-import BowerWebpackPlugin from 'bower-webpack-plugin';
 import config from './configuration';
 
 const exclude = ['node_modules', 'bower_components'];
@@ -66,16 +64,12 @@ const webpackConfig = {
     angular: 'angular',
   },
   plugins: [
-    new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
-    ),
-    new BowerWebpackPlugin({
-      modulesDirectories: ['bower_components'],
-      manifestFiles: 'bower.json',
-      includes: /\.js$/,
-      searchResolveModulesDirectories: true,
-    }),
-    new webpack.optimize.CommonsChunkPlugin('common', 'common.bundle.js'),
+    function timespan() {
+      this.plugin('watch-run', (watching, callback) => {
+        console.log(`Begin compile at  ${new Date()}`);
+        callback();
+      });
+    },
   ],
 };
 
