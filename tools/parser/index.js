@@ -18,7 +18,6 @@ const cliParser = cliparse.cli({
   description: 'Speed up your development process using Crelan CLI',
   commands: [
     webpack,
-    eslint,
     watchFiles,
     ci,
     karma,

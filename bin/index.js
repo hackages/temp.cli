@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-process.title = 'hackages cli';
+process.title = 'crelan cli';
 
 require('../dist/');
