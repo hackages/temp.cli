@@ -1,0 +1,36 @@
+@if($render-components){
+    @media (min-width: $screen-md){
+        /*
+        @name Equal heights
+        @description stretches columns to the same height
+        @markup
+            <div class="equal-heights">
+                <div class="equal-heights__row">
+                    <div class="col-md-6 equal-heights__cell" style="border:1px dotted green">
+                        Lorem ipsum dolor sit amet
+                    </div>
+                    <div class="col-md-6 equal-heights__cell" style="border:1px dotted green">
+                        Lorem <br/>ipsum <br/>dolor <br/>sit <br/>amet
+                    </div>
+                </div>
+            </div>
+        */
+        .equal-heights{
+            display:table;
+            width:100%;
+            &__row{
+                display:table-row;
+                &:before,
+                &:after{
+                    display: none;
+                }
+            }
+            &__cell{
+                display:table-cell;
+                float:none;
+                height:100%;
+                vertical-align: middle;
+            }
+        }
+    }
+}

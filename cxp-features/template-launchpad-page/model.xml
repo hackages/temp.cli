@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <template>
+        <type>PAGE</type>
+        <name>LaunchpadPageTemplate</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="BundleName" manageable="true">
+                <value type="string">$(itemRoot)</value>
+            </property>
+            <property name="DefaultDevice" manageable="true">
+                <value type="string">Web</value>
+            </property>
+            <property name="title" manageable="true">
+                <value type="string">Launchpad Page Template</value>
+            </property>
+            <property name="Web" manageable="true">
+                <value type="string">templates/launchpad-page</value>
+            </property>
+            <!--property name="Tablet" manageable="true">
+                <value type="string">templates/launchpad-page-tablet</value>
+            </property>
+            <property name="Smartphone" manageable="true">
+                <value type="string">templates/launchpad-page-smartphone</value>
+            </property-->
+            <property name="thumbnailUrl" manageable="true">
+                <value type="string">$(itemRoot)/icon.png</value>
+            </property>
+        </properties>
+        <tags>
+            <tag blacklist="false" manageable="true" type="regular">web</tag>
+        </tags>
+        <lockState>UNLOCKED</lockState>
+    </template>
+</catalog>

@@ -1,0 +1,166 @@
+{namespace templates_LauncherDeckContainer autoescape="contextual"}
+/**
+ * Lays out container for mobile
+ * @param item Item in context
+ */
+{template .LauncherDeckContainer}
+
+{let $defaultPanel: $item.preferences.defaultPanel ? $item.preferences.defaultPanel.value : '' /}
+{let $autohideTabs: $item.preferences.autohideTabs ? $item.preferences.autohideTabs.value : false /}
+{let $autohideHeader: $item.preferences.autohideHeader ? $item.preferences.autohideHeader.value : false /}
+{let $fixDefaultPanel: $item.preferences.fixDefaultPanel ? strContains($item.preferences.fixDefaultPanel.value, 'true') : true /}
+
+{let $pullRight: $ij.direction == 'RTL' ? 'pull-left' : 'pull-right' /}
+{let $pullLeft: $ij.direction == 'RTL' ? 'pull-right' : 'pull-left' /}
+{let $arrow: $ij.direction == 'RTL' ? '' : '' /}
+
+<div data-pid="{$item.name}" class="bp-container bp-ui-dragRoot lp-lc{if not($autohideTabs)} lp-launcher-left{/if}">
+    <div class="row">
+        <div class="lp-lc--main">
+            <!-- tabs -->
+
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3" style="padding: 0">
+                <div class="navigation">
+                    <div class="navigation__row">
+                        <div class="navigation__row__cell">
+                            <a href="/" class="navigation__logo">
+                                <svg><use xlink:href="{$ij.portalContextRoot}/static/features/[BBHOST]/icons/dist/icons.svg#crelan"></use></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="navigation__row">
+                        <div class="navigation__row__cell align--bottom">
+                            <nav class="navigation__main">
+                                <ul class="lp-u lp-lc--left">
+                                    {call .tabs}
+                                        {param item: $item /}
+                                        {param designmode: $ij.designmode /}
+                                        {param pullRight: $pullRight /}
+                                        {param pullLeft: $pullLeft /}
+                                        {param arrow: $arrow /}
+                                    {/call}
+                                </ul>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- main content -->
+            <div class="lp-u lp-lc--content col-xs-12 col-sm-7 col-md-7 col-lg-8" style="padding: 0">
+                {foreach $child in $item.children}
+
+                    {let $panel: $child.preferences.panel ? $child.preferences.panel.value : 'main' /}
+                    {let $title: $child.preferences.title ? $child.preferences.title.value : '' /}
+                    {let $icon: $child.preferences.icon ? $child.preferences.icon.value : 'star' /}
+                    {let $default: $defaultPanel != '' and strContains($child.name, $defaultPanel) /}
+                    {let $showChrome: $child.preferences.hideChrome ? strContains($child.preferences.hideChrome.value, 'false') : true /}
+
+                    {if not(strContains($panel, 'inline'))}
+
+                        // lp-launcher-area-fixed class makes the default panel to
+                        // always be shown in the background, if the class is removed
+                        // the default panel will be hidden as any other panel
+                        <div class="lp-launcher-area lp-launcher-area-{$panel}
+                                {if $fixDefaultPanel == true } lp-launcher-area-fixed{/if}
+                                {if (strContains($panel, 'main') or strContains($panel, '2nd')) and not($default) and $showChrome} widget widget-default{/if}
+                                {if $default} lp-lc--default{/if}"
+                                 data-panel="{$child.name}" tabindex="-1">
+
+                            <div class="bp-area --area">
+                                {include($child) |noAutoescape}
+                            </div>
+                        </div>
+                    {/if}
+                {/foreach}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{/template}
+
+/** Navigation level template
+ * @param item Item in context
+ * @param designmode designmode bool
+ * @param pullRight pull-right class
+ * @param pullLeft pull-left class
+ * @param arrow arrow icon
+ */
+{template .tabs private="true"}
+    {foreach $child in $item.children}
+
+        {let $panel: $child.preferences.panel ? $child.preferences.panel.value : 'main' /}
+        {let $title: $child.preferences.title ? $child.preferences.title.value : '' /}
+        {let $icon: $child.preferences.icon ? $child.preferences.icon.value : 'blank' /}
+
+        {if $panel != 'mainhidden' or $designmode}
+            <li
+                data-panel="{$child.name}"
+                class="navigation__main__item {if $panel == 'inline' or $panel == 'inlineopen'} lp-launcher-slide
+                        {if $panel=='inlineopen'} lp-launcher-open
+                            {else} lp-launcher-close{/if}
+                    {/if}
+                    {if strContains($panel, '2nd')}
+                        {if $panel=='opened2nd'} lp-launcher-open
+                        {else} lp-launcher-close
+                        {/if}
+                    {/if}
+                    "
+            >
+
+                {if not(strContains($panel, 'hidden')) or $designmode}
+                    <div class="lp-launcher-tab">
+                        <a
+                            class="lp-lc-tab-{$panel}
+                                {if $child.referencedLinks} external-link{/if}
+                                {if $panel=='opened2nd'} lp-launchpad-open{/if}
+                                {if strContains($panel, 'hidden')} lp-launcher-tab-hidden{/if}"
+                            href="
+                                {if $child.referencedLinks}
+                                    {$child.referencedLinks.link.path}
+                                {else}
+                                    #{$child.name}
+                                {/if}"
+                            data-action="lp-tab-open"
+                        >
+                            <span class="lp-launcher-tab-icon {$pullLeft}">
+                            </span>
+                            <span class="lp-launcher-tab-text {$pullLeft} --lp-i18n" data-lp-i18n="{$title}">
+                                {$title}
+                            </span>
+                            <span class="lp-launcher-tab-arrow {$pullRight}">
+                            </span>
+                        </a>
+                    </div>
+                {/if}
+
+                {if strContains($panel, 'inline')}
+                    <div class="lp-launcher-area bp-area --area widget widget-default" data-panel="{$child.name}">
+                        {include($child) |noAutoescape}
+                    </div>
+                {/if}
+
+                {if strContains($panel, '2nd')}
+                    <ul class="lp-lc-2ndlevel
+                        {if strContains($panel, 'closed') and not($designmode)} hide{/if}
+                    ">
+                    {foreach $sub in $child.children}
+                        {if strContains($sub.name, 'deck-container')}
+                            {call .tabs}
+                                {param item: $sub /}
+                                {param designmode: $designmode /}
+                                {param pullRight: $pullRight /}
+                                {param pullLeft: $pullLeft /}
+                                {param arrow: $arrow /}
+                            {/call}
+                        {/if}
+                    {/foreach}
+                    </ul>
+                {/if}
+            </li>
+        {/if}
+    {/foreach}
+{/template}

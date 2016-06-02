@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <template>
+        <type>CONTAINER</type>
+        <name>sidebartemplate</name>
+        <tags/>
+        <lockState>UNLOCKED</lockState>
+        <properties>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+            <property name="title">
+                <value type="string">sidebartemplate</value>
+            </property>
+            <property name="BundleName" manageable="true">
+                <value type="string">$(itemRoot)</value>
+            </property>
+            <property name="Web">
+                <value type="string">templates/sidebartemplate</value>
+            </property>
+        </properties>
+    </template>
+</catalog>

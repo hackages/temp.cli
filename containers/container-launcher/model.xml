@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+  <container>
+    <name>launcher-deck-container</name>
+    <contextItemName>[BBHOST]</contextItemName>
+    <properties>
+      <property name="viewNamespace">
+        <value type="string">launchpad</value>
+      </property>
+      <property label="Title" name="title" viewHint="text-input,designModeOnly,user">
+        <value type="string">Launcher Deck Container</value>
+      </property>
+      <property name="Description">
+        <value type="string">Container including tab navigation through the panels inside.</value>
+      </property>
+      <property name="thumbnailUrl">
+        <value type="string">$(itemRoot)/icon.png</value>
+      </property>
+      <property name="TemplateName">
+        <value type="string">LauncherDeckContainer</value>
+      </property>
+      <property name="config">
+        <value type="string">$(itemRoot)/config.xml</value>
+      </property>
+      <property name="csr">
+        <value type="boolean">false</value>
+      </property>
+      <property name="state">
+        <value type="string"/>
+      </property>
+      <property name="behaviors">
+        <value type="string">launchpad.behaviors.retail.RetailBehaviors</value>
+      </property>
+      <property label="Default Panel" name="defaultPanel" viewHint="text-input,designModeOnly,manager">
+        <value type="string"/>
+      </property>
+      <property label="Autohide tabs on small screens" name="autohideTabs" viewHint="checkbox,designModeOnly,user">
+        <value type="boolean">true</value>
+      </property>
+      <property label="Hide Panel header on small screens" name="autohideHeader" viewHint="checkbox,designModeOnly,user">
+        <value type="boolean">true</value>
+      </property>
+      <property label="Fix Default Panel" name="fixDefaultPanel" viewHint="checkbox,designModeOnly,user">
+        <value type="boolean">true</value>
+      </property>
+      <property label="Version" name="version" viewHint="text-input,admin,designModeOnly">
+        <value type="string">1.2.1</value>
+      </property>
+    </properties>
+    <tags>
+      <tag type="section">layouts</tag>
+      <tag type="regular">container</tag>
+    </tags>
+  </container>
+</catalog>

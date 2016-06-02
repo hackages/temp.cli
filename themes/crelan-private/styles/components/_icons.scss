@@ -1,0 +1,53 @@
+@import "icons.config";
+
+@if($render-components){
+  /*
+   @name Icon
+   @description icon set
+   @state .icon--medium - medium icon
+   @state .icon--big - big icon
+   @markup
+          {% for icon in ["lock","circle-plus","circle-close","function-1-button", "arrow-button"] %}
+          <svg class="icon"><use xlink:href="../images/svg.svg#{{ icon }}"></use></svg>
+          <svg class="icon icon--medium"><use xlink:href="../images/svg.svg#{{ icon }}"></use></svg>
+          <svg class="icon icon--big"><use xlink:href="../images/svg.svg#{{ icon }}"></use></svg>
+          {% endfor %}
+  */
+
+  .icon{
+    vertical-align: middle;
+    width:1.5em;
+    height:1.5em;
+    fill:currentColor;
+    &--medium{
+      width:3em;
+      height:3em;
+    }
+    &--big{
+      width:5em;
+      height:5em;
+    }
+  }
+
+  .svg{
+    display:block;
+    margin:0 auto;
+    fill:$green-xs;
+    color:$yellow;
+    max-width:100%;
+    &--direct-mail-identification{
+      width:85px;
+      width:85px;
+    }
+    &--digipass-serialnumber{
+      width:65px;
+      height:125px;
+    }
+    &--digipass-token{
+      width:228px;
+      height:194px;
+    }
+  }
+
+
+}

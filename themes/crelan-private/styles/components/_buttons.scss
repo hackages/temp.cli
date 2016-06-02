@@ -1,0 +1,46 @@
+@if($render-components){
+  /*
+  @name Button
+  @description add shadows to components and widgets
+  @state .button--ghost - button with yellow border
+  @state .button--green-xl - green-xl button
+  @markup
+      <a href="#" class="button button--ghost">button</a>
+      <a href="#" class="button button--green-xl">button</a>
+  */
+  .button{
+    display:inline-block;
+    padding:8px 20px;
+    border-radius: 15px;
+    text-align:center;
+    background:transparent;
+    transition: 0.3s ease-in-out background,0.3s ease-in-out border,0.3s ease-in-out color;
+    &--ghost{
+      border:2px solid $yellow;
+      text-decoration:none;
+      appearance:none;
+      a:hover &,
+      &:hover{
+        background:$green-xs;
+        border-color:$green-xs;
+        color:$green-xl;
+        text-decoration: none;
+      }
+    }
+    &--green-xl{
+      padding:10px 22px;
+      background:$green-xl;
+      color:$white;
+      a:hover &,
+      &:hover{
+        background:$green-xs;
+        color:$white;
+        text-decoration:none;
+      }
+    }
+    &--full-width{
+      display:block;
+    }
+
+  }
+}

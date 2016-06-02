@@ -1,0 +1,66 @@
+<div class="section">
+    <h3>{{accountsCtrl.checkingAccounts.length === 0 ? 'Spaarrekeningen' : 'Zichtrekeningen'}}</h3>
+    <div class="overview-switch">
+        <a href="#">
+            <svg class="icon" ng-click="accountsCtrl.toggleGridView()">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{accountsCtrl.getIcon(accountsCtrl.grid ? 'list' : 'grid')}}"></use>
+            </svg>
+        </a>
+    </div>
+</div>
+<div ng-if="accountsCtrl.checkingAccounts.length != 0">
+    <div class="row">
+        <div class="overview {{accountsCtrl.grid ? 'overview--grid' : 'overview--list'}}">
+            <div class="overview__row">
+                <accounts-overview-card ng-repeat="account in accountsCtrl.checkingAccounts"
+                                        get-icon="accountsCtrl.getIcon(icon)"
+                                        account-title="account.accountName"
+                                        primary-alias="account.accountHolder"
+                                        secondary-alias="account.secondaryName"
+                                        account-number="account.accountNumber"
+                                        amount="account.balance"
+                                        limit="account.availableAmount"
+                                        icon="cards">
+                </accounts-overview-card>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-if="accountsCtrl.savingAccounts.length != 0">
+    <h3>Spaarrekeningen</h3>
+    <div class="row">
+        <div class="overview {{accountsCtrl.grid ? 'overview--grid' : 'overview--list'}}">
+            <div class="overview__row">
+                <accounts-overview-card ng-repeat="account in accountsCtrl.savingAccounts"
+                                        get-icon="accountsCtrl.getIcon(icon)"
+                                        account-title="account.accountName"
+                                        primary-alias="account.accountHolder"
+                                        secondary-alias="account.secondaryName"
+                                        account-number="account.accountNumber"
+                                        amount="account.balance"
+                                        limit="account.availableAmount"
+                                        icon="piggybank">
+                </accounts-overview-card>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-if="accountsCtrl.creditAccounts.length != 0">
+    <h3>kredietkaarten</h3>
+    <div class="row">
+        <div class="overview overview--grid">
+            <div class="overview__row">
+                <accounts-overview-card ng-repeat="account in accountsCtrl.creditAccounts"
+                                        get-icon="accountsCtrl.getIcon(icon)"
+                                        account-title="account.accountName"
+                                        primary-alias="account.accountHolder"
+                                        secondary-alias="account.secondaryName"
+                                        account-number="account.accountNumber"
+                                        amount="account.balance"
+                                        limit="account.availableAmount"
+                                        icon="mastercard">
+                </accounts-overview-card>
+            </div>
+        </div>
+    </div>
+</div>

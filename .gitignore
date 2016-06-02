@@ -1,6 +1,21 @@
 bower_components/
+<<<<<<< HEAD
 node_modules/
 mocha.json
 npm-debug.log
 .idea
 dist/
+=======
+statics/
+node_modules/
+.idea/
+mocha.json
+report/
+target/
+components/**/target/
+.*swp
+dist/
+npm-debug.log
+Thumbs.db
+.DS_Store
+>>>>>>> cafba505c912f760ec49a83b0feca756e5451f4f

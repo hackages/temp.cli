@@ -1,0 +1,20 @@
+/**
+ * launcher-deck
+ * namespace: lp-lc
+ */
+.lp-page-children .bp-container {
+	z-index: auto;
+}
+.lp-overlay {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 4;
+	display: none;
+	visibility: hidden;
+}
+
+.lp-lc--left {
+	width: 100%;
+}

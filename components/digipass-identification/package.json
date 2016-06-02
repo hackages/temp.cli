@@ -1,0 +1,58 @@
+{
+  "name": "digipass-identifier",
+  "version": "0.0.1",
+  "description": "digipass identifier",
+  "main": "index.js",
+  "directories": {
+    "test": "test",
+    "dist": "dist"
+  },
+  "scripts": {
+    "test": "crelan test -w",
+    "watch": "crelan watch",
+    "start": "webpack -w",
+    "lint": "crelan lint"
+  },
+  "keywords": [
+    "angular",
+    "crelan",
+    "hackages"
+  ],
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "browser": true
+    }
+  },
+  "author": "crelan team",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-messages": "^1.5.5",
+    "angular-mocks": "^1.5.5",
+    "angular-ui-mask": "^1.8.4",
+    "eslint": "^2.9.0",
+    "eslint-loader": "^1.3.0",
+    "lodash": "^4.12.0",
+    "svgxuse": "^1.1.16"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.10.2",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.0",
+    "eslint-plugin-jsx-a11y": "^1.2.2",
+    "eslint-plugin-react": "^5.1.1",
+    "html-loader": "^0.4.3",
+    "html-minify": "^0.3.1",
+    "json-loader": "^0.5.4",
+    "style-loader": "^0.13.1",
+    "svgxuse": "^1.1.16",
+    "webpack": "^1.13.1"
+  }
+}

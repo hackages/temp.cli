@@ -1,0 +1,68 @@
+@import "libs/bootstrap/_bootstrap";
+
+@import "components/_site";
+@import "components/_colors";
+@import "components/_fonts";
+@import "components/typo/_typo";
+@import "components/_grid";
+@import "components/_equal-heights";
+
+@import "libs/material/_material";
+
+@import "components/_icons";
+@import "components/_links";
+@import "components/_lists";
+@import "components/_buttons";
+@import "components/_select";
+@import "components/_box";
+@import "components/_cards";
+@import "components/_navigation";
+
+@import "components/_bank-account"; // merge into cards
+@import "components/_forms";
+
+html{
+  background: $grey-xs;
+  font-family:'Montserrat';
+}
+
+body{
+  background: transparent;
+}
+
+.widget-default {
+    border: none !important
+}
+
+.widget {
+    border:none !important;
+    box-shadow: none !important;
+    outline: 0;
+    margin: 0 !important;
+    background: transparent !important;
+}
+
+.bp-widget {
+    padding: 2rem;
+}
+
+.lp-page-children .bp-container {
+	z-index: auto;
+}
+.lp-overlay {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 4;
+	display: none;
+	visibility: hidden;
+}
+
+.lp-lc--left {
+	width: 100%;
+}
+
+.row {
+    margin: 0 !important;
+}

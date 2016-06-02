@@ -1,0 +1,57 @@
+@if ($render-components) {
+  /*
+  @name Form control
+  @description simple input field styling (overrides for the twitter bootstrap form styling)
+  @state form-control - styles the input field
+  @state form-control--dotted - styles the placeholder for token fields
+  @markup
+      <div class="row">
+          <div class="col-md-6">
+              <input type="text" class="form-control form-control--dotted" placeholder="••••••" />
+          </div>
+          <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="normal placeholder" />
+          </div>
+      </div>
+  */
+
+  .form-control {
+    box-shadow: none;
+    border: 2px solid $green-xs;
+    border-radius: 15px;
+    padding: 17px 20px;
+    font-size: 1em;
+    line-height: 1em;
+    display: block;
+
+    &:focus {
+      border-color: $green-s;
+      outline: $green-s;
+    }
+
+    &--dotted {
+      color: $yellow !important;
+      font-size: 2em;
+      position: relative;
+      letter-spacing: 0.3em;
+      text-align: center;
+    }
+
+  }
+
+  ::-webkit-input-placeholder {
+    color: $yellow;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    color: $yellow;
+  }
+
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: $yellow;
+  }
+
+  :-ms-input-placeholder {
+    color: $yellow;
+  }
+}
