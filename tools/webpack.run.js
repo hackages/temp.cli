@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import webpackConfig from './config/webpack.config';
+import { logInfo } from './config/utils';
 
 /**
 * Create application bundles from the source file
@@ -10,7 +11,7 @@ const bundle = () => new Promise((resolve, reject) => {
     if (error) {
       return reject(error);
     }
-    console.log(stats.toString(webpackConfig.stats));
+    logInfo(stats.toString(webpackConfig.stats));
     return resolve();
   };
 

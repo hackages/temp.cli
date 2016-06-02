@@ -3,6 +3,7 @@
 **/
 import { spawn } from 'child_process';
 import config from '../config/configuration';
+import { logInfo, logError } from '../config/utils';
 
 const execCMD = (command, args) => new Promise((resolve, reject) => {
   const options = {
@@ -14,17 +15,17 @@ const execCMD = (command, args) => new Promise((resolve, reject) => {
   const cmd = spawn(command, [args], options);
 
   cmd.stdout.on('data', (data) => {
-    console.log(data);
+    logError(data);
     resolve(data);
   });
 
   cmd.stderr.on('data', (data) => {
-    console.log(data);
+    logError(data);
     resolve(data);
   });
 
   cmd.on('close', (code) => {
-    console.log(`child process exited with code ${code}`);
+    logInfo(`child process exited with code ${code}`);
     reject(code);
   });
 });
