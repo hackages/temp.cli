@@ -37,7 +37,7 @@ const preprocessors = {
 module.exports = (config) => {
   config.set({
     quiet: true,
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'sinon'],
     files,
     preprocessors,
     webpackMiddleware: {
