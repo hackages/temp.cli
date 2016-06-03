@@ -5,17 +5,19 @@ import { logInfo } from './config/utils';
 /**
 * Create application bundles from the source file
 **/
-
-const bundle = () => new Promise((resolve, reject) => {
+const bundle = (config = {}) => new Promise((resolve, reject) => {
   const handler = (error, stats) => {
-    if (error) {
-      return reject(error);
-    }
     logInfo(stats.toString(webpackConfig.stats));
-    return resolve();
+
+    if (stats.hasErrors()) {
+      return reject({ err: error });
+    }
+
+    return resolve(stats);
   };
 
-  webpack(webpackConfig).run(handler);
+  const configuration = Object.assign(webpackConfig, config);
+  webpack(configuration).run(handler);
 });
 
 export default bundle;

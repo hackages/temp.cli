@@ -1,15 +1,17 @@
 import webpack from 'webpack';
 import webpackConfig from './config/webpack.config';
+import { logInfo } from './config/utils';
 /**
 * Watch all the files
 **/
 const watch = () => new Promise((resolve, reject) => {
   const handler = (error, stats) => {
-    if (error) {
+    logInfo(stats.toString(webpackConfig.stats));
+
+    if (stats.hasErrors()) {
       return reject(error);
     }
-    console.log(stats.toString(webpackConfig.stats));
-    return resolve();
+    return resolve(stats);
   };
   webpack(webpackConfig).watch({}, handler);
 });

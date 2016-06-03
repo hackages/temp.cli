@@ -13,6 +13,7 @@ import bootstrap from './bootstrap';
 import check from './check-server';
 import clean from './clean';
 import buildAll from './build-all';
+import cleanDist from './clean-dist';
 
 const cliParser = cliparse.cli({
   name: 'crelan <command> [options]',
@@ -28,6 +29,7 @@ const cliParser = cliparse.cli({
     check,
     clean,
     buildAll,
+    cleanDist,
   ],
   version: version(),
 });
