@@ -1,60 +1,27 @@
 /**
- * CLI tools: Import modules, widgets, features, container, templates
+ * CLI tools: Import all templates
  **/
-import glob from 'glob';
-import del from 'del';
-import path from 'path';
 import cliparse from 'cliparse';
-import { execSync } from 'child_process';
+import { importItems } from './base-import';
 import config from '../config/configuration';
-import { logInfo, logError, importZips } from '../config/utils';
 
-export function getTemplates() {
-  return glob.sync(`${config.context}/containers/*/templates/`);
-}
-
-export function zip(srcPath, item) {
-  const { maxBuffer } = config;
-  const toZips = [
+const configuration = {
+  items: `${config.context}/containers/*/templates/`,
+  toZip: [
     'templates',
     'model.xml',
-    'config.xml',
     'info.json',
     'icon.png',
+    'config.xml',
     'xml',
-  ].join(' ');
-
-  const zipCMD = `cd ${srcPath} && zip -r ${item}.zip ${toZips}`;
-  logInfo(`Zipping of ${item}...`);
-  execSync(zipCMD, { maxBuffer });
-  logInfo(`Zipping of ${item} is done successfully`);
-}
-
-export function deleteZip(file) {
-  logInfo(`Removing ${path.basename(file)} ...`);
-  return del([file]);
-}
-
-export function importTemplates(dirs) {
-  dirs.forEach(async (dir) => {
-    const srcPath = path.resolve(dir);
-    const item = path.basename(dir);
-    const zipfile = `${srcPath}/${item}.zip`;
-
-    try {
-      await zip(srcPath, item);
-      await importZips(srcPath);
-      await deleteZip(zipfile);
-    } catch (err) {
-      logError(`error while running this command: ${err}`);
-      process.exit(1);
-    }
-  });
-}
+  ].join(' '),
+  target: '.',
+};
 
 const cmd = cliparse.command('import-templates', {
   description: 'Import all templates',
 },
-importTemplates.bind(null, getTemplates()));
+importItems.bind(null, configuration));
 
 export default cmd;
+

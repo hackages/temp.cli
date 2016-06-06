@@ -1,12 +1,26 @@
 /**
- * CLI tools: Import all components to the a running portal
-**/
+ * CLI tools: Import all components
+ **/
 import cliparse from 'cliparse';
-import { zipDist } from '../config/utils';
+import { importItems } from './base-import';
+import config from '../config/configuration';
+
+const configuration = {
+  items: `${config.context}/components/*`,
+  toZip: [
+    'dist',
+    'styles',
+    'scripts',
+    'index.html',
+    'model.xml',
+    'icon.png',
+  ].join(' '),
+  target: '.',
+};
 
 const cmd = cliparse.command('import-components', {
-  description: 'Import all components to the a running portal',
+  description: 'Import all components',
 },
-zipDist);
+importItems.bind(null, configuration));
 
 export default cmd;
