@@ -13,7 +13,7 @@ import bootstrap from './bootstrap';
 import check from './check-server';
 import buildAll from './build-all';
 import cleanDist from './clean-dist';
-import importAll from './import';
+import importItem from './import-item';
 import importContainer from './import-container';
 import importTemplates from './import-templates';
 import importComponents from './import-components';
@@ -33,7 +33,7 @@ const cliParser = cliparse.cli({
     check,
     buildAll,
     cleanDist,
-    importAll,
+    importItem,
     importContainer,
     importTemplates,
     importComponents,

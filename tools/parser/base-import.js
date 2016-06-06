@@ -14,7 +14,6 @@ export function getItems(where) {
 
 export function zip(srcPath, item, toZip) {
   const { maxBuffer } = config;
-
   const zipCMD = `cd ${srcPath} && zip -r ${item}.zip ${toZip}`;
   logInfo(`Zipping of ${item}...`);
   execSync(zipCMD, { maxBuffer });
@@ -22,7 +21,7 @@ export function zip(srcPath, item, toZip) {
 }
 
 export function deleteZip(file) {
-  logInfo(`Removing ${path.basename(file)} ...`);
+  // logInfo(`Removing ${path.basename(file)} ...`);
   return del([file]);
 }
 
@@ -41,4 +40,20 @@ export function importItems(configuration) {
       process.exit(1);
     }
   });
+}
+
+export async function importItem(context) {
+  const { fullpath, toZip } = context;
+  const item = path.basename(fullpath);
+  const zipfile = `${context}/${item}.zip`;
+
+  try {
+    await zip(fullpath, item, toZip);
+    // This is ugly: need to be fixed
+    await importZips(fullpath, path.join(fullpath, '../../tools'));
+    await deleteZip(zipfile);
+  } catch (err) {
+    logError(`error while running this command: ${err}`);
+    process.exit(1);
+  }
 }
