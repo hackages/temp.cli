@@ -11,9 +11,13 @@ import cliparse from 'cliparse';
 import watchFiles from './watchFiles';
 import bootstrap from './bootstrap';
 import check from './check-server';
-import clean from './clean';
 import buildAll from './build-all';
 import cleanDist from './clean-dist';
+import importAll from './import';
+import importContainer from './import-container';
+import importTemplates from './import-templates';
+import importComponents from './import-components';
+import importFeatures from './import-features';
 
 const cliParser = cliparse.cli({
   name: 'crelan <command> [options]',
@@ -27,9 +31,13 @@ const cliParser = cliparse.cli({
     live,
     eslint,
     check,
-    clean,
     buildAll,
     cleanDist,
+    importAll,
+    importContainer,
+    importTemplates,
+    importComponents,
+    importFeatures,
   ],
   version: version(),
 });
