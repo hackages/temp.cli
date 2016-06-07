@@ -18,7 +18,7 @@ const context = {
 };
 
 const cmd = cliparse.command('import', {
-  description: 'Import all cxp features',
+  description: 'Import a module',
 },
 importItem.bind(null, context));
 
