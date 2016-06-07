@@ -2,11 +2,10 @@
  * CLI tools: Clean up all the dist folder
  **/
 import del from 'del';
-import path from 'path';
 import glob from 'glob';
 import cliparse from 'cliparse';
 import { logInfo } from '../config/utils';
-import  config from '../config/configuration';
+import config from '../config/configuration';
 
 export function getDists() {
   return glob.sync(`${config.context}/components/**/dist`);
@@ -18,7 +17,7 @@ async function cleanDist() {
   logInfo('Delete all dist from components');
   const dists = getDists();
   await del(dists);
-  logInfo('Operation done with success...}');
+  logInfo('Operation done with success...');
 }
 
 const cmd = cliparse.command('clean', {
