@@ -18,6 +18,7 @@ import importContainer from './import-container';
 import importTemplates from './import-templates';
 import importComponents from './import-components';
 import importFeatures from './import-features';
+import importAll from './import-all';
 
 const cliParser = cliparse.cli({
   name: 'crelan <command> [options]',
@@ -38,6 +39,7 @@ const cliParser = cliparse.cli({
     importTemplates,
     importComponents,
     importFeatures,
+    importAll,
   ],
   version: version(),
 });

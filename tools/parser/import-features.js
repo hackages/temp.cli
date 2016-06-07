@@ -5,7 +5,7 @@ import cliparse from 'cliparse';
 import config from '../config/configuration';
 import { importZips } from '../config/utils';
 
-const configuration = {
+export const configuration = {
   items: `${config.context}/cxp-features`,
   toZip: [].join(' '),
   target: '.',

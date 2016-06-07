@@ -5,7 +5,7 @@ import cliparse from 'cliparse';
 import { importItems } from './base-import';
 import config from '../config/configuration';
 
-const configuration = {
+export const configuration = {
   items: `${config.context}/containers/*`,
   toZip: [
     'scripts',
