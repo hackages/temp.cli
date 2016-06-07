@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
 import chalk from 'chalk';
-import { touch } from 'shelljs';
 import pathExists from 'path-exists';
 import config from './configuration';
 import { execSync } from 'child_process';
@@ -62,8 +61,8 @@ export const getEntry = () => {
   }
 
   // Hey, we need an entry point!! Let's create one for you
-  touch('index.js');
-  return index;
+  logError('You might be on the wrong folder...');
+  return process.exit(1);
 };
 
 export const getComponents = () => {
