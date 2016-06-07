@@ -1,11 +1,14 @@
 import path from 'path';
+import { getEntry } from './utils';
 import config from './configuration';
+import { importItem } from '../parser/base-import';
+
 
 const exclude = ['node_modules', 'bower_components'];
 
 const webpackConfig = {
   devtool: 'source-map',
-  entry: config.mainEntry,
+  entry: getEntry(),
   output: {
     filename: 'index.js',
     path: config.outputDir,
@@ -64,9 +67,29 @@ const webpackConfig = {
     angular: 'angular',
   },
   plugins: [
-    function timespan() {
+    function watchItem() {
       this.plugin('watch-run', (watching, callback) => {
         console.log(`Begin compile at  ${new Date()}`);
+
+        this.plugin('done', (watch) => {
+          if (watch.hasErrors()) {
+            return;
+          }
+
+          const context = {
+            fullpath: process.cwd(),
+            toZip: [
+              'dist',
+              'styles',
+              'scripts',
+              'index.html',
+              'model.xml',
+              'icon.png',
+            ].join(' '),
+          };
+
+          importItem(context);
+        });
         callback();
       });
     },
