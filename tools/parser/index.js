@@ -22,6 +22,7 @@ import importFeatures from './import-cxp-features';
 import importPages from './import-cxp-pages';
 import importTemplatePages from './import-template-pages';
 import importeThemes from './import-themes';
+import importePortal from './import-portal';
 
 const cliParser = cliparse.cli({
   name: 'crelan <command> [options]',
@@ -46,6 +47,7 @@ const cliParser = cliparse.cli({
     importeThemes,
     importPages,
     importTemplatePages,
+    importePortal,
   ],
   version: version(),
 });

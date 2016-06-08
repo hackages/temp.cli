@@ -1,5 +1,5 @@
 /**
- * CLI tools: Import all cxp features
+ * CLI tools: Import a module
  **/
 import cliparse from 'cliparse';
 import { importItem } from './base-import';
@@ -18,7 +18,7 @@ const context = {
 };
 
 const cmd = cliparse.command('import', {
-  description: 'Import a module',
+  description: 'Import a individual item',
 },
 importItem.bind(null, context));
 

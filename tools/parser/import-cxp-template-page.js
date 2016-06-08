@@ -3,17 +3,17 @@
  **/
 import cliparse from 'cliparse';
 import config from '../config/configuration';
-import { importZips } from '../config/utils';
+import { zipImport } from '../config/utils';
 
 export const configuration = {
-  items: `${config.context}/cxp-features`,
-  toZip: [].join(' '),
+  items: `${config.context}/cxp-template-page`,
+  toZip: ['.'].join(' '),
   target: '.',
 };
 
 const cmd = cliparse.command('import-features', {
   description: 'Import all cxp features',
 },
-importZips.bind(null, configuration.items));
+zipImport.bind(null, configuration));
 
 export default cmd;
