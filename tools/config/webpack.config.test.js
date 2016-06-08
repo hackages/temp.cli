@@ -1,8 +1,6 @@
 import path from 'path';
 import { getEntry } from './utils';
 import config from './configuration';
-import { importItem } from '../parser/base-import';
-
 
 const exclude = ['node_modules', 'bower_components'];
 
@@ -66,34 +64,6 @@ const webpackConfig = {
   externals: {
     angular: 'angular',
   },
-  plugins: [
-    function watchItem() {
-      this.plugin('watch-run', (watching, callback) => {
-        console.log(`Begin compile at  ${new Date()}`);
-
-        this.plugin('done', (watch) => {
-          if (watch.hasErrors()) {
-            return;
-          }
-
-          const context = {
-            fullpath: process.cwd(),
-            toZip: [
-              'dist',
-              'styles',
-              'scripts',
-              'index.html',
-              'model.xml',
-              'icon.png',
-            ].join(' '),
-          };
-
-          importItem(context);
-        });
-        callback();
-      });
-    },
-  ],
 };
 
 export default webpackConfig;

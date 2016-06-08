@@ -13,3 +13,4 @@ const buildCMD = cliparse.command('build', {
 build);
 
 export default buildCMD;
+
