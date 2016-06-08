@@ -6,13 +6,13 @@ import { importItems } from './base-import';
 import { configuration as components } from './import-components';
 import { configuration as templates } from './import-templates';
 import { configuration as containers } from './import-container';
-// import { configuration as features } from './import-features';
+import { configuration as cxpFeatures } from './import-cxp-features';
 
 const importAll = async () => {
+  await importItems(cxpFeatures);
   await importItems(components);
   await importItems(templates);
   await importItems(containers);
-  // await importItems(features);
 };
 
 const cmd = cliparse.command('import-all', {
