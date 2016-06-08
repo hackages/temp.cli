@@ -7,7 +7,6 @@ import { configuration as components } from './import-components';
 import { configuration as templates } from './import-templates';
 import { configuration as containers } from './import-container';
 import { configuration as themes } from './import-themes';
-import { configuration as defaultTheme } from './import-default-theme';
 import { configuration as cxpFeatures } from './import-cxp-features';
 import { configuration as cxpTemplatePages } from './import-cxp-template-pages';
 import { configuration as cxpPages } from './import-cxp-pages';
@@ -19,7 +18,6 @@ const importAll = async () => {
   await importItems(components);
   await importItems(templates);
   await importItems(containers);
-  await importItems(defaultTheme);
   await importItems(themes);
 };
 
