@@ -1,15 +1,17 @@
 import path from 'path';
-import { entry } from './utils';
-
 const cwd = process.cwd();
 
 const config = {
   outputDir: path.join(cwd, 'dist'),
-  mainEntry: entry(),
+  maxBuffer: 1024 * 500 * 1024,
   nodeModules: path.join(__dirname, '../node_modules'),
   bowerComponents: path.join(cwd, 'bower_components'),
   context: cwd,
   modules: path.join(cwd, 'components'),
+  user: 'admin',
+  password: 'admin',
+  server: process.env.BACKBASE_SERVER || `http://${process.env.COMPUTERNAME}.crelan.be:7777/portalserver/`,
+  // server: process.env.BACKBASE_SERVER || 'http://localhost:7777/portalserver/',
 };
 
 config.npmCMD = `${config.nodeModules}/npm/bin/npm-cli.js`;
@@ -20,8 +22,6 @@ config.liveCMD = {
 };
 
 config.eslintCMD = {
-  // args: `${config.nodeModules}/eslint/bin/eslint.js ${path.join(cwd, 'index.js')}`,
-  // args: `-c ${path.join(__dirname, '../.eslintrc')} ${path.join(cwd)}#<{(|.js`,
   args: `${path.join(cwd)}/*.js`,
   command: `${config.nodeModules}/eslint/bin/eslint.js`,
 };
