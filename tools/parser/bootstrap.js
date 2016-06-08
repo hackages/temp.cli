@@ -6,7 +6,7 @@ import { spawn } from 'child_process';
 import path from 'path';
 import config from '../config/configuration';
 
-const bootstrap = () => {
+export const bootstrap = () => {
   const fullPath = path.join(__dirname, '../scripts/setup-local.sh');
   const options = {
     cwd: config.context,

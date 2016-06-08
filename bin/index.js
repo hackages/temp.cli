@@ -2,4 +2,5 @@
 
 process.title = 'crelan cli';
 
+require('babel-polyfill');
 require('../dist/');

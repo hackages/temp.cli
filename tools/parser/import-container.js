@@ -1,25 +1,26 @@
 /**
- * CLI tools: Import all components
+ * CLI tools: Import all containers
  **/
 import cliparse from 'cliparse';
 import { importItems } from './base-import';
 import config from '../config/configuration';
 
 export const configuration = {
-  items: `${config.context}/components/*`,
+  items: `${config.context}/containers/*`,
   toZip: [
-    'dist',
-    'styles',
     'scripts',
-    'index.html',
+    'media',
+    'styles',
     'model.xml',
+    'config.xml',
+    'info.json',
     'icon.png',
   ].join(' '),
   target: '.',
 };
 
-const cmd = cliparse.command('import-components', {
-  description: 'Import all components',
+const cmd = cliparse.command('import-containers', {
+  description: 'Import all containers',
 },
 importItems.bind(null, configuration));
 

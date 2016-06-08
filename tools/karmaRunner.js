@@ -1,6 +1,6 @@
 import path from 'path';
 import karma from 'karma';
-import webpackConfig from './config/webpack.config';
+import webpackConfig from './config/webpack.config.test';
 import karmaConfigFile from 'file!./config/karma.conf.js';
 import karmaConfigCI from './config/karma.conf.ci';
 
