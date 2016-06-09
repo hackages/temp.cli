@@ -7,7 +7,7 @@ import { importItems } from './base-import';
 
 export const configuration = {
   items: `${config.context}/cxp-pages/*`,
-  toZip: ['.'].join(' '),
+  toZip: ['*'].join(' '),
   target: '.',
 };
 

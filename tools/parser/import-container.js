@@ -7,15 +7,7 @@ import config from '../config/configuration';
 
 export const configuration = {
   items: `${config.context}/containers/*`,
-  toZip: [
-    'scripts',
-    'media',
-    'styles',
-    'model.xml',
-    'config.xml',
-    'info.json',
-    'icon.png',
-  ].join(' '),
+  toZip: ['*'].join(' '),
   target: '.',
 };
 

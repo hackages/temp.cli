@@ -13,17 +13,6 @@ import { configuration as cxpFeatures } from './import-cxp-features';
 import { configuration as cxpTemplatePages } from './import-cxp-template-pages';
 import { configuration as cxpPages } from './import-cxp-pages';
 
-
-const importAllDev = () => {
-    git.branch(function(branch){
-      if (branch === 'develop') {
-      importAll();
-    } else {
-      logInfo('You can only import components when you are on develop branch!');
-    }
-  });
-}
-
 const importAll = async () => {
   await importItems(cxpFeatures);
   await importItems(cxpTemplatePages);
@@ -34,10 +23,20 @@ const importAll = async () => {
   await importItems(themes);
 };
 
+const importAllDev = () => {
+  git.branch((branch) => {
+    if (branch === 'develop') {
+      importAll();
+    } else {
+      logInfo('You can only import components when you are on develop branch!');
+    }
+  });
+};
+
+
 const cmd = cliparse.command('import-all-dev', {
   description: 'Import everything, everything...',
 },
 importAllDev);
 
 export default cmd;
-

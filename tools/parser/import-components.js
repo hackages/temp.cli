@@ -8,12 +8,7 @@ import config from '../config/configuration';
 export const configuration = {
   items: `${config.context}/components/*`,
   toZip: [
-    'dist',
-    'styles',
-    'scripts',
-    'index.html',
-    'model.xml',
-    'icon.png',
+    '*',
   ].join(' '),
   target: '.',
 };

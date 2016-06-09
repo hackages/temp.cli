@@ -7,14 +7,7 @@ import config from '../config/configuration';
 
 export const configuration = {
   items: `${config.context}/containers/*/templates/`,
-  toZip: [
-    'templates',
-    'model.xml',
-    'info.json',
-    'icon.png',
-    'config.xml',
-    'xml',
-  ].join(' '),
+  toZip: ['*'].join(' '),
   target: '.',
 };
 
@@ -24,4 +17,3 @@ const cmd = cliparse.command('import-templates', {
 importItems.bind(null, configuration));
 
 export default cmd;
-

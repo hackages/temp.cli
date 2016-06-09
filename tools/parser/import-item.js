@@ -6,14 +6,7 @@ import { importItem } from './base-import';
 
 const context = {
   fullpath: process.cwd(),
-  toZip: [
-    'dist',
-    'styles',
-    'scripts',
-    'index.html',
-    'model.xml',
-    'icon.png',
-  ].join(' '),
+  toZip: ['*'].join(' '),
   target: '.',
 };
 

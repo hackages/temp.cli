@@ -6,7 +6,7 @@ import config from '../config/configuration';
 import { importItems } from './base-import';
 
 export const configuration = {
-  items: `${config.context}/cxp-export`,
+  items: `${config.context}/cxp-exports/*`,
 };
 
 const cmd = cliparse.command('import-portal', {
