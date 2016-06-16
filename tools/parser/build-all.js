@@ -9,6 +9,7 @@ import config from '../config/configuration';
 import { logInfo, logError } from '../config/utils';
 
 export const getComponents = () => glob.sync(`${config.context}/components/*`);
+export const getModules = () => glob.sync(`${config.context}/modules/*`);
 
 export const buildAll = () => {
   const components = getComponents();
@@ -20,7 +21,9 @@ export const buildAll = () => {
 
   logInfo('Build process started...');
 
-  components.forEach(async (dir) => {
+  const modules = getModules();
+
+  components.concat(modules).forEach(async (dir) => {
     const entry = path.join(dir, 'index.js');
 
     const output = {
