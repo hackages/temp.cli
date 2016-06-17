@@ -1,6 +1,13 @@
 import watch from './webpack.watch';
 import run from './webpack.run';
+import prod from './webpack.prod';
 
-const webpackRunner = (params) => params.options.watch ? watch() : run();
-
-export default webpackRunner;
+export default function webpack(params) {
+  if (params.options.prod) {
+    prod();
+  } else if (params.options.watch) {
+    watch();
+  } else {
+    run();
+  }
+}
