@@ -7,6 +7,7 @@ import karma from './karma';
 import eslint from './linter';
 import version from './version';
 import buildFiles from './buildModule';
+import buildProduction from './buildProd';
 import cliparse from 'cliparse';
 import watchFiles from './watchModule';
 import bootstrap from './bootstrap';
@@ -38,6 +39,7 @@ const cliParser = cliparse.cli({
     eslint,
     check,
     buildAll,
+    buildProduction,
     cleanDist,
     importItem,
     importContainer,
