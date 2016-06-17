@@ -8,12 +8,12 @@ import webpack from '../webpack.run';
 import config from '../config/configuration';
 import { logInfo, logError } from '../config/utils';
 
-export const getComponents = () => glob.sync(`${config.context}/components/*`);
+export const getModules = () => glob.sync(`${config.context}/modules/*`);
 
-export const buildAll = () => {
-  const components = getComponents();
+export const buildModules = () => {
+  const modules = getModules();
 
-  if (components.length === 0) {
+  if (modules.length === 0) {
     logError('Please move to the root of your project and run again this command');
     process.exit(1);
   }
@@ -21,7 +21,7 @@ export const buildAll = () => {
   logInfo('Build process started...');
 
 
-  components.forEach(async (dir) => {
+  modules.forEach(async (dir) => {
     const entry = path.join(dir, 'index.js');
 
     const output = {
@@ -44,9 +44,9 @@ export const buildAll = () => {
 };
 
 
-const cmd = cliparse.command('build-all', {
-  description: 'Build all components in one command',
+const cmd = cliparse.command('build-modules', {
+  description: 'Build all modules in one command',
 },
-buildAll);
+    buildModules);
 
 export default cmd;
