@@ -12,6 +12,7 @@ import watchFiles from './watchModule';
 import bootstrap from './bootstrap';
 import check from './check-server';
 import buildAll from './build-all';
+import buildModules from './build-modules';
 import cleanDist from './clean-dist';
 import importAll from './import-all';
 import importAllDev from './import-all-dev';
@@ -38,6 +39,7 @@ const cliParser = cliparse.cli({
     eslint,
     check,
     buildAll,
+    buildModules,
     cleanDist,
     importItem,
     importContainer,
