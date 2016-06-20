@@ -1,5 +1,6 @@
 import path from 'path';
 import fs from 'fs';
+import copy from 'copy';
 import webpack from 'webpack';
 import { getEntry } from './utils';
 import config from './configuration';
@@ -35,16 +36,20 @@ const configuration = {
         warnings: false,
       },
     }),
+    function exportBundle() {
+      this.plugin('done', () => {
+        const bundle = path.resolve(process.cwd(), 'dist/crelan.bundle.js');
+        const sourceMap = path.resolve(process.cwd(), 'dist/crelan.bundle.js.map');
+        const features = path.resolve(process.cwd(), '../../crelan-features');
+        copy.each([bundle, sourceMap], features, (err, files) => {
+          console.log(files, ' bundle created');
+        });
+        console.log('process is done...');
+      });
+    },
   ],
 };
 
 const webpackConfig = Object.assign({}, baseConfig, configuration);
 
 export default webpackConfig;
-
-// function exportBundle() {
-//       this.plugin('done', () => {
-//         console.log('done......');
-//       });
-//     },
-//
