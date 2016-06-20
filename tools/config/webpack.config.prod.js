@@ -1,28 +1,27 @@
 import path from 'path';
-import fs from 'fs';
+// import fs from 'fs';
 import copy from 'copy';
 import webpack from 'webpack';
 import { getEntry } from './utils';
 import config from './configuration';
 import baseConfig from './webpack.config.base';
 
-function getPackageJSON() {
-  return path.resolve(process.cwd(), '../../package.json');
-}
-
-function getFeatures() {
-  const pJson = getPackageJSON();
-  const dependencies = JSON.parse(fs.readFileSync(pJson, 'utf8')).dependencies;
-  // return Object.keys(dependencies).map(file => path.resolve('../../node_modules', file));
-  // const deps = Object.keys(dependencies);
-  // return deps;
-  return Object.keys(dependencies);
-}
+// function getPackageJSON() {
+//   return path.resolve(process.cwd(), '../../package.json');
+// }
+// function getFeatures() {
+//   const pJson = getPackageJSON();
+//   const dependencies = JSON.parse(fs.readFileSync(pJson, 'utf8')).dependencies;
+//   // return Object.keys(dependencies).map(file => path.resolve('../../node_modules', file));
+//   // const deps = Object.keys(dependencies);
+//   // return deps;
+//   return Object.keys(dependencies);
+// }
 
 const configuration = {
   entry: {
     index: getEntry(),
-    bundle: getFeatures(),
+    bundle: ['angular', 'lodash', 'angular-messages'],
   },
   output: {
     filename: 'index.js',
